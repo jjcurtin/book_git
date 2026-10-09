@@ -1,0 +1,11 @@
+toc: false
+bibliography: refs.bib
+css: slides_wide.css
+format: 
+  revealjs:
+    logo: uwlogo.png
+    scrollable: true
+    chalkboard: true
+callout-icon: false
+execute:
+  echo: true

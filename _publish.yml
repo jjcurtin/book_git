@@ -1,0 +1,96 @@
+- source: d01_overview.qmd
+  quarto-pub:
+    - id: f0a98d6a-6a9c-4a2d-a0e3-2dd4a9939508
+      url: 'https://jjcurtin.quarto.pub/iaml_d01'
+- source: l01_overview.qmd
+  quarto-pub:
+    - id: dc20afe3-7bf4-4571-b0cb-e2de0da875c0
+      url: 'https://jjcurtin.quarto.pub/iaml_l01'
+- source: d02_exploratory_data_analysis.qmd
+  quarto-pub:
+    - id: bdacca66-4f21-4635-ad82-61323924bb53
+      url: 'https://jjcurtin.quarto.pub/iaml_d02'
+- source: l02_exploratory_data_analysis.qmd
+  quarto-pub:
+    - id: 03c08131-f23e-4ab3-a59a-1bb518beb86a
+      url: 'https://jjcurtin.quarto.pub/iaml_l02'
+- source: l03_regression.qmd
+  quarto-pub:
+    - id: e5a6363b-985d-49b0-a032-56ad1ad46d67
+      url: 'https://jjcurtin.quarto.pub/iaml_l03'
+- source: l04_classification.qmd
+  quarto-pub:
+    - id: 3ba4339d-0af6-4019-ab4e-aedccc05e67f
+      url: 'https://jjcurtin.quarto.pub/iaml_l04'
+- source: d03_regression.qmd
+  quarto-pub:
+    - id: 3a4eea8d-edf7-4719-9f2c-e6dfd8cfc094
+      url: 'https://jjcurtin.quarto.pub/iaml_d03'
+- source: l05_resampling.qmd
+  quarto-pub:
+    - id: c170f3ea-db72-4c03-81be-50291478a7e1
+      url: 'https://jjcurtin.quarto.pub/iaml_l05'
+- source: d04_classification.qmd
+  quarto-pub:
+    - id: 096d2220-8b1f-462e-af7c-7bfa895ecaab
+      url: 'https://jjcurtin.quarto.pub/iaml_d04'
+- source: l06_regularization.qmd
+  quarto-pub:
+    - id: f2c0f792-ea6e-439b-8596-684c8322b0b7
+      url: 'https://jjcurtin.quarto.pub/iaml_l06'
+- source: d05_resample.qmd
+  quarto-pub:
+    - id: 5bd98c09-6744-40b0-bca4-9483134414f7
+      url: 'https://jjcurtin.quarto.pub/iaml_d05'
+- source: d06_regularization.qmd
+  quarto-pub:
+    - id: c207c843-05a7-4202-88e8-6c783d297258
+      url: 'https://jjcurtin.quarto.pub/iaml_d06'
+- source: l08_advanced_performance_metrics.qmd
+  quarto-pub:
+    - id: 67321fea-819d-4774-a4a5-5ad22bb597b6
+      url: 'https://jjcurtin.quarto.pub/iaml_l08'
+- source: l09_random_forest.qmd
+  quarto-pub:
+    - id: 6cec5c7b-94c4-427a-ba4b-39bc2e5ed224
+      url: 'https://jjcurtin.quarto.pub/iaml_l09'
+- source: d08_advanced_performance_metrics.qmd
+  quarto-pub:
+    - id: 4915eeaa-7d68-4898-a6d4-98ec2578a2aa
+      url: 'https://jjcurtin.quarto.pub/iaml_d08'
+- source: l10_neural_networks.qmd
+  quarto-pub:
+    - id: a712425f-2d13-42f7-bead-cc3b165f6617
+      url: 'https://jjcurtin.quarto.pub/iaml_l10'
+- source: d10_neural_networks.qmd
+  quarto-pub:
+    - id: 74c848bc-098d-4990-aad7-0e1788d9d938
+      url: 'https://jjcurtin.quarto.pub/iaml_d10'
+- source: d09_random_forest.qmd
+  quarto-pub:
+    - id: 9400f8ed-6ec5-4f84-bb44-ad303af2e41f
+      url: 'https://jjcurtin.quarto.pub/iaml_d09'
+- source: l11_explanation.qmd
+  quarto-pub:
+    - id: a509848e-5dd3-4941-84fe-c57364409dee
+      url: 'https://jjcurtin.quarto.pub/iaml_l11'
+- source: d11_explanation.qmd
+  quarto-pub:
+    - id: 2242b1dd-1b07-4940-955a-80b6da1e0b23
+      url: 'https://jjcurtin.quarto.pub/iaml_d11'
+- source: d12_nlp.qmd
+  quarto-pub:
+    - id: ebfe790f-e01c-4be5-9cde-46d16f95e1ea
+      url: 'https://jjcurtin.quarto.pub/iaml_d12'
+- source: l12_nlp.qmd
+  quarto-pub:
+    - id: 7b8b0d58-970f-4d56-a075-e20bd9d3da7d
+      url: 'https://jjcurtin.quarto.pub/iaml_l12'
+- source: d13_applications.qmd
+  quarto-pub:
+    - id: a163cd33-b9eb-4643-87ee-1eabbae30be4
+      url: 'https://jjcurtin.quarto.pub/iaml_d13'
+- source: d14_ethics.qmd
+  quarto-pub:
+    - id: a1d1dc6d-f9c5-406e-916f-6aa634867c24
+      url: 'https://jjcurtin.quarto.pub/iaml_d14'
