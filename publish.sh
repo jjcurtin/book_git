@@ -17,27 +17,13 @@ if [ "$FORMAT" = "book" ]; then
   rm -r _book
 fi
 
-if [ "$FORMAT" = "slides_local" ];  then
-  echo ""
-	echo "Publishing $FILE to standard slides locally"
-  echo ""
-  cp _quarto_slides.yml _quarto.yml
-  quarto render "$FILE"
-  rm _quarto.yml
-  cp *.html ~/mnt/web/iaml/slides/ 
-  cp -r *_files ~/mnt/web/iaml/slides/
-  rm *.html
-  rm -r *_files
-  rm _quarto.yml
-fi
-
  
 if [ "$FORMAT" = "slides" ];  then
   echo ""
-	echo "Publishing $FILE to standard slides on quarto-pub"
+	echo "Publishing $FILE to standard slides on Posit Connect Cloud "
   echo ""
   cp _quarto_slides.yml _quarto.yml
-  quarto publish quarto-pub "$FILE" --no-browser
+  quarto publish posit-connect-cloud "$FILE" --no-browser
   rm _quarto.yml
   # rm -r *_files
   # rm *.html
@@ -45,13 +31,11 @@ fi
  
 if [ "$FORMAT" = "slides_wide" ];  then
   echo ""
-	echo "Publishing $FILE to wide slides on quarto-pub"
+	echo "Publishing $FILE to wide slides on Posit Connect Cloud"
   echo ""
   cp _quarto_slides_wide.yml _quarto.yml
-  quarto publish quarto-pub "$FILE" --no-browser
+  quarto publish posit-connect-cloud "$FILE" --no-browser
   rm _quarto.yml
   # rm -r *_files
   # rm *.html
 fi
-
-
