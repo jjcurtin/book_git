@@ -9,7 +9,6 @@ execute:
 
 toc: true
 toc-depth: 3
-bibliography: refs.bib
 css: book.css
 callout-icon: false
 code-fold: show
