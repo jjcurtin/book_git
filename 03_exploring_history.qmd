@@ -1,2 +1,244 @@
 # Exploring History
 
+## The menu so far
+
+Bucky has a few commits of history to work with:
+
+```bash
+git log --oneline
+```
+
+```
+c3d4e5f (HEAD -> main) Add cheese curds and desserts
+b2c3d4e Note how many brats to buy
+a1b2c3d Add brats to the menu
+```
+
+<div class="gap-md"></div>
+
+Your commit IDs will differ from these, and you may also see your cream-puffs commit from the last exercise — all expected.
+
+<div class="gap-sm"></div>
+
+History is only useful if you can [look back]{.uwred} at it and [recover]{.uwred} from mistakes. That is what this unit is about.
+
+
+--------------------------------------------------------------------------------
+
+## Bucky makes a change he'll regret
+
+Late at night, Bucky second-guesses the whole plan. Open `brats.txt`:
+
+```bash
+nano brats.txt
+```
+
+<div class="gap-sm"></div>
+
+Add a regrettable third line, then save and exit:
+
+```
+Bratwurst - simmer in beer and onions, then grill
+Count: 2 per person (Bucky eats 4)
+Swap the brats for a kale salad
+```
+
+<div class="gap-sm"></div>
+
+In the cold light of game day, this was a mistake. We want the old `brats.txt` back.
+
+
+--------------------------------------------------------------------------------
+
+## HEAD points to your latest commit
+
+[HEAD]{.uwred} is Git's name for the commit you are currently on — normally your most recent one.
+
+<div class="gap-sm"></div>
+
+You can count backward from it:
+
+- [`HEAD`]{.uwred} — the latest commit
+- [`HEAD~1`]{.uwred} — one commit before that
+- [`HEAD~2`]{.uwred} — two commits before that
+
+<div class="gap-md"></div>
+
+[`HEAD~1`]{.uwred}, [`HEAD~2`]{.uwred}, ... are easy for recent commits. To reach a specific commit further back, copy its [ID]{.uwred} from `git log --oneline` rather than counting.
+
+
+--------------------------------------------------------------------------------
+
+## Review before you restore
+
+Good practice: look at what you are about to throw away. Compare your file to the last commit:
+
+```bash
+git diff HEAD brats.txt
+```
+
+<pre><code><strong>diff --git a/brats.txt b/brats.txt
+index f735c2d..a9c3e21 100644
+--- a/brats.txt
++++ b/brats.txt</strong>
+<span style="color:teal;">@@ -1,2 +1,3 @@</span>
+ Bratwurst - simmer in beer and onions, then grill
+ Count: 2 per person (Bucky eats 4)
+<span style="color:forestgreen;">+Swap the brats for a kale salad</span>
+</code></pre>
+
+<div class="gap-sm"></div>
+
+The only difference from the last commit is the one regrettable line. Safe to discard.
+
+
+--------------------------------------------------------------------------------
+
+## Undo an uncommitted change: `git restore`
+
+Throw away the edit and bring back the committed version:
+
+```bash
+git restore brats.txt
+```
+
+<div class="gap-sm"></div>
+
+`git restore` prints nothing on success. Check the result:
+
+```bash
+cat brats.txt
+```
+
+```
+Bratwurst - simmer in beer and onions, then grill
+Count: 2 per person (Bucky eats 4)
+```
+
+<div class="gap-sm"></div>
+
+The kale line is gone, and `git status` reports a clean working tree again.
+
+
+--------------------------------------------------------------------------------
+
+## How `git restore` picks what to bring back
+
+`git restore` reads a file from a [source]{.uwred} and writes it into your working directory.
+
+<div class="gap-sm"></div>
+
+- By default the source is the [staging area]{.uwred} — which matches your last commit unless you have staged something. That is what just undid the uncommitted edit.
+- Point it at any commit with [`--source`]{.uwred} (short: `-s`) to reach back into history.
+
+<div class="gap-md"></div>
+
+It overwrites your current working copy with no undo, so [review with `git diff` first]{.uwred}.
+
+
+--------------------------------------------------------------------------------
+
+## Reach back to an older commit
+
+Bucky is curious what the very first, one-line menu looked like. Find that commit's ID at the bottom of your log:
+
+```bash
+git log --oneline
+```
+
+```
+...
+a1b2c3d Add brats to the menu
+```
+
+<div class="gap-sm"></div>
+
+Restore `brats.txt` from that commit — use your own ID (here, `a1b2c3d`):
+
+```bash
+git restore --source=a1b2c3d brats.txt
+```
+
+```bash
+cat brats.txt
+```
+
+```
+Bratwurst - simmer in beer and onions, then grill
+```
+
+<div class="gap-sm"></div>
+
+Only the working copy changed; the staging area and history are untouched.
+
+
+--------------------------------------------------------------------------------
+
+## The older version is now an unstaged change
+
+Because the working copy no longer matches the last commit, Git flags it as modified:
+
+```bash
+git status
+```
+
+```
+On branch main
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   brats.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+```
+
+<div class="gap-sm"></div>
+
+Two choices from here:
+
+- [Keep it]{.uwred}: `git add` + `git commit` to make the old version the new latest
+- [Change your mind]{.uwred}: `git restore brats.txt` snaps back to `HEAD`
+
+<div class="gap-md"></div>
+
+So we all stay in sync for the rest of the lecture, let's all [snap back to `HEAD`]{.uwred}:
+
+```bash
+git restore brats.txt
+```
+
+
+--------------------------------------------------------------------------------
+
+## Your turn
+
+::: {.callout-wide}
+::: {.callout-important}
+# Try it
+1. Add a silly line to `cheese_curds.txt` with `nano`
+2. Preview it with `git diff HEAD cheese_curds.txt`
+3. Discard it with `git restore cheese_curds.txt`
+4. Peek at the original brats: copy the `Add brats to the menu` ID from `git log --oneline`, run `git restore --source=<that ID> brats.txt`, `cat` it, then `git restore brats.txt` to return to the latest
+:::
+:::
+
+
+--------------------------------------------------------------------------------
+
+## Where we are
+
+We can now travel through our history:
+
+- [`HEAD`]{.uwred}, [`HEAD~1`]{.uwred}, ... name past commits
+- [`git diff HEAD <file>`]{.uwred} reviews changes since the last commit
+- [`git restore <file>`]{.uwred} discards uncommitted edits (from the staging area)
+- [`git restore --source=<commit> <file>`]{.uwred} brings back an older version
+
+<div class="gap-md"></div>
+
+::: {.callout-wide}
+::: {.callout-important}
+# Next up
+Bucky's folder is filling up with files he never wants to track — scratch notes and receipts. Next we will teach Git to [ignore]{.uwred} them.
+:::
+:::

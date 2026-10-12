@@ -2,3 +2,11 @@
   posit-connect-cloud:
     - id: 01a130e4-55d6-cf95-b375-28ad9527f4fc
       url: https://connect.posit.cloud/jjcurtin/content/01a130e4-55d6-cf95-b375-28ad9527f4fc
+- source: 02_tracking_changes.qmd
+  posit-connect-cloud:
+    - id: 01a130fe-3048-3beb-70ec-83274029f74f
+      url: https://connect.posit.cloud/jjcurtin/content/01a130fe-3048-3beb-70ec-83274029f74f
+- source: 03_exploring_history.qmd
+  posit-connect-cloud:
+    - id: 01a1313a-87a2-c88a-f18b-06e065b7b68a
+      url: https://connect.posit.cloud/jjcurtin/content/01a1313a-87a2-c88a-f18b-06e065b7b68a

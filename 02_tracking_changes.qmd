@@ -1,2 +1,546 @@
 # Tracking Changes
 
+## The rhythm of Git
+
+Every version you save follows the same two-step rhythm:
+
+<div class="gap-sm"></div>
+
+- Edit your files as usual
+- [`git add`]{.uwred} — mark the changes you want to save
+- [`git commit`]{.uwred} — save them as a point in history
+
+<div class="gap-md"></div>
+
+Along the way, three commands let you check in:
+
+- [`git status`]{.uwred} — where do things stand?
+- [`git diff`]{.uwred} — what exactly changed?
+- [`git log`]{.uwred} — what have I saved so far?
+
+
+--------------------------------------------------------------------------------
+
+## Put the first item on the menu
+
+Bucky starts with the main event. Open a new file with `nano`:
+
+```bash
+nano brats.txt
+```
+
+<div class="gap-sm"></div>
+
+Type one line, then save and exit with [Ctrl+X]{.uwred}, then [Y]{.uwred}, then [Enter]{.uwred}:
+
+```
+Bratwurst - simmer in beer and onions, then grill
+```
+
+<div class="gap-sm"></div>
+
+Prefer a different editor? Open the file in the RStudio [source editor]{.uwred}, or use another terminal editor like [vim]{.uwred} — any of them works. These slides use `nano`. Either way, nothing has been handed to Git yet; we have only written to the folder.
+
+
+--------------------------------------------------------------------------------
+
+## A new, untracked file
+
+Check in with `git status`:
+
+```bash
+git status
+```
+
+```
+On branch main
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	brats.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+```
+
+<div class="gap-sm"></div>
+
+Git sees `brats.txt` but calls it [untracked]{.uwred} — it is not yet part of the history.
+
+
+--------------------------------------------------------------------------------
+
+## Step 1 of 2: stage it with `git add`
+
+Tell Git this file belongs in the next saved version:
+
+```bash
+git add brats.txt
+```
+
+<div class="gap-sm"></div>
+
+This puts `brats.txt` on the [stage]{.uwred} — the group of changes that will be saved together on your next commit.
+
+<div class="gap-sm"></div>
+
+`git add` produces no output when it succeeds. Run `git status` to see what it did.
+
+
+--------------------------------------------------------------------------------
+
+## Staged and ready
+
+```bash
+git status
+```
+
+```
+On branch main
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+	new file:   brats.txt
+```
+
+<div class="gap-sm"></div>
+
+Now Git lists `brats.txt` under [Changes to be committed]{.uwred}. It is staged, but not yet saved to history.
+
+
+--------------------------------------------------------------------------------
+
+## Step 2 of 2: save it with `git commit`
+
+A [commit]{.uwred} is a permanent point in your history. It needs a short message describing the change:
+
+```bash
+git commit -m "Add brats to the menu"
+```
+
+```
+[main (root-commit) a1b2c3d] Add brats to the menu
+ 1 file changed, 1 insertion(+)
+ create mode 100644 brats.txt
+```
+
+<div class="gap-sm"></div>
+
+The `-m` flag supplies the message. This is our first commit, so Git labels it the [root-commit]{.uwred} and stamps it with a unique ID (a1b2c3d).
+
+
+--------------------------------------------------------------------------------
+
+## Working tree clean
+
+```bash
+git status
+```
+
+```
+On branch main
+nothing to commit, working tree clean
+```
+
+<div class="gap-sm"></div>
+
+[Working tree clean]{.uwred} means the folder matches the saved history exactly — nothing is waiting to be saved.
+
+
+--------------------------------------------------------------------------------
+
+## Where your work lives
+
+That two-step dance makes sense once you see the three places your work can be:
+
+<div class="gap-sm"></div>
+
+<table>
+<thead>
+<tr>
+  <th>Working directory</th>
+  <th>Staging area</th>
+  <th>Repository</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Your files as you edit them</td>
+  <td>Changes you have marked to save</td>
+  <td>The permanent history of commits</td>
+</tr>
+</tbody>
+</table>
+
+<div class="gap-md"></div>
+
+Two commands move your work to the right along this path.
+
+
+--------------------------------------------------------------------------------
+
+## `git add` moves work to the stage
+
+<table>
+<thead>
+<tr>
+  <th class="hl">Working directory</th>
+  <th class="hl">Staging area</th>
+  <th>Repository</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td class="hl">Your files as you edit them</td>
+  <td class="hl">Changes you have marked to save</td>
+  <td>The permanent history of commits</td>
+</tr>
+</tbody>
+</table>
+
+<div class="gap-md"></div>
+
+[`git add`]{.uwred} copies changes from your working directory onto the stage. You choose exactly what goes on.
+
+
+--------------------------------------------------------------------------------
+
+## `git commit` records the stage
+
+<table>
+<thead>
+<tr>
+  <th>Working directory</th>
+  <th class="hl">Staging area</th>
+  <th class="hl">Repository</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Your files as you edit them</td>
+  <td class="hl">Changes you have marked to save</td>
+  <td class="hl">The permanent history of commits</td>
+</tr>
+</tbody>
+</table>
+
+<div class="gap-md"></div>
+
+[`git commit`]{.uwred} records everything on the stage as one point in history. The extra step is a feature: it lets you group related changes into a single, meaningful commit.
+
+
+--------------------------------------------------------------------------------
+
+## See your history: `git log`
+
+```bash
+git log
+```
+
+```
+commit a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0 (HEAD -> main)
+Author: Bucky Badger <bucky@wisc.edu>
+Date:   Fri Oct 9 10:15:00 2026 -0500
+
+    Add brats to the menu
+```
+
+<div class="gap-sm"></div>
+
+Each commit records the full ID, who made it, when, and the message. [HEAD]{.uwred} marks where you are now.
+
+
+--------------------------------------------------------------------------------
+
+## Bucky tweaks the brats
+
+How many to buy? Reopen the file:
+
+```bash
+nano brats.txt
+```
+
+<div class="gap-sm"></div>
+
+Add a second line, then save and exit:
+
+```
+Bratwurst - simmer in beer and onions, then grill
+Count: 2 per person (Bucky eats 4)
+```
+
+<div class="gap-sm"></div>
+
+Save the file, then check what Git thinks.
+
+
+--------------------------------------------------------------------------------
+
+## A tracked file, now modified
+
+```bash
+git status
+```
+
+```
+On branch main
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   brats.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+```
+
+<div class="gap-sm"></div>
+
+This time Git already knows `brats.txt`, so it reports it as [modified]{.uwred} rather than untracked.
+
+
+--------------------------------------------------------------------------------
+
+## What exactly changed? `git diff`
+
+Came back from the stadium and forgot what you edited? Ask Git:
+
+```bash
+git diff brats.txt
+```
+
+<pre><code><strong>diff --git a/brats.txt b/brats.txt
+index 83db48f..f735c2d 100644
+--- a/brats.txt
++++ b/brats.txt</strong>
+<span style="color:teal;">@@ -1 +1,2 @@</span>
+ Bratwurst - simmer in beer and onions, then grill
+<span style="color:forestgreen;">+Count: 2 per person (Bucky eats 4)</span>
+</code></pre>
+
+<div class="gap-sm"></div>
+
+Git colors the output: added lines show in <span style="color:forestgreen;">green</span> with a `+`, and removed lines would show in <span style="color:red;">red</span> with a `-`.
+
+
+--------------------------------------------------------------------------------
+
+## Stage and commit the edit
+
+Same two steps as before:
+
+```bash
+git add brats.txt
+git commit -m "Note how many brats to buy"
+```
+
+```
+[main b2c3d4e] Note how many brats to buy
+ 1 file changed, 1 insertion(+)
+```
+
+<div class="gap-sm"></div>
+
+That is the whole rhythm: [edit → add → commit]{.uwred}. You will do it hundreds of times.
+
+
+--------------------------------------------------------------------------------
+
+## One commit, two new files
+
+The menu grows. Create two more files, one at a time:
+
+```bash
+nano cheese_curds.txt
+```
+
+```
+Fried cheese curds from the Union - 2 baskets
+```
+
+```bash
+nano desserts.txt
+```
+
+```
+Babcock ice cream - chocolate and Union Blend
+```
+
+<div class="gap-sm"></div>
+
+```bash
+git status
+```
+
+```
+Untracked files:
+	cheese_curds.txt
+	desserts.txt
+```
+
+
+--------------------------------------------------------------------------------
+
+## Stage both at once
+
+These two go together, so stage them in one step:
+
+```bash
+git add cheese_curds.txt desserts.txt
+```
+
+<div class="gap-sm"></div>
+
+Preview what is staged with `git diff --staged` (plain `git diff` looks only at unstaged changes):
+
+```bash
+git diff --staged
+```
+
+<pre><code><strong>diff --git a/cheese_curds.txt b/cheese_curds.txt
+new file mode 100644</strong>
+<span style="color:teal;">@@ -0,0 +1 @@</span>
+<span style="color:forestgreen;">+Fried cheese curds from the Union - 2 baskets</span>
+<strong>diff --git a/desserts.txt b/desserts.txt
+new file mode 100644</strong>
+<span style="color:teal;">@@ -0,0 +1 @@</span>
+<span style="color:forestgreen;">+Babcock ice cream - chocolate and Union Blend</span>
+</code></pre>
+
+
+--------------------------------------------------------------------------------
+
+## Commit them together
+
+Both new files land in [one]{.uwred} commit:
+
+```bash
+git commit -m "Add cheese curds and desserts"
+```
+
+```
+[main c3d4e5f] Add cheese curds and desserts
+ 2 files changed, 2 insertions(+)
+ create mode 100644 cheese_curds.txt
+ create mode 100644 desserts.txt
+```
+
+<div class="gap-md"></div>
+
+This is why `add` and `commit` are separate steps: you decide what belongs together.
+
+<div class="gap-md"></div>
+
+Later, we will learn how to undo a commit so best to stage and commit edits that represent some block of changes that belong together for some goal in your development/analysis workflow
+
+
+--------------------------------------------------------------------------------
+
+## The story so far: `git log --oneline`
+
+Full `git log` gets long fast. The `--oneline` flag gives one row per commit:
+
+```bash
+git log --oneline
+```
+
+```
+c3d4e5f (HEAD -> main) Add cheese curds and desserts
+b2c3d4e Note how many brats to buy
+a1b2c3d Add brats to the menu
+```
+
+<div class="gap-sm"></div>
+
+You can also limit the count: `git log -2` shows just the two most recent commits.
+
+<div class="gap-md"></div>
+
+Name a file to see only the commits that changed it — handy when you need to track down an error in one file:
+
+```bash
+git log --oneline brats.txt
+```
+
+```
+b2c3d4e Note how many brats to buy
+a1b2c3d Add brats to the menu
+```
+
+<div class="gap-sm"></div>
+
+The cheese curds and desserts commit drops out — it never touched `brats.txt`. (Add `--` before the name, `git log --oneline -- brats.txt`, if Git confuses it with a branch.)
+
+
+--------------------------------------------------------------------------------
+
+## Writing good commit messages
+
+Your future self reads these. Aim for the middle ground:
+
+<div class="gap-sm"></div>
+
+<table>
+<thead>
+<tr>
+  <th>Message</th>
+  <th>Verdict</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><code>changes</code></td>
+  <td><span style="color:red;">Too vague — says nothing</span></td>
+</tr>
+<tr>
+  <td><code>Added "Fried cheese curds from the Union - 2 baskets" to cheese_curds.txt</code></td>
+  <td><span style="color:red;">Too verbose — just repeats the file</span></td>
+</tr>
+<tr class="hl">
+  <td><code>Add cheese curds and desserts</code></td>
+  <td><span style="color:forestgreen;">Captures the meaning, briefly</span></td>
+</tr>
+</tbody>
+</table>
+
+<div class="gap-md"></div>
+
+Keep the first line under about [50 characters]{.uwred} and describe the change, not the literal text.
+
+
+--------------------------------------------------------------------------------
+
+## Your turn
+
+::: {.callout-wide}
+::: {.callout-important}
+# Try it
+Bucky wants cream puffs. On your own:
+
+1. Add a line to `desserts.txt` for cream puffs
+2. Check what changed with `git diff`
+3. Stage it with `git add`, then `git commit` with a clear message
+4. Confirm it landed with `git log --oneline`
+:::
+:::
+
+
+--------------------------------------------------------------------------------
+
+## Where we are
+
+We can now build history on purpose:
+
+- [`git add`]{.uwred} stages changes; [`git commit`]{.uwred} saves them
+- [`git status`]{.uwred} shows where things stand
+- [`git diff`]{.uwred} shows what changed; [`git log`]{.uwred} shows what we saved
+
+<div class="gap-md"></div>
+
+::: {.callout-wide}
+::: {.callout-important}
+# Next up
+Bucky commits a menu change he regrets. Next we will use the history to look back and [restore an earlier version]{.uwred} of a file.
+:::
+:::

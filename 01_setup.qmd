@@ -1,2 +1,315 @@
 # Introduction and Setup
 
+## Why are we here?
+
+By the end of this hour you will be able to:
+
+- Explain what [version control]{.uwred} is and why it matters for data science
+- Put a project folder under Git and track changes to it
+- Save versions with meaningful messages, and look back at your history
+- Tell Git to ignore files it should not track
+- Push your work to [GitHub]{.uwred} to back it up and share it
+
+<div class="gap-md"></div>
+
+We will build one project together, start to finish: [Bucky's game-day menu]{.uwred}.
+
+<div class="gap-md"></div>
+
+You'll build this repo along with me the whole hour — including the [Your turn]{.uwred} moments, where you try a step on your own before we regroup.
+
+
+--------------------------------------------------------------------------------
+
+## What is version control?
+
+[Version control]{.uwred} keeps track of changes you make to files over time.
+
+<div class="gap-sm"></div>
+
+It lets you:
+
+- Go back to any earlier version of a file
+- Keep only [one]{.uwred} copy in your folder (not ten copies with different names)
+- See what changed, when, and why
+- Work with others without emailing files back and forth
+- Keep the same project synced across computers
+
+
+--------------------------------------------------------------------------------
+
+## You have probably done this the hard way
+
+How many of these folders have you lived in?
+
+<div class="gap-sm"></div>
+
+```
+analysis.R
+analysis_v2.R
+analysis_final.R
+analysis_final_FINAL.R
+analysis_2026-10-01.R
+analysis_2026-10-01_jjc.R
+```
+
+<div class="gap-sm"></div>
+
+You cannot tell what changed between any two of them, and they all pile up in the same folder.
+
+
+--------------------------------------------------------------------------------
+
+## Git fixes this
+
+With Git, you keep [one]{.uwred} `analysis.R` in your folder.
+
+<div class="gap-sm"></div>
+
+Git quietly stores the full history behind the scenes. At any point you can:
+
+- Ask "what did this file look like last Tuesday?"
+- Read the note you left yourself explaining each change
+- Restore an older version without losing your current work
+
+<div class="gap-md"></div>
+
+> "Your closest collaborator is you six months ago, and they don't answer email."
+
+Git is how you leave notes for that person.
+
+
+--------------------------------------------------------------------------------
+
+## Git is not GitHub
+
+A point of confusion worth clearing up right away:
+
+<div class="gap-sm"></div>
+
+<table>
+<thead>
+<tr>
+  <th></th>
+  <th>What it is</th>
+  <th>Where it lives</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><strong>Git</strong></td>
+  <td>The version-control software</td>
+  <td>On your computer</td>
+</tr>
+<tr>
+  <td><strong>GitHub</strong></td>
+  <td>A website that hosts Git repositories</td>
+  <td>In the cloud</td>
+</tr>
+</tbody>
+</table>
+
+<div class="gap-md"></div>
+
+You can use Git with no internet at all. [GitHub]{.uwred} is where you put a copy to back it up, share it, and collaborate. We get there at the end of the hour.
+
+
+--------------------------------------------------------------------------------
+
+## Our running example: Bucky's game-day menu
+
+[Bucky Badger]{.uwred} is planning the food for a game-day tailgate, and the menu keeps changing.
+
+<div class="gap-sm"></div>
+
+We will keep the plan in a folder called `gameday-menu`, with a file per part of the spread:
+
+- `brats.txt`
+- `cheese_curds.txt`
+- `desserts.txt`
+
+<div class="gap-sm"></div>
+
+As the menu evolves, we will use Git to track every change, so Bucky can always see what the plan looked like last week.
+
+
+--------------------------------------------------------------------------------
+
+## What you should already have
+
+This lecture assumes two things are done:
+
+1. [Git is installed]{.uwred} on your laptop
+2. You have a [GitHub account]{.uwred}
+
+<div class="gap-sm"></div>
+
+If either is missing, follow the setup guide and catch up with a neighbor:
+
+::: {.footer}
+https://carpentries.github.io/workshop-template/#git
+:::
+
+<div class="gap-md"></div>
+
+Everything today happens in a [terminal]{.uwred} (Git Bash on Windows; Terminal on macOS/Linux). Git commands all start with the word `git`.
+
+<div class="gap-md"></div>
+
+RStudio also has a built in terminal.  I use it rather than a separate terminal for git and file management when I am working on analysis code for a project.  Its up to you!
+
+
+--------------------------------------------------------------------------------
+
+## Tell Git who you are
+
+Git stamps every saved version with a name and email. Set yours [once per computer]{.uwred}:
+
+<div class="gap-sm"></div>
+
+```bash
+git config --global user.name "Your Name"
+git config --global user.email "you@wisc.edu"
+```
+
+<div class="gap-sm"></div>
+
+Use [your own]{.uwred} name and email, not Bucky's. The email should match the one on your GitHub account.
+
+The `--global` flag means "use this for every project on this computer," so you only do it once.
+
+
+--------------------------------------------------------------------------------
+
+## Check that it worked
+
+You can confirm your settings at any time:
+
+<div class="gap-sm"></div>
+
+```bash
+git config --list
+```
+
+<div class="gap-sm"></div>
+
+Look for your `user.name` and `user.email` in the output:
+
+```
+user.name=Bucky Badger
+user.email=bucky@wisc.edu
+init.defaultBranch=main
+```
+
+<div class="gap-sm"></div>
+
+If you made a typo, just run the `config` command again to overwrite it.
+
+
+--------------------------------------------------------------------------------
+
+## Make a folder for the project
+
+Create a folder for Bucky's menu and move into it.  
+
+<div class="gap-md"></div>
+
+I prefer to keep all of my git repos at one location (`~/github`)
+
+<div class="gap-sm"></div>
+
+```bash
+mkdir github
+cd github
+
+mkdir gameday-menu
+cd gameday-menu
+```
+
+<div class="gap-sm"></div>
+
+Right now this is just an ordinary folder. Git is not watching it yet.
+
+
+--------------------------------------------------------------------------------
+
+## Turn the folder into a repository
+
+A [repository]{.uwred} (or "repo") is a folder that Git is tracking, along with its full history.
+
+<div class="gap-sm"></div>
+
+Turn the current folder into one with a single command:
+
+```bash
+git init
+```
+
+<div class="gap-sm"></div>
+
+```
+Initialized empty Git repository in /home/bucky/github/gameday-menu/.git/
+```
+
+<div class="gap-sm"></div>
+
+Git created a hidden `.git` folder to store the history. You never edit it by hand; Git manages it for you.
+
+
+--------------------------------------------------------------------------------
+
+## Meet `git status`
+
+`git status` is the command you will run the most. It tells you where things stand.
+
+<div class="gap-sm"></div>
+
+```bash
+git status
+```
+
+<div class="gap-sm"></div>
+
+```
+On branch main
+No commits yet
+nothing to commit (create/copy files and use "git add" to track)
+```
+
+
+--------------------------------------------------------------------------------
+
+## Reading that message
+
+Three things Git just told us:
+
+<div class="gap-sm"></div>
+
+- [On branch main]{.uwred} — the default line of work (more on branches another day)
+- [No commits yet]{.uwred} — we have no saved history in this repo
+- [nothing to commit]{.uwred} — the folder is empty, so there is nothing to track
+
+<div class="gap-md"></div>
+
+Notice the hint: *use "git add" to track*. Git is telling us the next step.
+
+
+--------------------------------------------------------------------------------
+
+## Where we are
+
+We have:
+
+- Confirmed Git knows who we are
+- Created the `gameday-menu` folder
+- Turned it into a Git repository with `git init`
+- Learned to check in with `git status`
+
+<div class="gap-md"></div>
+
+::: {.callout-wide}
+::: {.callout-important}
+# Next up
+Bucky still has no food on the menu. Next we will create our first files and learn how Git saves versions of them with [`add`]{.uwred} and [`commit`]{.uwred}.
+:::
+:::
