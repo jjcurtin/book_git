@@ -1,4 +1,4 @@
-## Git Cheatsheet {.unnumbered}
+## Git Cheatsheet {#sec-cheatsheet}
 
 A quick reference for every command in these lessons. Angle brackets like `<file>` mean "fill in your own value."
 

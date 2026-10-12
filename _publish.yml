@@ -18,3 +18,11 @@
   posit-connect-cloud:
     - id: 01a131b6-2ab8-1681-41b3-3022e0126132
       url: https://connect.posit.cloud/jjcurtin/content/01a131b6-2ab8-1681-41b3-3022e0126132
+- source: 06_conflicts.qmd
+  posit-connect-cloud:
+    - id: 01a1322d-30b9-676d-5cc7-d5322bdc73c8
+      url: https://connect.posit.cloud/jjcurtin/content/01a1322d-30b9-676d-5cc7-d5322bdc73c8
+- source: 07_branches.qmd
+  posit-connect-cloud:
+    - id: 01a1322d-8964-d3ac-15c8-94a529066346
+      url: https://connect.posit.cloud/jjcurtin/content/01a1322d-8964-d3ac-15c8-94a529066346

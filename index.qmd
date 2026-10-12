@@ -1,3 +1,49 @@
 ## Introduction to Git and Github {.unnumbered}
 
+Git and GitHub are the tools data scientists use to track changes to their work, recover earlier versions, and collaborate without overwriting each other. This book is a hands-on introduction, built around a single running example that grows from an empty folder into a shared repository on GitHub.
 
+### Where these materials come from
+
+These materials are based on the [*Version Control with Git* video series](https://www.youtube.com/playlist?list=PL90vX4e9ORqeE1wyMbST9pJ1-Mj45f2JY) produced by the [UW–Madison Data Science Hub](https://github.com/UW-Madison-DataScience), which adapts the Software Carpentries [Git novice lesson](https://swcarpentry.github.io/git-novice/). We are grateful for their work.
+
+The book is designed as an **alternative to watching the videos**: the same material, in a form you can read quickly, follow along with during a workshop, and return to later when a specific question comes up — without scrubbing through an hour of video to find the one command you need.
+
+Where it helps, we have also **updated the workflows** to use current Git commands:
+
+- To restore a previous version of a file, we use `git restore` rather than the older `git checkout`.
+- To move between branches, we use `git switch` rather than `git checkout`.
+
+These newer commands each do one job, which makes them clearer and harder to misuse than the older, overloaded `git checkout`.
+
+### How this book is organized
+
+The book has seven units plus a few reference appendices.
+
+- **Units 1–5** are the core everyday workflow. They are covered live in a one-hour, hands-on workshop.
+- **Units 6–7** (Conflicts and Branches) go beyond the live hour and are here for you to explore on your own afterward.
+
+Every unit also has a companion **slide deck**, published on Posit Connect Cloud (Units 1–5 are the decks we present live):
+
+| Unit | Slide deck |
+|---|---|
+| 1 — Introduction and Setup | [open deck](https://connect.posit.cloud/jjcurtin/content/01a130e4-55d6-cf95-b375-28ad9527f4fc) |
+| 2 — Tracking Changes | [open deck](https://connect.posit.cloud/jjcurtin/content/01a130fe-3048-3beb-70ec-83274029f74f) |
+| 3 — Exploring History | [open deck](https://connect.posit.cloud/jjcurtin/content/01a1313a-87a2-c88a-f18b-06e065b7b68a) |
+| 4 — Ignoring Files | [open deck](https://connect.posit.cloud/jjcurtin/content/01a131ab-5119-32b7-c0c6-695a27cbcd1e) |
+| 5 — Remotes in GitHub | [open deck](https://connect.posit.cloud/jjcurtin/content/01a131b6-2ab8-1681-41b3-3022e0126132) |
+| 6 — Conflicts | [open deck](https://connect.posit.cloud/jjcurtin/content/01a1322d-30b9-676d-5cc7-d5322bdc73c8) |
+| 7 — Branches | [open deck](https://connect.posit.cloud/jjcurtin/content/01a1322d-8964-d3ac-15c8-94a529066346) |
+
+The **appendices** cover one-time setup you should finish before the workshop — installing Git on Windows and connecting to GitHub with SSH keys — and a **cheatsheet** at the end collects every command in one place for quick reference.
+
+### How to use this book
+
+Git is best learned by doing. As you read, **follow along in a terminal** — Git Bash on Windows, or Terminal on macOS/Linux — and type the commands yourself. Everything builds one running example (Bucky Badger's game-day menu), so the repository you create grows right alongside the book.
+
+A few conventions to know:
+
+- Commands you type appear in shaded code blocks, with the output Git prints shown just below them.
+- **Your turn** boxes are short challenges to try on your own before moving on.
+- Keep the cheatsheet open in another tab for quick reference.
+
+The source for this book lives on [GitHub](https://github.com/jjcurtin/book_git); corrections and suggestions are welcome.
