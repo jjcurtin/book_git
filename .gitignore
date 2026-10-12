@@ -3,3 +3,6 @@
 .RData
 .Ruserdata
 book_git.Rproj
+
+/.quarto/
+**/*.quarto_ipynb

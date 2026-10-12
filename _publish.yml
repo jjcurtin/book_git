@@ -1,0 +1,4 @@
+- source: 01_setup.qmd
+  posit-connect-cloud:
+    - id: 01a130e4-55d6-cf95-b375-28ad9527f4fc
+      url: https://connect.posit.cloud/jjcurtin/content/01a130e4-55d6-cf95-b375-28ad9527f4fc

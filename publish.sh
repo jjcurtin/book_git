@@ -1,8 +1,8 @@
 #!/bin/bash  
 
-# ./render.sh FILE FORMAT
-# FILE = all or filename
+# ./render.sh FORMAT FILE 
 # FORMAT = book, slides, or slides_wide
+# FILE = all or filename
 
 FORMAT=$1
 FILE=$2
