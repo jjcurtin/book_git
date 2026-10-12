@@ -1,2 +1,208 @@
 # Remotes in GitHub
 
+## Everything lives on one laptop
+
+So far Bucky's whole menu — files and history — exists only on his computer.
+
+<div class="gap-sm"></div>
+
+That is fragile:
+
+- If the laptop dies, the repo and its history are [gone]{.uwred}
+- Bucky can't work on it from another machine
+- He can't share it or collaborate with teammates
+
+<div class="gap-md"></div>
+
+The fix is a copy hosted online that we sync with. That is what [GitHub]{.uwred} is for.
+
+
+--------------------------------------------------------------------------------
+
+## GitHub hosts your repo
+
+[GitHub]{.uwred} is a website that stores Git repositories in the cloud. (GitLab and Bitbucket do the same thing.)
+
+<div class="gap-sm"></div>
+
+A hosted copy gives you three things:
+
+- [Backup]{.uwred} — your work survives a dead laptop
+- [Sync]{.uwred} — the same project on your laptop, your lab machine, a server
+- [Collaboration]{.uwred} — teammates can see and contribute
+
+<div class="gap-md"></div>
+
+Remember: [Git]{.uwred} is the tool on your computer; [GitHub]{.uwred} is a place to host what Git tracks.
+
+
+--------------------------------------------------------------------------------
+
+## SSH keys: how GitHub knows it's you
+
+When you push work to GitHub, it has to be sure the push is really [from you]{.uwred}.
+
+<div class="gap-sm"></div>
+
+SSH keys are a matched pair:
+
+- A [private key]{.uwred} that stays secret on your laptop
+- A [public key]{.uwred} that you give to GitHub
+
+<div class="gap-md"></div>
+
+GitHub matches the two so you never type a password. You set this up [once per computer]{.uwred} — and you did it before class, so we will just confirm it works.
+
+
+--------------------------------------------------------------------------------
+
+## Verify your connection
+
+Ask GitHub whether it recognizes your key:
+
+```bash
+ssh -T git@github.com
+```
+
+```
+Hi buckybadger! You've successfully authenticated, but GitHub does not provide shell access.
+```
+
+<div class="gap-sm"></div>
+
+That greeting means your key works and you're ready to push. If you instead get a [permission denied]{.uwred} error, follow the SSH setup guide or grab a neighbor before we go on.
+
+
+--------------------------------------------------------------------------------
+
+## Make a home for it on GitHub
+
+In your browser, signed in to GitHub:
+
+<div class="gap-sm"></div>
+
+1. Click [+]{.uwred} (top right) → [New repository]{.uwred}
+2. Name it [`gameday-menu`]{.uwred} to match the local folder
+3. Leave it [Public]{.uwred}
+4. [Do not]{.uwred} check "Add a README," ".gitignore," or a license
+5. Click [Create repository]{.uwred}
+
+<div class="gap-md"></div>
+
+We skip the README and friends because we already have a repo with history. Starting a second history on GitHub would just collide with ours.
+
+
+--------------------------------------------------------------------------------
+
+## Copy the SSH address
+
+The new repo's page shows setup hints. Find the [SSH]{.uwred} address (make sure the SSH tab is selected, not HTTPS):
+
+<div class="gap-sm"></div>
+
+```
+git@github.com:buckybadger/gameday-menu.git
+```
+
+<div class="gap-sm"></div>
+
+This is the address of your GitHub copy. We will hand it to Git so your laptop knows where to send things.
+
+
+--------------------------------------------------------------------------------
+
+## Point your repo at GitHub: `git remote add`
+
+A [remote]{.uwred} is a named connection to a hosted copy. Add one, using your own address:
+
+```bash
+git remote add origin git@github.com:buckybadger/gameday-menu.git
+```
+
+<div class="gap-sm"></div>
+
+[`origin`]{.uwred} is the conventional name for your main remote. Confirm it:
+
+```bash
+git remote -v
+```
+
+```
+origin	git@github.com:buckybadger/gameday-menu.git (fetch)
+origin	git@github.com:buckybadger/gameday-menu.git (push)
+```
+
+
+--------------------------------------------------------------------------------
+
+## Send it up: `git push`
+
+Push your `main` branch to the `origin` remote:
+
+```bash
+git push origin main
+```
+
+```
+Enumerating objects: 12, done.
+Writing objects: 100% (12/12), 1.1 KiB | 1.1 MiB/s, done.
+To github.com:buckybadger/gameday-menu.git
+ * [new branch]      main -> main
+```
+
+<div class="gap-sm"></div>
+
+Reload the GitHub page: your files and every commit are now there. Note that `receipts/` and the `.tmp` files are [absent]{.uwred} — they were ignored, so they never traveled.
+
+
+--------------------------------------------------------------------------------
+
+## The everyday loop: pull and push
+
+With a remote in place, syncing is two commands:
+
+<div class="gap-sm"></div>
+
+- [`git pull origin main`]{.uwred} — bring down changes from GitHub (a teammate's work, or edits from another machine)
+- [`git push origin main`]{.uwred} — send your new commits up
+
+<div class="gap-md"></div>
+
+Good habit: [pull when you start]{.uwred}, [push when you finish]{.uwred}. And to get the repo onto a brand-new machine, [`git clone <address>`]{.uwred} creates the folder, sets up `origin`, and downloads everything in one step.
+
+
+--------------------------------------------------------------------------------
+
+## Your turn
+
+::: {.callout-wide}
+::: {.callout-important}
+# Try it
+Make a change and publish it:
+
+1. Add a line to `desserts.txt` with `nano` (kringle, for the Wisconsin touch)
+2. `git add` and `git commit` with a clear message
+3. `git push origin main`
+4. Refresh your repo on GitHub and watch the new commit appear
+:::
+:::
+
+
+--------------------------------------------------------------------------------
+
+## Where we are
+
+Bucky's menu now lives on GitHub, backed up and shareable:
+
+- [`git remote add origin <address>`]{.uwred} links the local repo to GitHub
+- [`git push origin main`]{.uwred} sends commits up; [`git pull origin main`]{.uwred} brings them down
+- [`git clone <address>`]{.uwred} copies a repo onto a new machine
+
+<div class="gap-md"></div>
+
+::: {.callout-wide}
+::: {.callout-important}
+# What's next
+Working with others means parallel changes — which brings [branches]{.uwred} and [merge conflicts]{.uwred}. Those live in the book chapters to explore on your own. Keep the [cheatsheet]{.uwred} handy.
+:::
+:::

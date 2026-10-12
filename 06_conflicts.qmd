@@ -1,0 +1,259 @@
+# Conflicts
+
+## When does a conflict happen?
+
+A [conflict]{.uwred} happens when two commits change the [same line of the same file]{.uwred} in different ways, and Git can't tell which one is right.
+
+<div class="gap-sm"></div>
+
+It usually surfaces when you bring two lines of work together — for us, when you `git pull` and someone else has edited the same line you did.
+
+<div class="gap-md"></div>
+
+Conflicts are [normal]{.uwred}, not a disaster. Git just needs you, the human, to decide what the final version should say.
+
+
+--------------------------------------------------------------------------------
+
+## Our setup: two people, one repo
+
+Bucky's menu is on GitHub. His co-organizer [Sam]{.uwred} clones it to help plan dessert.
+
+<div class="gap-sm"></div>
+
+To follow along on your own, clone a second copy into a different folder — it stands in for Sam's computer:
+
+```bash
+cd ~/github
+git clone git@github.com:buckybadger/gameday-menu.git gameday-menu-sam
+```
+
+<div class="gap-sm"></div>
+
+Now there are two working copies of the same repo: your original `gameday-menu` and `gameday-menu-sam`.
+
+
+--------------------------------------------------------------------------------
+
+## Sam changes a line and pushes
+
+In Sam's copy, edit the ice cream line in `desserts.txt`:
+
+```bash
+cd ~/github/gameday-menu-sam
+nano desserts.txt
+```
+
+```
+Babcock ice cream - Orange Custard Chocolate Chip
+```
+
+<div class="gap-sm"></div>
+
+Then commit and push it up to GitHub:
+
+```bash
+git add desserts.txt
+git commit -m "Pick Orange Custard Chocolate Chip ice cream"
+git push origin main
+```
+
+<div class="gap-sm"></div>
+
+GitHub now has Sam's version of that line.
+
+
+--------------------------------------------------------------------------------
+
+## Meanwhile, you change the same line
+
+Back in your original copy — not knowing what Sam did — edit the same line differently:
+
+```bash
+cd ~/github/gameday-menu
+nano desserts.txt
+```
+
+```
+Babcock ice cream - Union Blend
+```
+
+```bash
+git add desserts.txt
+git commit -m "Pick Union Blend ice cream"
+```
+
+<div class="gap-sm"></div>
+
+Both commits look fine on their own. The trouble starts when they meet.
+
+
+--------------------------------------------------------------------------------
+
+## The push is rejected
+
+Try to push your version:
+
+```bash
+git push origin main
+```
+
+```
+ ! [rejected]        main -> main (fetch first)
+error: failed to push some refs to 'github.com:buckybadger/gameday-menu.git'
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. Integrate the remote changes before pushing again.
+```
+
+<div class="gap-sm"></div>
+
+GitHub is protecting Sam's commit. It's telling you to [pull first]{.uwred} and reconcile before you can push.
+
+
+--------------------------------------------------------------------------------
+
+## Pull brings the conflict to light
+
+```bash
+git pull origin main
+```
+
+```
+Auto-merging desserts.txt
+CONFLICT (content): Merge conflict in desserts.txt
+Automatic merge failed; fix conflicts and then commit the result.
+```
+
+<div class="gap-sm"></div>
+
+Git merged everything it could, but it [can't auto-merge]{.uwred} that one line — you both rewrote it. It stops and hands the decision to you.
+
+
+--------------------------------------------------------------------------------
+
+## `git status` points you to the problem
+
+```bash
+git status
+```
+
+```
+On branch main
+You have unmerged paths.
+  (fix conflicts and run "git commit")
+  (use "git merge --abort" to abort the merge)
+
+Unmerged paths:
+  (use "git add <file>..." to mark resolution)
+	both modified:   desserts.txt
+```
+
+<div class="gap-sm"></div>
+
+[both modified]{.uwred} is the tell-tale sign of a conflict. If you ever feel stuck, `git merge --abort` backs out and returns you to before the pull.
+
+
+--------------------------------------------------------------------------------
+
+## Reading the conflict markers
+
+Open `desserts.txt`. Git has inserted markers around the clashing lines:
+
+```
+<<<<<<< HEAD
+Babcock ice cream - Union Blend
+=======
+Babcock ice cream - Orange Custard Chocolate Chip
+>>>>>>> 3f9a1c2 (Pick Orange Custard Chocolate Chip ice cream)
+```
+
+<div class="gap-sm"></div>
+
+- Between [`<<<<<<< HEAD`]{.uwred} and [`=======`]{.uwred} is [your]{.uwred} version
+- Between [`=======`]{.uwred} and [`>>>>>>>`]{.uwred} is the [incoming]{.uwred} version from GitHub
+
+
+--------------------------------------------------------------------------------
+
+## Resolve it: you decide
+
+Edit the file so it reads exactly how you want, and delete all three marker lines. Bucky wants both flavors:
+
+```
+Babcock ice cream - Union Blend and Orange Custard Chocolate Chip
+```
+
+<div class="gap-md"></div>
+
+You are free to keep [your]{.uwred} version, keep [theirs]{.uwred}, combine them, or write something new. Just make sure [every]{.uwred} marker (`<<<<<<<`, `=======`, `>>>>>>>`) is gone — a file can have several conflicts, so check the whole thing.
+
+
+--------------------------------------------------------------------------------
+
+## Mark it resolved and commit
+
+Once the markers are gone, stage the file to tell Git the conflict is settled, then commit:
+
+```bash
+git add desserts.txt
+git commit -m "Merge: offer both ice cream flavors"
+git push origin main
+```
+
+<div class="gap-sm"></div>
+
+That commit records the resolution. Now push succeeds, and Sam can `git pull` to pick up the agreed-on version. The conflict is behind you.
+
+
+--------------------------------------------------------------------------------
+
+## Avoiding conflicts
+
+You can't prevent them entirely, but a few habits make them rare and small:
+
+<div class="gap-sm"></div>
+
+- [Pull before you start]{.uwred} working, so you begin from the latest version
+- [Push often]{.uwred}, in small focused commits
+- [Coordinate]{.uwred} with collaborators about who is editing what
+
+<div class="gap-md"></div>
+
+And when one does happen — read the markers, decide, delete them, add, commit. That's the whole skill.
+
+
+--------------------------------------------------------------------------------
+
+## Your turn
+
+::: {.callout-wide}
+::: {.callout-important}
+# Try it
+Make a conflict on purpose and resolve it:
+
+1. In `gameday-menu-sam`, change a line in `brats.txt`, commit, and push
+2. In `gameday-menu`, change the same line differently and commit
+3. `git push` (watch it get rejected), then `git pull` to trigger the conflict
+4. Edit `brats.txt` to settle it, remove the markers, then `git add`, `git commit`, and `git push`
+:::
+:::
+
+
+--------------------------------------------------------------------------------
+
+## Where we are
+
+Conflicts are a skill, not a catastrophe:
+
+- They arise when two commits change the same line
+- `git pull` surfaces them; [`both modified`]{.uwred} in `git status` flags them
+- Edit the file, remove the [markers]{.uwred}, then `git add` and `git commit`
+
+<div class="gap-md"></div>
+
+::: {.callout-wide}
+::: {.callout-important}
+# Next up
+The same conflict can happen when you merge [branches]{.uwred} — parallel lines of work in a single repo. That is the next unit.
+:::
+:::

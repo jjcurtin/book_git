@@ -1,3 +1,125 @@
 ## Git Cheatsheet {.unnumbered}
 
+A quick reference for every command in these lessons. Angle brackets like `<file>` mean "fill in your own value."
 
+### The everyday rhythm
+
+Most of your Git life is this short loop:
+
+```bash
+# before you start, get the latest
+git pull origin main
+
+# ... edit files ...
+
+git add <file>            # stage your changes
+git commit -m "message"   # save them to history
+git push origin main      # send them to GitHub
+```
+
+Check in with `git status` any time you're unsure where things stand.
+
+### One-time setup (per computer)
+
+| Command | What it does |
+|---|---|
+| `git config --global user.name "Your Name"` | Set the name stamped on your commits |
+| `git config --global user.email "you@wisc.edu"` | Set the email on your commits (match GitHub) |
+| `git config --global core.editor "nano"` | Use nano for commit messages (what these lessons assume) |
+| `git config --list` | Show your current configuration |
+| `ssh -T git@github.com` | Test that your SSH key connects to GitHub |
+
+### Starting a repository
+
+| Command | What it does |
+|---|---|
+| `git init` | Turn the current folder into a Git repository |
+| `git clone <address>` | Copy a GitHub repo onto this computer |
+
+### The core cycle
+
+| Command | What it does |
+|---|---|
+| `git status` | Show untracked, modified, and staged files |
+| `git add <file>` | Stage a file for the next commit |
+| `git add <file1> <file2>` | Stage several files at once |
+| `git add .` | Stage **all** changed files (run `git status` first!) |
+| `git commit -m "message"` | Save all staged changes as a commit |
+
+### Renaming and deleting files
+
+| Command | What it does |
+|---|---|
+| `git mv <old> <new>` | Rename or move a file, keeping its history |
+| `git rm <file>` | Delete a tracked file (stages the deletion) |
+
+Both still need a `git commit` to record the change.
+
+### Seeing what changed
+
+| Command | What it does |
+|---|---|
+| `git diff <file>` | Changes since the last commit (not yet staged) |
+| `git diff --staged` | Changes that are staged for the next commit |
+| `git diff HEAD <file>` | All changes since the last commit |
+| `git diff <commit> <file>` | Compare your file to a specific past commit |
+| `git log` | Full commit history |
+| `git log --oneline` | One compact line per commit |
+| `git log --oneline <file>` | Only the commits that changed `<file>` |
+| `git log -2` | Just the two most recent commits |
+
+### Undoing and restoring
+
+| Command | What it does |
+|---|---|
+| `git restore <file>` | Discard uncommitted changes to a file |
+| `git restore --source=<commit> <file>` | Bring back an older version of a file |
+| `git reset HEAD~1` | Undo the last commit, keeping its changes in your files |
+| `git stash` | Set aside uncommitted changes to return to later |
+| `git stash pop` | Reapply the changes you stashed |
+
+Name a past commit with `HEAD` (latest), `HEAD~1` (one before), and so on — or copy its ID from `git log --oneline`. Only `git reset` commits you have **not** yet pushed.
+
+### Ignoring files
+
+Create a file named `.gitignore` and list patterns, one per line:
+
+```
+*.tmp          # any file ending in .tmp
+receipts/      # a whole folder
+secret.env     # a specific file
+```
+
+| Command | What it does |
+|---|---|
+| `git add .gitignore` | Track the ignore file so the rules are shared |
+| `git add -f <file>` | Force-add a file that is being ignored |
+| `git status --ignored` | Also list the files being ignored |
+
+### Working with GitHub
+
+| Command | What it does |
+|---|---|
+| `git remote add origin <address>` | Link your local repo to a GitHub repo |
+| `git remote -v` | Show the remotes you've connected |
+| `git push origin main` | Send your commits up to GitHub |
+| `git pull origin main` | Bring GitHub's changes down to your computer |
+
+After your first `git push origin main`, bare `git push` and `git pull` also work — but naming `origin main` keeps it unambiguous.
+
+### Key terms
+
+| Term | Meaning |
+|---|---|
+| **Repository (repo)** | A folder Git is tracking, plus its history |
+| **Commit** | A saved snapshot of your project at a point in time |
+| **Staging area** | Where changes wait after `git add`, before `git commit` |
+| **HEAD** | The commit you're currently on (usually the latest) |
+| **Remote** | A named connection to a hosted copy (e.g. on GitHub) |
+| **origin** | The conventional name for your main remote |
+
+### Where your work moves
+
+```
+working directory  --git add-->  staging area  --git commit-->  repository  --git push-->  GitHub
+```

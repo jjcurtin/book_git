@@ -1,2 +1,215 @@
 # Ignoring Files
 
+## Not everything belongs in Git
+
+Git is built for tracking the files you author. Some files are better left [untracked]{.uwred}:
+
+<div class="gap-sm"></div>
+
+- [Scratch and throwaway files]{.uwred} — temporary notes, drafts, scratch output
+- [Large or raw data]{.uwred} — bloats the repo and rarely changes
+- [Binary files]{.uwred} — Git can't meaningfully `diff` a photo or `.xlsx`; it just stores a full copy each time
+- [Secrets]{.uwred} — API keys, passwords, credentials should never be committed
+
+<div class="gap-md"></div>
+
+Instead of eyeballing `git status` and carefully avoiding them, we can tell Git to ignore them for good.
+
+
+--------------------------------------------------------------------------------
+
+## Bucky's folder gets cluttered
+
+Game-day prep leaves a mess: scratch files and a folder of receipt photos.
+
+```bash
+touch scratch.tmp shopping-draft.tmp
+mkdir receipts
+touch receipts/costco.jpg receipts/metcalfe.jpg
+```
+
+<div class="gap-sm"></div>
+
+The `.tmp` files are throwaway scratch; the `receipts/` photos are big, binary, and nobody needs them in the menu's history.
+
+
+--------------------------------------------------------------------------------
+
+## Git sees the clutter
+
+```bash
+git status
+```
+
+```
+On branch main
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	receipts/
+	scratch.tmp
+	shopping-draft.tmp
+
+nothing added to commit but untracked files present (use "git add" to track)
+```
+
+<div class="gap-sm"></div>
+
+Git keeps nagging about files we never intend to track — and worse, we might [commit them by accident]{.uwred}.
+
+
+--------------------------------------------------------------------------------
+
+## Create a `.gitignore`
+
+Git reads a file named [`.gitignore`]{.uwred} and ignores anything that matches a pattern in it. Create one:
+
+```bash
+nano .gitignore
+```
+
+<div class="gap-sm"></div>
+
+Add two patterns, then save and exit:
+
+```
+*.tmp
+receipts/
+```
+
+<div class="gap-sm"></div>
+
+[`*.tmp`]{.uwred} matches any file ending in `.tmp`; the trailing slash in [`receipts/`]{.uwred} matches that whole folder and everything inside it.
+
+
+--------------------------------------------------------------------------------
+
+## The clutter disappears
+
+```bash
+git status
+```
+
+```
+On branch main
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	.gitignore
+
+nothing added to commit but untracked files present (use "git add" to track)
+```
+
+<div class="gap-sm"></div>
+
+The scratch files and `receipts/` are gone from the list. The only thing Git still sees is `.gitignore` itself.
+
+
+--------------------------------------------------------------------------------
+
+## Track the `.gitignore` itself
+
+Commit `.gitignore` so the rules travel with the project:
+
+```bash
+git add .gitignore
+git commit -m "Ignore scratch files and receipts"
+```
+
+```
+[main d4e5f6a] Ignore scratch files and receipts
+ 1 file changed, 2 insertions(+)
+ create mode 100644 .gitignore
+```
+
+<div class="gap-sm"></div>
+
+Tracking it means anyone who clones the repo — including [future you]{.uwred} on another computer — ignores the same files automatically.
+
+
+--------------------------------------------------------------------------------
+
+## Ignored means ignored
+
+New files that match keep getting ignored, with no extra work:
+
+```bash
+touch results.tmp
+git status
+```
+
+```
+On branch main
+nothing to commit, working tree clean
+```
+
+<div class="gap-sm"></div>
+
+And if you try to add an ignored file, Git stops you:
+
+```bash
+git add scratch.tmp
+```
+
+```
+The following paths are ignored by one of your .gitignore files:
+scratch.tmp
+hint: Use -f if you really want to add them.
+```
+
+<div class="gap-sm"></div>
+
+That warning is a feature. If you ever truly need to track one, [`git add -f`]{.uwred} forces it.
+
+
+--------------------------------------------------------------------------------
+
+## Common things to ignore
+
+For data science projects, a `.gitignore` usually covers:
+
+<div class="gap-sm"></div>
+
+- [Secrets]{.uwred} — `.env`, API keys, credential files
+- [Large or raw data]{.uwred} — `data/`, `*.csv`, `*.parquet`
+- [Generated output]{.uwred} — rendered reports, figures, caches
+- [Tool cruft]{.uwred} — `.Rhistory`, `.RData`, `.Rproj.user/`, `__pycache__/`
+
+<div class="gap-md"></div>
+
+Many languages and editors publish starter `.gitignore` files you can copy from — GitHub even offers one when you create a repo.
+
+
+--------------------------------------------------------------------------------
+
+## Your turn
+
+::: {.callout-wide}
+::: {.callout-important}
+# Try it
+Bucky keeps a private budget spreadsheet in the folder:
+
+1. Create it with `touch budget.xlsx`
+2. Confirm Git sees it with `git status`
+3. Add a pattern to `.gitignore` so Git ignores `.xlsx` files
+4. Run `git status` again — it should be gone. Then `git add` and `git commit` your updated `.gitignore`
+:::
+:::
+
+
+--------------------------------------------------------------------------------
+
+## Where we are
+
+Bucky's repo now ignores the clutter:
+
+- [`.gitignore`]{.uwred} lists patterns for files Git should skip
+- Patterns like [`*.tmp`]{.uwred} and [`receipts/`]{.uwred} match files and folders
+- We commit `.gitignore` so the rules are shared
+
+<div class="gap-md"></div>
+
+::: {.callout-wide}
+::: {.callout-important}
+# Next up
+So far everything lives only on Bucky's laptop. Next we will push the menu to [GitHub]{.uwred} to back it up and share it.
+:::
+:::

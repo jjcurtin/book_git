@@ -1,0 +1,239 @@
+# Branches
+
+## Why branch?
+
+A [branch]{.uwred} is a parallel line of work inside one repository. It lets you try something without touching your main version.
+
+<div class="gap-sm"></div>
+
+Branches are useful when you want to:
+
+- [Experiment]{.uwred} with a risky change while keeping a working version safe
+- Draft a feature that isn't ready for everyone yet
+- Keep [`main`]{.uwred} stable while work is in progress
+
+<div class="gap-md"></div>
+
+You've been on a branch the whole time — the default one, called `main`. Now we'll make a second.
+
+
+--------------------------------------------------------------------------------
+
+## Where you are now
+
+List the branches in your repo:
+
+```bash
+git branch
+```
+
+```
+* main
+```
+
+<div class="gap-sm"></div>
+
+The [`*`]{.uwred} (shown in color) marks the branch you're currently on. There's only one so far, and `git status` reminds you of it too (`On branch main`).
+
+
+--------------------------------------------------------------------------------
+
+## Bucky wants to experiment
+
+Bucky is tempted to add a vegetarian spread to the menu — but he doesn't want to disturb the plan that already works.
+
+<div class="gap-md"></div>
+
+Perfect job for a branch: he can draft the veggie options off to the side, decide if he likes them, and only then bring them into `main`.
+
+
+--------------------------------------------------------------------------------
+
+## Create and switch in one step
+
+Make a new branch and move onto it:
+
+```bash
+git switch -c veggie-option
+```
+
+```
+Switched to a new branch 'veggie-option'
+```
+
+<div class="gap-sm"></div>
+
+The [`-c`]{.uwred} flag creates the branch and switches to it. It starts as an exact copy of `main`'s history.
+
+<div class="gap-sm"></div>
+
+Confirm where you are:
+
+```bash
+git branch
+```
+
+```
+  main
+* veggie-option
+```
+
+::: {.footer}
+To create a branch without switching, use `git branch <name>`. In older Git, `git checkout -b` does what `git switch -c` does here.
+:::
+
+
+--------------------------------------------------------------------------------
+
+## Work on the branch
+
+Draft the vegetarian items in a new file:
+
+```bash
+nano veggie.txt
+```
+
+```
+Grilled veggie skewers
+Portobello "brats" for the vegetarians
+```
+
+<div class="gap-sm"></div>
+
+Save it to history as usual — this commit lands on `veggie-option`, not `main`:
+
+```bash
+git add veggie.txt
+git commit -m "Draft vegetarian options"
+```
+
+
+--------------------------------------------------------------------------------
+
+## `main` is untouched
+
+Switch back and look:
+
+```bash
+git switch main
+ls
+```
+
+```
+brats.txt  cheese_curds.txt  desserts.txt
+```
+
+<div class="gap-sm"></div>
+
+No `veggie.txt` here — it lives only on the branch. [`main` is exactly as you left it.]{.uwred} That isolation is the whole point of branching.
+
+
+--------------------------------------------------------------------------------
+
+## See the branches diverge
+
+A decorated, graphed log shows how the branches relate:
+
+```bash
+git log --oneline --all --graph
+```
+
+```
+* 7a1b2c3 (veggie-option) Draft vegetarian options
+* 1d2e3f4 (HEAD -> main) Ignore scratch files and receipts
+* c3d4e5f Add cheese curds and desserts
+```
+
+<div class="gap-sm"></div>
+
+[`--all`]{.uwred} shows every branch and [`--graph`]{.uwred} draws the structure. Here `veggie-option` sits one commit ahead of `main`.
+
+
+--------------------------------------------------------------------------------
+
+## Keep it? Merge into `main`
+
+Bucky likes the veggie options, so he brings them into `main`. First be on the branch you're merging [into]{.uwred}, then merge:
+
+```bash
+git switch main
+git merge veggie-option
+```
+
+```
+Updating 1d2e3f4..7a1b2c3
+Fast-forward
+ veggie.txt | 2 ++
+ 1 file changed, 2 insertions(+)
+```
+
+<div class="gap-sm"></div>
+
+`main` had no new commits of its own, so Git just fast-forwards it to catch up. `veggie.txt` is now part of `main`.
+
+
+--------------------------------------------------------------------------------
+
+## Clean up the branch
+
+Once a branch is merged, delete it to keep things tidy:
+
+```bash
+git branch -d veggie-option
+```
+
+```
+Deleted branch veggie-option (was 7a1b2c3).
+```
+
+<div class="gap-sm"></div>
+
+If a branch is [not]{.uwred} fully merged, `-d` refuses and warns you — so you don't lose work by accident. `git branch -D` (capital D) force-deletes when you really mean it.
+
+
+--------------------------------------------------------------------------------
+
+## When merges collide
+
+Our merge was clean because `main` hadn't changed. But if `main` and your branch both edited the [same line]{.uwred}, Git can't fast-forward — the merge stops with a [conflict]{.uwred}.
+
+<div class="gap-md"></div>
+
+You already know how to handle it: open the file, remove the `<<<<<<<`, `=======`, `>>>>>>>` markers, keep what you want, then `git add` and `git commit`. (See the Conflicts unit.)
+
+
+--------------------------------------------------------------------------------
+
+## Your turn
+
+::: {.callout-wide}
+::: {.callout-important}
+# Try it
+Branch, work, merge, clean up:
+
+1. From `main`, run `git switch -c dessert-upgrade`
+2. Add a line to `desserts.txt`, then `git add` and `git commit`
+3. `git switch main` and confirm the change isn't there yet
+4. `git merge dessert-upgrade`, then `git branch -d dessert-upgrade`
+:::
+:::
+
+
+--------------------------------------------------------------------------------
+
+## Where we are
+
+Branches let you work in parallel safely:
+
+- [`git branch`]{.uwred} lists branches; [`git switch -c <name>`]{.uwred} creates and moves onto one
+- Commits land on the [current]{.uwred} branch, leaving `main` safe
+- [`git merge <branch>`]{.uwred} brings the work together; [`git branch -d`]{.uwred} cleans up
+
+<div class="gap-md"></div>
+
+::: {.callout-wide}
+::: {.callout-important}
+# Keep going
+On GitHub, branches power [pull requests]{.uwred} — the standard way to propose and review changes with collaborators. That's a great next thing to explore, with the [cheatsheet]{.uwred} at your side.
+:::
+:::

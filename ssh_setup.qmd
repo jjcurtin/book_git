@@ -1,0 +1,123 @@
+# Setting Up SSH Keys {#sec-ssh-setup}
+
+This appendix walks through connecting your computer to GitHub with SSH keys. You do this **once per computer**, before you need to push to GitHub (the Remotes in GitHub unit). Set aside about ten minutes.
+
+If you have already set up SSH keys on this machine and `ssh -T git@github.com` greets you by name, you can skip this guide.
+
+## What SSH keys do
+
+When you push work to GitHub, it needs to confirm the push is really from you. SSH keys handle that without a password. A key is a matched pair:
+
+- A [private key]{.uwred} that stays secret on your computer — never share it.
+- A [public key]{.uwred} that you hand to GitHub.
+
+GitHub matches the public key you gave it against the private key on your machine. If they pair up, you're in. You generate the pair once, register the public half with GitHub, and from then on `git push` and `git pull` just work.
+
+Everything below happens in a terminal: Git Bash on Windows, or Terminal on macOS/Linux.
+
+## Step 1: Check for an existing key
+
+You may already have a key from other work. Look for one:
+
+```bash
+ls -al ~/.ssh
+```
+
+If you see a file named `id_ed25519.pub` (or `id_rsa.pub`), you already have a key pair and can skip to [Step 4](#step-4-copy-your-public-key). If the folder is empty or does not exist, continue to Step 2.
+
+## Step 2: Generate a new key
+
+Create a key, substituting the email tied to your GitHub account:
+
+```bash
+ssh-keygen -t ed25519 -C "you@wisc.edu"
+```
+
+`ed25519` is a modern, secure key type. The command then asks you two things:
+
+- **File in which to save the key:** press [Enter]{.uwred} to accept the default location (`~/.ssh/id_ed25519`).
+- **Passphrase:** type a passphrase and press Enter, then type it again to confirm. A passphrase protects the key if someone ever copies it off your machine.
+
+One thing that surprises people: as you type the passphrase, the terminal shows [nothing]{.uwred} — no dots, no cursor movement. That is normal. If you lose track, press Backspace several times and start again.
+
+When it finishes, you have two files: `id_ed25519` (private — keep secret) and `id_ed25519.pub` (public — safe to share).
+
+## Step 3 (optional): Avoid retyping your passphrase
+
+If you would rather not enter your passphrase on every push, add the key to the SSH agent:
+
+```bash
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_ed25519
+```
+
+This is convenient but optional. You can skip it and simply type your passphrase when prompted.
+
+## Step 4: Copy your public key
+
+Print the [public]{.uwred} key and copy the entire line, from `ssh-ed25519` through your email:
+
+```bash
+cat ~/.ssh/id_ed25519.pub
+```
+
+```
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAI...rest-of-key... you@wisc.edu
+```
+
+Only ever copy the `.pub` file. The matching file without `.pub` is your private key and should never leave your computer.
+
+::: {.callout-note}
+Shortcut to copy straight to your clipboard:
+
+- macOS: `pbcopy < ~/.ssh/id_ed25519.pub`
+- Windows (Git Bash): `clip < ~/.ssh/id_ed25519.pub`
+- Linux: `xclip -sel clip < ~/.ssh/id_ed25519.pub`
+:::
+
+## Step 5: Add the key to GitHub
+
+In your browser, signed in to GitHub:
+
+1. Click your profile photo (top right) → [Settings]{.uwred}
+2. In the left sidebar, choose [SSH and GPG keys]{.uwred}
+3. Click [New SSH key]{.uwred}
+4. Give it a [Title]{.uwred} that names the computer (e.g., "Work laptop")
+5. Leave the key type as **Authentication Key**, paste your public key into the [Key]{.uwred} box
+6. Click [Add SSH key]{.uwred}
+
+Your key now appears in the list.
+
+## Step 6: Test the connection
+
+Back in your terminal, ask GitHub whether it recognizes you:
+
+```bash
+ssh -T git@github.com
+```
+
+The first time, you will be asked to confirm GitHub's fingerprint — type `yes` and press Enter. Then you should see:
+
+```
+Hi buckybadger! You've successfully authenticated, but GitHub does not provide shell access.
+```
+
+That greeting (with your username) means everything works. The "does not provide shell access" part is expected and not an error — GitHub only uses this connection for Git, not for logging in.
+
+## Troubleshooting
+
+[`git@github.com: Permission denied (publickey)`]{.uwred}
+
+- The public key is not registered on GitHub, or you pasted the wrong one. Re-copy `id_ed25519.pub` (Step 4) and confirm it matches the key listed in GitHub → Settings → SSH and GPG keys.
+
+[You are asked for your passphrase on every command]{.uwred}
+
+- That is normal unless you set up the SSH agent (Step 3). Add the key to the agent to stop the repeated prompts.
+
+[`Could not open a connection to your authentication agent`]{.uwred}
+
+- The agent is not running. Start it with `eval "$(ssh-agent -s)"` and then re-run `ssh-add`.
+
+## You're set
+
+With `ssh -T git@github.com` greeting you by name, your computer and GitHub are linked. Head back to the Remotes in GitHub unit to connect your repository and push your first commits.

@@ -10,3 +10,11 @@
   posit-connect-cloud:
     - id: 01a1313a-87a2-c88a-f18b-06e065b7b68a
       url: https://connect.posit.cloud/jjcurtin/content/01a1313a-87a2-c88a-f18b-06e065b7b68a
+- source: 04_ignoring_files.qmd
+  posit-connect-cloud:
+    - id: 01a131ab-5119-32b7-c0c6-695a27cbcd1e
+      url: https://connect.posit.cloud/jjcurtin/content/01a131ab-5119-32b7-c0c6-695a27cbcd1e
+- source: 05_remotes_github.qmd
+  posit-connect-cloud:
+    - id: 01a131b6-2ab8-1681-41b3-3022e0126132
+      url: https://connect.posit.cloud/jjcurtin/content/01a131b6-2ab8-1681-41b3-3022e0126132

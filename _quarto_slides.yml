@@ -3,8 +3,8 @@ css: slides_teaching.css
 format: 
   revealjs:
     logo: uwlogo.png
-    scrollable: true
-    chalkboard: true
+    scrollable: false 
+    chalkboard: false
     slide-number: true
     show-slide-number: all 
     html-math-method: mathjax
