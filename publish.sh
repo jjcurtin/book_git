@@ -20,7 +20,7 @@ fi
  
 if [ "$FORMAT" = "slides" ];  then
   echo ""
-	echo "Publishing $FILE to standard slides on Posit Connect Cloud "
+	echo "Publishing $FILE to standard slides on quarto-pub"
   echo ""
   cp _quarto_slides.yml _quarto.yml
   quarto publish posit-connect-cloud "$FILE" --no-browser
@@ -31,7 +31,7 @@ fi
  
 if [ "$FORMAT" = "slides_wide" ];  then
   echo ""
-	echo "Publishing $FILE to wide slides on Posit Connect Cloud"
+	echo "Publishing $FILE to wide slides on quarto-pub"
   echo ""
   cp _quarto_slides_wide.yml _quarto.yml
   quarto publish posit-connect-cloud "$FILE" --no-browser
