@@ -4,7 +4,17 @@
     "href": "index.html",
     "title": "Introduction to Git and Github",
     "section": "",
-    "text": "Introduction to Git and Github",
+    "text": "Introduction to Git and Github\nGit and GitHub are the tools data scientists use to track changes to their work, recover earlier versions, and collaborate without overwriting each other. This book is a hands-on introduction, built around a single running example that grows from an empty folder into a shared repository on GitHub.",
+    "crumbs": [
+      "Introduction to Git and Github"
+    ]
+  },
+  {
+    "objectID": "index.html#introduction-to-git-and-github",
+    "href": "index.html#introduction-to-git-and-github",
+    "title": "Introduction to Git and Github",
+    "section": "",
+    "text": "Where these materials come from\nThese materials are based on the Version Control with Git video series produced by the UW–Madison Data Science Hub, which adapts the Software Carpentries Git novice lesson. We are grateful for their work.\nThe book is designed as an alternative to watching the videos: the same material, in a form you can read quickly, follow along with during a workshop, and return to later when a specific question comes up — without scrubbing through an hour of video to find the one command you need.\nWhere it helps, we have also updated the workflows to use current Git commands:\n\nTo restore a previous version of a file, we use git restore rather than the older git checkout.\nTo move between branches, we use git switch rather than git checkout.\n\nThese newer commands each do one job, which makes them clearer and harder to misuse than the older, overloaded git checkout.\n\n\nHow this book is organized\nThe book has seven units plus a few reference appendices.\n\nUnits 1–5 are the core everyday workflow. They are covered live in a one-hour, hands-on workshop.\nUnits 6–7 (Conflicts and Branches) go beyond the live hour and are here for you to explore on your own afterward.\n\nEach of Units 1–5 also has a companion slide deck — the same content we present live, published on Posit Connect Cloud:\n\n\n\nUnit\nSlide deck\n\n\n\n\n1 — Introduction and Setup\nopen deck\n\n\n2 — Tracking Changes\nopen deck\n\n\n3 — Exploring History\nopen deck\n\n\n4 — Ignoring Files\nopen deck\n\n\n5 — Remotes in GitHub\nopen deck\n\n\n\nThe appendices cover one-time setup you should finish before the workshop — installing Git on Windows and connecting to GitHub with SSH keys — and a cheatsheet at the end collects every command in one place for quick reference.\n\n\nHow to use this book\nGit is best learned by doing. As you read, follow along in a terminal — Git Bash on Windows, or Terminal on macOS/Linux — and type the commands yourself. Everything builds one running example (Bucky Badger’s game-day menu), so the repository you create grows right alongside the book.\nA few conventions to know:\n\nCommands you type appear in shaded code blocks, with the output Git prints shown just below them.\nYour turn boxes are short challenges to try on your own before moving on.\nKeep the cheatsheet open in another tab for quick reference.\n\nThe source for this book lives on GitHub; corrections and suggestions are welcome.",
     "crumbs": [
       "Introduction to Git and Github"
     ]

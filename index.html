@@ -206,7 +206,12 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#introduction-to-git-and-github" id="toc-introduction-to-git-and-github" class="nav-link active" data-scroll-target="#introduction-to-git-and-github">Introduction to Git and Github</a></li>
+  <li><a href="#introduction-to-git-and-github" id="toc-introduction-to-git-and-github" class="nav-link active" data-scroll-target="#introduction-to-git-and-github">Introduction to Git and Github</a>
+  <ul class="collapse">
+  <li><a href="#where-these-materials-come-from" id="toc-where-these-materials-come-from" class="nav-link" data-scroll-target="#where-these-materials-come-from">Where these materials come from</a></li>
+  <li><a href="#how-this-book-is-organized" id="toc-how-this-book-is-organized" class="nav-link" data-scroll-target="#how-this-book-is-organized">How this book is organized</a></li>
+  <li><a href="#how-to-use-this-book" id="toc-how-to-use-this-book" class="nav-link" data-scroll-target="#how-to-use-this-book">How to use this book</a></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/jjcurtin/book_git/edit/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></nav>
     </div>
@@ -240,8 +245,71 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="introduction-to-git-and-github" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="introduction-to-git-and-github">Introduction to Git and Github</h2>
+<p>Git and GitHub are the tools data scientists use to track changes to their work, recover earlier versions, and collaborate without overwriting each other. This book is a hands-on introduction, built around a single running example that grows from an empty folder into a shared repository on GitHub.</p>
+<section id="where-these-materials-come-from" class="level3">
+<h3 class="anchored" data-anchor-id="where-these-materials-come-from">Where these materials come from</h3>
+<p>These materials are based on the <a href="https://www.youtube.com/playlist?list=PL90vX4e9ORqeE1wyMbST9pJ1-Mj45f2JY"><em>Version Control with Git</em> video series</a> produced by the <a href="https://github.com/UW-Madison-DataScience">UW–Madison Data Science Hub</a>, which adapts the Software Carpentries <a href="https://swcarpentry.github.io/git-novice/">Git novice lesson</a>. We are grateful for their work.</p>
+<p>The book is designed as an <strong>alternative to watching the videos</strong>: the same material, in a form you can read quickly, follow along with during a workshop, and return to later when a specific question comes up — without scrubbing through an hour of video to find the one command you need.</p>
+<p>Where it helps, we have also <strong>updated the workflows</strong> to use current Git commands:</p>
+<ul>
+<li>To restore a previous version of a file, we use <code>git restore</code> rather than the older <code>git checkout</code>.</li>
+<li>To move between branches, we use <code>git switch</code> rather than <code>git checkout</code>.</li>
+</ul>
+<p>These newer commands each do one job, which makes them clearer and harder to misuse than the older, overloaded <code>git checkout</code>.</p>
+</section>
+<section id="how-this-book-is-organized" class="level3">
+<h3 class="anchored" data-anchor-id="how-this-book-is-organized">How this book is organized</h3>
+<p>The book has seven units plus a few reference appendices.</p>
+<ul>
+<li><strong>Units 1–5</strong> are the core everyday workflow. They are covered live in a one-hour, hands-on workshop.</li>
+<li><strong>Units 6–7</strong> (Conflicts and Branches) go beyond the live hour and are here for you to explore on your own afterward.</li>
+</ul>
+<p>Each of Units 1–5 also has a companion <strong>slide deck</strong> — the same content we present live, published on Posit Connect Cloud:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Unit</th>
+<th>Slide deck</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1 — Introduction and Setup</td>
+<td><a href="https://connect.posit.cloud/jjcurtin/content/01a130e4-55d6-cf95-b375-28ad9527f4fc">open deck</a></td>
+</tr>
+<tr class="even">
+<td>2 — Tracking Changes</td>
+<td><a href="https://connect.posit.cloud/jjcurtin/content/01a130fe-3048-3beb-70ec-83274029f74f">open deck</a></td>
+</tr>
+<tr class="odd">
+<td>3 — Exploring History</td>
+<td><a href="https://connect.posit.cloud/jjcurtin/content/01a1313a-87a2-c88a-f18b-06e065b7b68a">open deck</a></td>
+</tr>
+<tr class="even">
+<td>4 — Ignoring Files</td>
+<td><a href="https://connect.posit.cloud/jjcurtin/content/01a131ab-5119-32b7-c0c6-695a27cbcd1e">open deck</a></td>
+</tr>
+<tr class="odd">
+<td>5 — Remotes in GitHub</td>
+<td><a href="https://connect.posit.cloud/jjcurtin/content/01a131b6-2ab8-1681-41b3-3022e0126132">open deck</a></td>
+</tr>
+</tbody>
+</table>
+<p>The <strong>appendices</strong> cover one-time setup you should finish before the workshop — installing Git on Windows and connecting to GitHub with SSH keys — and a <strong>cheatsheet</strong> at the end collects every command in one place for quick reference.</p>
+</section>
+<section id="how-to-use-this-book" class="level3">
+<h3 class="anchored" data-anchor-id="how-to-use-this-book">How to use this book</h3>
+<p>Git is best learned by doing. As you read, <strong>follow along in a terminal</strong> — Git Bash on Windows, or Terminal on macOS/Linux — and type the commands yourself. Everything builds one running example (Bucky Badger’s game-day menu), so the repository you create grows right alongside the book.</p>
+<p>A few conventions to know:</p>
+<ul>
+<li>Commands you type appear in shaded code blocks, with the output Git prints shown just below them.</li>
+<li><strong>Your turn</strong> boxes are short challenges to try on your own before moving on.</li>
+<li>Keep the cheatsheet open in another tab for quick reference.</li>
+</ul>
+<p>The source for this book lives on <a href="https://github.com/jjcurtin/book_git">GitHub</a>; corrections and suggestions are welcome.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
