@@ -1,0 +1,1168 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Introduction to Git and Github",
+    "section": "",
+    "text": "Introduction to Git and Github",
+    "crumbs": [
+      "Introduction to Git and Github"
+    ]
+  },
+  {
+    "objectID": "01_setup.html",
+    "href": "01_setup.html",
+    "title": "1  Introduction and Setup",
+    "section": "",
+    "text": "1.1 Why are we here?\nBy the end of this hour you will be able to:\nWe will build one project together, start to finish: Bucky’s game-day menu.\nYou’ll build this repo along with me the whole hour — including the Your turn moments, where you try a step on your own before we regroup.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction and Setup</span>"
+    ]
+  },
+  {
+    "objectID": "01_setup.html#why-are-we-here",
+    "href": "01_setup.html#why-are-we-here",
+    "title": "1  Introduction and Setup",
+    "section": "",
+    "text": "Explain what version control is and why it matters for data science\nPut a project folder under Git and track changes to it\nSave versions with meaningful messages, and look back at your history\nTell Git to ignore files it should not track\nPush your work to GitHub to back it up and share it",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction and Setup</span>"
+    ]
+  },
+  {
+    "objectID": "01_setup.html#what-is-version-control",
+    "href": "01_setup.html#what-is-version-control",
+    "title": "1  Introduction and Setup",
+    "section": "1.2 What is version control?",
+    "text": "1.2 What is version control?\nVersion control keeps track of changes you make to files over time.\n\n\n\nIt lets you:\n\nGo back to any earlier version of a file\nKeep only one copy in your folder (not ten copies with different names)\nSee what changed, when, and why\nWork with others without emailing files back and forth\nKeep the same project synced across computers",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction and Setup</span>"
+    ]
+  },
+  {
+    "objectID": "01_setup.html#you-have-probably-done-this-the-hard-way",
+    "href": "01_setup.html#you-have-probably-done-this-the-hard-way",
+    "title": "1  Introduction and Setup",
+    "section": "1.3 You have probably done this the hard way",
+    "text": "1.3 You have probably done this the hard way\nHow many of these folders have you lived in?\n\n\n\nanalysis.R\nanalysis_v2.R\nanalysis_final.R\nanalysis_final_FINAL.R\nanalysis_2026-10-01.R\nanalysis_2026-10-01_jjc.R\n\n\n\nYou cannot tell what changed between any two of them, and they all pile up in the same folder.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction and Setup</span>"
+    ]
+  },
+  {
+    "objectID": "01_setup.html#git-fixes-this",
+    "href": "01_setup.html#git-fixes-this",
+    "title": "1  Introduction and Setup",
+    "section": "1.4 Git fixes this",
+    "text": "1.4 Git fixes this\nWith Git, you keep one analysis.R in your folder.\n\n\n\nGit quietly stores the full history behind the scenes. At any point you can:\n\nAsk “what did this file look like last Tuesday?”\nRead the note you left yourself explaining each change\nRestore an older version without losing your current work\n\n\n\n\n\n“Your closest collaborator is you six months ago, and they don’t answer email.”\n\nGit is how you leave notes for that person.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction and Setup</span>"
+    ]
+  },
+  {
+    "objectID": "01_setup.html#git-is-not-github",
+    "href": "01_setup.html#git-is-not-github",
+    "title": "1  Introduction and Setup",
+    "section": "1.5 Git is not GitHub",
+    "text": "1.5 Git is not GitHub\nA point of confusion worth clearing up right away:\n\n\n\n\n\n\n\n\n\nWhat it is\n\n\nWhere it lives\n\n\n\n\n\n\nGit\n\n\nThe version-control software\n\n\nOn your computer\n\n\n\n\nGitHub\n\n\nA website that hosts Git repositories\n\n\nIn the cloud\n\n\n\n\n\n\n\nYou can use Git with no internet at all. GitHub is where you put a copy to back it up, share it, and collaborate. We get there at the end of the hour.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction and Setup</span>"
+    ]
+  },
+  {
+    "objectID": "01_setup.html#our-running-example-buckys-game-day-menu",
+    "href": "01_setup.html#our-running-example-buckys-game-day-menu",
+    "title": "1  Introduction and Setup",
+    "section": "1.6 Our running example: Bucky’s game-day menu",
+    "text": "1.6 Our running example: Bucky’s game-day menu\nBucky Badger is planning the food for a game-day tailgate, and the menu keeps changing.\n\n\n\nWe will keep the plan in a folder called gameday-menu, with a file per part of the spread:\n\nbrats.txt\ncheese_curds.txt\ndesserts.txt\n\n\n\n\nAs the menu evolves, we will use Git to track every change, so Bucky can always see what the plan looked like last week.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction and Setup</span>"
+    ]
+  },
+  {
+    "objectID": "01_setup.html#what-you-should-already-have",
+    "href": "01_setup.html#what-you-should-already-have",
+    "title": "1  Introduction and Setup",
+    "section": "1.7 What you should already have",
+    "text": "1.7 What you should already have\nThis lecture assumes two things are done:\n\nGit is installed on your laptop\nYou have a GitHub account\n\n\n\n\nIf either is missing, follow the setup guide and catch up with a neighbor:\n\nhttps://carpentries.github.io/workshop-template/#git\n\n\n\n\nEverything today happens in a terminal (Git Bash on Windows; Terminal on macOS/Linux). Git commands all start with the word git.\n\n\n\nRStudio also has a built in terminal. I use it rather than a separate terminal for git and file management when I am working on analysis code for a project. Its up to you!",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction and Setup</span>"
+    ]
+  },
+  {
+    "objectID": "01_setup.html#tell-git-who-you-are",
+    "href": "01_setup.html#tell-git-who-you-are",
+    "title": "1  Introduction and Setup",
+    "section": "1.8 Tell Git who you are",
+    "text": "1.8 Tell Git who you are\nGit stamps every saved version with a name and email. Set yours once per computer:\n\n\n\ngit config --global user.name \"Your Name\"\ngit config --global user.email \"you@wisc.edu\"\n\n\n\nUse your own name and email, not Bucky’s. The email should match the one on your GitHub account.\nThe --global flag means “use this for every project on this computer,” so you only do it once.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction and Setup</span>"
+    ]
+  },
+  {
+    "objectID": "01_setup.html#check-that-it-worked",
+    "href": "01_setup.html#check-that-it-worked",
+    "title": "1  Introduction and Setup",
+    "section": "1.9 Check that it worked",
+    "text": "1.9 Check that it worked\nYou can confirm your settings at any time:\n\n\n\ngit config --list\n\n\n\nLook for your user.name and user.email in the output:\nuser.name=Bucky Badger\nuser.email=bucky@wisc.edu\ninit.defaultBranch=main\n\n\n\nIf you made a typo, just run the config command again to overwrite it.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction and Setup</span>"
+    ]
+  },
+  {
+    "objectID": "01_setup.html#make-a-folder-for-the-project",
+    "href": "01_setup.html#make-a-folder-for-the-project",
+    "title": "1  Introduction and Setup",
+    "section": "1.10 Make a folder for the project",
+    "text": "1.10 Make a folder for the project\nCreate a folder for Bucky’s menu and move into it.\n\n\n\nI prefer to keep all of my git repos at one location (~/github)\n\n\n\nmkdir github\ncd github\n\nmkdir gameday-menu\ncd gameday-menu\n\n\n\nRight now this is just an ordinary folder. Git is not watching it yet.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction and Setup</span>"
+    ]
+  },
+  {
+    "objectID": "01_setup.html#turn-the-folder-into-a-repository",
+    "href": "01_setup.html#turn-the-folder-into-a-repository",
+    "title": "1  Introduction and Setup",
+    "section": "1.11 Turn the folder into a repository",
+    "text": "1.11 Turn the folder into a repository\nA repository (or “repo”) is a folder that Git is tracking, along with its full history.\n\n\n\nTurn the current folder into one with a single command:\ngit init\n\n\n\nInitialized empty Git repository in /home/bucky/github/gameday-menu/.git/\n\n\n\nGit created a hidden .git folder to store the history. You never edit it by hand; Git manages it for you.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction and Setup</span>"
+    ]
+  },
+  {
+    "objectID": "01_setup.html#meet-git-status",
+    "href": "01_setup.html#meet-git-status",
+    "title": "1  Introduction and Setup",
+    "section": "1.12 Meet git status",
+    "text": "1.12 Meet git status\ngit status is the command you will run the most. It tells you where things stand.\n\n\n\ngit status\n\n\n\nOn branch main\nNo commits yet\nnothing to commit (create/copy files and use \"git add\" to track)",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction and Setup</span>"
+    ]
+  },
+  {
+    "objectID": "01_setup.html#reading-that-message",
+    "href": "01_setup.html#reading-that-message",
+    "title": "1  Introduction and Setup",
+    "section": "1.13 Reading that message",
+    "text": "1.13 Reading that message\nThree things Git just told us:\n\n\n\n\nOn branch main — the default line of work (more on branches another day)\nNo commits yet — we have no saved history in this repo\nnothing to commit — the folder is empty, so there is nothing to track\n\n\n\n\nNotice the hint: use “git add” to track. Git is telling us the next step.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction and Setup</span>"
+    ]
+  },
+  {
+    "objectID": "01_setup.html#where-we-are",
+    "href": "01_setup.html#where-we-are",
+    "title": "1  Introduction and Setup",
+    "section": "1.14 Where we are",
+    "text": "1.14 Where we are\nWe have:\n\nConfirmed Git knows who we are\nCreated the gameday-menu folder\nTurned it into a Git repository with git init\nLearned to check in with git status\n\n\n\n\n\n\n\n\n\n\n\nImportantNext up\n\n\n\nBucky still has no food on the menu. Next we will create our first files and learn how Git saves versions of them with add and commit.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction and Setup</span>"
+    ]
+  },
+  {
+    "objectID": "02_tracking_changes.html",
+    "href": "02_tracking_changes.html",
+    "title": "2  Tracking Changes",
+    "section": "",
+    "text": "2.1 The rhythm of Git\nEvery version you save follows the same two-step rhythm:\nAlong the way, three commands let you check in:",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Tracking Changes</span>"
+    ]
+  },
+  {
+    "objectID": "02_tracking_changes.html#the-rhythm-of-git",
+    "href": "02_tracking_changes.html#the-rhythm-of-git",
+    "title": "2  Tracking Changes",
+    "section": "",
+    "text": "Edit your files as usual\ngit add — mark the changes you want to save\ngit commit — save them as a point in history\n\n\n\n\n\n\ngit status — where do things stand?\ngit diff — what exactly changed?\ngit log — what have I saved so far?",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Tracking Changes</span>"
+    ]
+  },
+  {
+    "objectID": "02_tracking_changes.html#put-the-first-item-on-the-menu",
+    "href": "02_tracking_changes.html#put-the-first-item-on-the-menu",
+    "title": "2  Tracking Changes",
+    "section": "2.2 Put the first item on the menu",
+    "text": "2.2 Put the first item on the menu\nBucky starts with the main event. Open a new file with nano:\nnano brats.txt\n\n\n\nType one line, then save and exit with Ctrl+X, then Y, then Enter:\nBratwurst - simmer in beer and onions, then grill\n\n\n\nPrefer a different editor? Open the file in the RStudio source editor, or use another terminal editor like vim — any of them works. These slides use nano. Either way, nothing has been handed to Git yet; we have only written to the folder.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Tracking Changes</span>"
+    ]
+  },
+  {
+    "objectID": "02_tracking_changes.html#a-new-untracked-file",
+    "href": "02_tracking_changes.html#a-new-untracked-file",
+    "title": "2  Tracking Changes",
+    "section": "2.3 A new, untracked file",
+    "text": "2.3 A new, untracked file\nCheck in with git status:\ngit status\nOn branch main\n\nNo commits yet\n\nUntracked files:\n  (use \"git add &lt;file&gt;...\" to include in what will be committed)\n    brats.txt\n\nnothing added to commit but untracked files present (use \"git add\" to track)\n\n\n\nGit sees brats.txt but calls it untracked — it is not yet part of the history.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Tracking Changes</span>"
+    ]
+  },
+  {
+    "objectID": "02_tracking_changes.html#step-1-of-2-stage-it-with-git-add",
+    "href": "02_tracking_changes.html#step-1-of-2-stage-it-with-git-add",
+    "title": "2  Tracking Changes",
+    "section": "2.4 Step 1 of 2: stage it with git add",
+    "text": "2.4 Step 1 of 2: stage it with git add\nTell Git this file belongs in the next saved version:\ngit add brats.txt\n\n\n\nThis puts brats.txt on the stage — the group of changes that will be saved together on your next commit.\n\n\n\ngit add produces no output when it succeeds. Run git status to see what it did.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Tracking Changes</span>"
+    ]
+  },
+  {
+    "objectID": "02_tracking_changes.html#staged-and-ready",
+    "href": "02_tracking_changes.html#staged-and-ready",
+    "title": "2  Tracking Changes",
+    "section": "2.5 Staged and ready",
+    "text": "2.5 Staged and ready\ngit status\nOn branch main\n\nNo commits yet\n\nChanges to be committed:\n  (use \"git rm --cached &lt;file&gt;...\" to unstage)\n    new file:   brats.txt\n\n\n\nNow Git lists brats.txt under Changes to be committed. It is staged, but not yet saved to history.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Tracking Changes</span>"
+    ]
+  },
+  {
+    "objectID": "02_tracking_changes.html#step-2-of-2-save-it-with-git-commit",
+    "href": "02_tracking_changes.html#step-2-of-2-save-it-with-git-commit",
+    "title": "2  Tracking Changes",
+    "section": "2.6 Step 2 of 2: save it with git commit",
+    "text": "2.6 Step 2 of 2: save it with git commit\nA commit is a permanent point in your history. It needs a short message describing the change:\ngit commit -m \"Add brats to the menu\"\n[main (root-commit) a1b2c3d] Add brats to the menu\n 1 file changed, 1 insertion(+)\n create mode 100644 brats.txt\n\n\n\nThe -m flag supplies the message. This is our first commit, so Git labels it the root-commit and stamps it with a unique ID (a1b2c3d).",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Tracking Changes</span>"
+    ]
+  },
+  {
+    "objectID": "02_tracking_changes.html#working-tree-clean",
+    "href": "02_tracking_changes.html#working-tree-clean",
+    "title": "2  Tracking Changes",
+    "section": "2.7 Working tree clean",
+    "text": "2.7 Working tree clean\ngit status\nOn branch main\nnothing to commit, working tree clean\n\n\n\nWorking tree clean means the folder matches the saved history exactly — nothing is waiting to be saved.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Tracking Changes</span>"
+    ]
+  },
+  {
+    "objectID": "02_tracking_changes.html#where-your-work-lives",
+    "href": "02_tracking_changes.html#where-your-work-lives",
+    "title": "2  Tracking Changes",
+    "section": "2.8 Where your work lives",
+    "text": "2.8 Where your work lives\nThat two-step dance makes sense once you see the three places your work can be:\n\n\n\n\n\n\n\nWorking directory\n\n\nStaging area\n\n\nRepository\n\n\n\n\n\n\nYour files as you edit them\n\n\nChanges you have marked to save\n\n\nThe permanent history of commits\n\n\n\n\n\n\n\nTwo commands move your work to the right along this path.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Tracking Changes</span>"
+    ]
+  },
+  {
+    "objectID": "02_tracking_changes.html#git-add-moves-work-to-the-stage",
+    "href": "02_tracking_changes.html#git-add-moves-work-to-the-stage",
+    "title": "2  Tracking Changes",
+    "section": "2.9 git add moves work to the stage",
+    "text": "2.9 git add moves work to the stage\n\n\n\n\nWorking directory\n\n\nStaging area\n\n\nRepository\n\n\n\n\n\n\nYour files as you edit them\n\n\nChanges you have marked to save\n\n\nThe permanent history of commits\n\n\n\n\n\n\n\ngit add copies changes from your working directory onto the stage. You choose exactly what goes on.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Tracking Changes</span>"
+    ]
+  },
+  {
+    "objectID": "02_tracking_changes.html#git-commit-records-the-stage",
+    "href": "02_tracking_changes.html#git-commit-records-the-stage",
+    "title": "2  Tracking Changes",
+    "section": "2.10 git commit records the stage",
+    "text": "2.10 git commit records the stage\n\n\n\n\nWorking directory\n\n\nStaging area\n\n\nRepository\n\n\n\n\n\n\nYour files as you edit them\n\n\nChanges you have marked to save\n\n\nThe permanent history of commits\n\n\n\n\n\n\n\ngit commit records everything on the stage as one point in history. The extra step is a feature: it lets you group related changes into a single, meaningful commit.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Tracking Changes</span>"
+    ]
+  },
+  {
+    "objectID": "02_tracking_changes.html#see-your-history-git-log",
+    "href": "02_tracking_changes.html#see-your-history-git-log",
+    "title": "2  Tracking Changes",
+    "section": "2.11 See your history: git log",
+    "text": "2.11 See your history: git log\ngit log\ncommit a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0 (HEAD -&gt; main)\nAuthor: Bucky Badger &lt;bucky@wisc.edu&gt;\nDate:   Fri Oct 9 10:15:00 2026 -0500\n\n    Add brats to the menu\n\n\n\nEach commit records the full ID, who made it, when, and the message. HEAD marks where you are now.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Tracking Changes</span>"
+    ]
+  },
+  {
+    "objectID": "02_tracking_changes.html#bucky-tweaks-the-brats",
+    "href": "02_tracking_changes.html#bucky-tweaks-the-brats",
+    "title": "2  Tracking Changes",
+    "section": "2.12 Bucky tweaks the brats",
+    "text": "2.12 Bucky tweaks the brats\nHow many to buy? Reopen the file:\nnano brats.txt\n\n\n\nAdd a second line, then save and exit:\nBratwurst - simmer in beer and onions, then grill\nCount: 2 per person (Bucky eats 4)\n\n\n\nSave the file, then check what Git thinks.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Tracking Changes</span>"
+    ]
+  },
+  {
+    "objectID": "02_tracking_changes.html#a-tracked-file-now-modified",
+    "href": "02_tracking_changes.html#a-tracked-file-now-modified",
+    "title": "2  Tracking Changes",
+    "section": "2.13 A tracked file, now modified",
+    "text": "2.13 A tracked file, now modified\ngit status\nOn branch main\nChanges not staged for commit:\n  (use \"git add &lt;file&gt;...\" to update what will be committed)\n  (use \"git restore &lt;file&gt;...\" to discard changes in working directory)\n    modified:   brats.txt\n\nno changes added to commit (use \"git add\" and/or \"git commit -a\")\n\n\n\nThis time Git already knows brats.txt, so it reports it as modified rather than untracked.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Tracking Changes</span>"
+    ]
+  },
+  {
+    "objectID": "02_tracking_changes.html#what-exactly-changed-git-diff",
+    "href": "02_tracking_changes.html#what-exactly-changed-git-diff",
+    "title": "2  Tracking Changes",
+    "section": "2.14 What exactly changed? git diff",
+    "text": "2.14 What exactly changed? git diff\nCame back from the stadium and forgot what you edited? Ask Git:\ngit diff brats.txt\ndiff --git a/brats.txt b/brats.txt\nindex 83db48f..f735c2d 100644\n--- a/brats.txt\n+++ b/brats.txt\n@@ -1 +1,2 @@\n Bratwurst - simmer in beer and onions, then grill\n+Count: 2 per person (Bucky eats 4)\n\n\n\n\nGit colors the output: added lines show in green with a +, and removed lines would show in red with a -.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Tracking Changes</span>"
+    ]
+  },
+  {
+    "objectID": "02_tracking_changes.html#stage-and-commit-the-edit",
+    "href": "02_tracking_changes.html#stage-and-commit-the-edit",
+    "title": "2  Tracking Changes",
+    "section": "2.15 Stage and commit the edit",
+    "text": "2.15 Stage and commit the edit\nSame two steps as before:\ngit add brats.txt\ngit commit -m \"Note how many brats to buy\"\n[main b2c3d4e] Note how many brats to buy\n 1 file changed, 1 insertion(+)\n\n\n\nThat is the whole rhythm: edit → add → commit. You will do it hundreds of times.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Tracking Changes</span>"
+    ]
+  },
+  {
+    "objectID": "02_tracking_changes.html#one-commit-two-new-files",
+    "href": "02_tracking_changes.html#one-commit-two-new-files",
+    "title": "2  Tracking Changes",
+    "section": "2.16 One commit, two new files",
+    "text": "2.16 One commit, two new files\nThe menu grows. Create two more files, one at a time:\nnano cheese_curds.txt\nFried cheese curds from the Union - 2 baskets\nnano desserts.txt\nBabcock ice cream - chocolate and Union Blend\n\n\n\ngit status\nUntracked files:\n    cheese_curds.txt\n    desserts.txt",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Tracking Changes</span>"
+    ]
+  },
+  {
+    "objectID": "02_tracking_changes.html#stage-both-at-once",
+    "href": "02_tracking_changes.html#stage-both-at-once",
+    "title": "2  Tracking Changes",
+    "section": "2.17 Stage both at once",
+    "text": "2.17 Stage both at once\nThese two go together, so stage them in one step:\ngit add cheese_curds.txt desserts.txt\n\n\n\nPreview what is staged with git diff --staged (plain git diff looks only at unstaged changes):\ngit diff --staged\ndiff --git a/cheese_curds.txt b/cheese_curds.txt\nnew file mode 100644\n@@ -0,0 +1 @@\n+Fried cheese curds from the Union - 2 baskets\ndiff --git a/desserts.txt b/desserts.txt\nnew file mode 100644\n@@ -0,0 +1 @@\n+Babcock ice cream - chocolate and Union Blend",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Tracking Changes</span>"
+    ]
+  },
+  {
+    "objectID": "02_tracking_changes.html#commit-them-together",
+    "href": "02_tracking_changes.html#commit-them-together",
+    "title": "2  Tracking Changes",
+    "section": "2.18 Commit them together",
+    "text": "2.18 Commit them together\nBoth new files land in one commit:\ngit commit -m \"Add cheese curds and desserts\"\n[main c3d4e5f] Add cheese curds and desserts\n 2 files changed, 2 insertions(+)\n create mode 100644 cheese_curds.txt\n create mode 100644 desserts.txt\n\n\n\nThis is why add and commit are separate steps: you decide what belongs together.\n\n\n\nLater, we will learn how to undo a commit so best to stage and commit edits that represent some block of changes that belong together for some goal in your development/analysis workflow",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Tracking Changes</span>"
+    ]
+  },
+  {
+    "objectID": "02_tracking_changes.html#the-story-so-far-git-log---oneline",
+    "href": "02_tracking_changes.html#the-story-so-far-git-log---oneline",
+    "title": "2  Tracking Changes",
+    "section": "2.19 The story so far: git log --oneline",
+    "text": "2.19 The story so far: git log --oneline\nFull git log gets long fast. The --oneline flag gives one row per commit:\ngit log --oneline\nc3d4e5f (HEAD -&gt; main) Add cheese curds and desserts\nb2c3d4e Note how many brats to buy\na1b2c3d Add brats to the menu\n\n\n\nYou can also limit the count: git log -2 shows just the two most recent commits.\n\n\n\nName a file to see only the commits that changed it — handy when you need to track down an error in one file:\ngit log --oneline brats.txt\nb2c3d4e Note how many brats to buy\na1b2c3d Add brats to the menu\n\n\n\nThe cheese curds and desserts commit drops out — it never touched brats.txt. (Add -- before the name, git log --oneline -- brats.txt, if Git confuses it with a branch.)",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Tracking Changes</span>"
+    ]
+  },
+  {
+    "objectID": "02_tracking_changes.html#writing-good-commit-messages",
+    "href": "02_tracking_changes.html#writing-good-commit-messages",
+    "title": "2  Tracking Changes",
+    "section": "2.20 Writing good commit messages",
+    "text": "2.20 Writing good commit messages\nYour future self reads these. Aim for the middle ground:\n\n\n\n\n\n\n\nMessage\n\n\nVerdict\n\n\n\n\n\n\nchanges\n\n\nToo vague — says nothing\n\n\n\n\nAdded “Fried cheese curds from the Union - 2 baskets” to cheese_curds.txt\n\n\nToo verbose — just repeats the file\n\n\n\n\nAdd cheese curds and desserts\n\n\nCaptures the meaning, briefly\n\n\n\n\n\n\n\nKeep the first line under about 50 characters and describe the change, not the literal text.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Tracking Changes</span>"
+    ]
+  },
+  {
+    "objectID": "02_tracking_changes.html#your-turn",
+    "href": "02_tracking_changes.html#your-turn",
+    "title": "2  Tracking Changes",
+    "section": "2.21 Your turn",
+    "text": "2.21 Your turn\n\n\n\n\n\n\n\nImportantTry it\n\n\n\nBucky wants cream puffs. On your own:\n\nAdd a line to desserts.txt for cream puffs\nCheck what changed with git diff\nStage it with git add, then git commit with a clear message\nConfirm it landed with git log --oneline",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Tracking Changes</span>"
+    ]
+  },
+  {
+    "objectID": "02_tracking_changes.html#where-we-are",
+    "href": "02_tracking_changes.html#where-we-are",
+    "title": "2  Tracking Changes",
+    "section": "2.22 Where we are",
+    "text": "2.22 Where we are\nWe can now build history on purpose:\n\ngit add stages changes; git commit saves them\ngit status shows where things stand\ngit diff shows what changed; git log shows what we saved\n\n\n\n\n\n\n\n\n\n\n\nImportantNext up\n\n\n\nBucky commits a menu change he regrets. Next we will use the history to look back and restore an earlier version of a file.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Tracking Changes</span>"
+    ]
+  },
+  {
+    "objectID": "03_exploring_history.html",
+    "href": "03_exploring_history.html",
+    "title": "3  Exploring History",
+    "section": "",
+    "text": "3.1 The menu so far\nBucky has a few commits of history to work with:\nYour commit IDs will differ from these, and you may also see your cream-puffs commit from the last exercise — all expected.\nHistory is only useful if you can look back at it and recover from mistakes. That is what this unit is about.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Exploring History</span>"
+    ]
+  },
+  {
+    "objectID": "03_exploring_history.html#the-menu-so-far",
+    "href": "03_exploring_history.html#the-menu-so-far",
+    "title": "3  Exploring History",
+    "section": "",
+    "text": "git log --oneline\nc3d4e5f (HEAD -&gt; main) Add cheese curds and desserts\nb2c3d4e Note how many brats to buy\na1b2c3d Add brats to the menu",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Exploring History</span>"
+    ]
+  },
+  {
+    "objectID": "03_exploring_history.html#bucky-makes-a-change-hell-regret",
+    "href": "03_exploring_history.html#bucky-makes-a-change-hell-regret",
+    "title": "3  Exploring History",
+    "section": "3.2 Bucky makes a change he’ll regret",
+    "text": "3.2 Bucky makes a change he’ll regret\nLate at night, Bucky second-guesses the whole plan. Open brats.txt:\nnano brats.txt\n\n\n\nAdd a regrettable third line, then save and exit:\nBratwurst - simmer in beer and onions, then grill\nCount: 2 per person (Bucky eats 4)\nSwap the brats for a kale salad\n\n\n\nIn the cold light of game day, this was a mistake. We want the old brats.txt back.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Exploring History</span>"
+    ]
+  },
+  {
+    "objectID": "03_exploring_history.html#head-points-to-your-latest-commit",
+    "href": "03_exploring_history.html#head-points-to-your-latest-commit",
+    "title": "3  Exploring History",
+    "section": "3.3 HEAD points to your latest commit",
+    "text": "3.3 HEAD points to your latest commit\nHEAD is Git’s name for the commit you are currently on — normally your most recent one.\n\n\n\nYou can count backward from it:\n\nHEAD — the latest commit\nHEAD~1 — one commit before that\nHEAD~2 — two commits before that\n\n\n\n\nHEAD~1, HEAD~2, … are easy for recent commits. To reach a specific commit further back, copy its ID from git log --oneline rather than counting.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Exploring History</span>"
+    ]
+  },
+  {
+    "objectID": "03_exploring_history.html#review-before-you-restore",
+    "href": "03_exploring_history.html#review-before-you-restore",
+    "title": "3  Exploring History",
+    "section": "3.4 Review before you restore",
+    "text": "3.4 Review before you restore\nGood practice: look at what you are about to throw away. Compare your file to the last commit:\ngit diff HEAD brats.txt\ndiff --git a/brats.txt b/brats.txt\nindex f735c2d..a9c3e21 100644\n--- a/brats.txt\n+++ b/brats.txt\n@@ -1,2 +1,3 @@\n Bratwurst - simmer in beer and onions, then grill\n Count: 2 per person (Bucky eats 4)\n+Swap the brats for a kale salad\n\n\n\n\nThe only difference from the last commit is the one regrettable line. Safe to discard.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Exploring History</span>"
+    ]
+  },
+  {
+    "objectID": "03_exploring_history.html#undo-an-uncommitted-change-git-restore",
+    "href": "03_exploring_history.html#undo-an-uncommitted-change-git-restore",
+    "title": "3  Exploring History",
+    "section": "3.5 Undo an uncommitted change: git restore",
+    "text": "3.5 Undo an uncommitted change: git restore\nThrow away the edit and bring back the committed version:\ngit restore brats.txt\n\n\n\ngit restore prints nothing on success. Check the result:\ncat brats.txt\nBratwurst - simmer in beer and onions, then grill\nCount: 2 per person (Bucky eats 4)\n\n\n\nThe kale line is gone, and git status reports a clean working tree again.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Exploring History</span>"
+    ]
+  },
+  {
+    "objectID": "03_exploring_history.html#how-git-restore-picks-what-to-bring-back",
+    "href": "03_exploring_history.html#how-git-restore-picks-what-to-bring-back",
+    "title": "3  Exploring History",
+    "section": "3.6 How git restore picks what to bring back",
+    "text": "3.6 How git restore picks what to bring back\ngit restore reads a file from a source and writes it into your working directory.\n\n\n\n\nBy default the source is the staging area — which matches your last commit unless you have staged something. That is what just undid the uncommitted edit.\nPoint it at any commit with --source (short: -s) to reach back into history.\n\n\n\n\nIt overwrites your current working copy with no undo, so review with git diff first.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Exploring History</span>"
+    ]
+  },
+  {
+    "objectID": "03_exploring_history.html#reach-back-to-an-older-commit",
+    "href": "03_exploring_history.html#reach-back-to-an-older-commit",
+    "title": "3  Exploring History",
+    "section": "3.7 Reach back to an older commit",
+    "text": "3.7 Reach back to an older commit\nBucky is curious what the very first, one-line menu looked like. Find that commit’s ID at the bottom of your log:\ngit log --oneline\n...\na1b2c3d Add brats to the menu\n\n\n\nRestore brats.txt from that commit — use your own ID (here, a1b2c3d):\ngit restore --source=a1b2c3d brats.txt\ncat brats.txt\nBratwurst - simmer in beer and onions, then grill\n\n\n\nOnly the working copy changed; the staging area and history are untouched.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Exploring History</span>"
+    ]
+  },
+  {
+    "objectID": "03_exploring_history.html#the-older-version-is-now-an-unstaged-change",
+    "href": "03_exploring_history.html#the-older-version-is-now-an-unstaged-change",
+    "title": "3  Exploring History",
+    "section": "3.8 The older version is now an unstaged change",
+    "text": "3.8 The older version is now an unstaged change\nBecause the working copy no longer matches the last commit, Git flags it as modified:\ngit status\nOn branch main\nChanges not staged for commit:\n  (use \"git add &lt;file&gt;...\" to update what will be committed)\n  (use \"git restore &lt;file&gt;...\" to discard changes in working directory)\n    modified:   brats.txt\n\nno changes added to commit (use \"git add\" and/or \"git commit -a\")\n\n\n\nTwo choices from here:\n\nKeep it: git add + git commit to make the old version the new latest\nChange your mind: git restore brats.txt snaps back to HEAD\n\n\n\n\nSo we all stay in sync for the rest of the lecture, let’s all snap back to HEAD:\ngit restore brats.txt",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Exploring History</span>"
+    ]
+  },
+  {
+    "objectID": "03_exploring_history.html#your-turn",
+    "href": "03_exploring_history.html#your-turn",
+    "title": "3  Exploring History",
+    "section": "3.9 Your turn",
+    "text": "3.9 Your turn\n\n\n\n\n\n\n\nImportantTry it\n\n\n\n\nAdd a silly line to cheese_curds.txt with nano\nPreview it with git diff HEAD cheese_curds.txt\nDiscard it with git restore cheese_curds.txt\nPeek at the original brats: copy the Add brats to the menu ID from git log --oneline, run git restore --source=&lt;that ID&gt; brats.txt, cat it, then git restore brats.txt to return to the latest",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Exploring History</span>"
+    ]
+  },
+  {
+    "objectID": "03_exploring_history.html#where-we-are",
+    "href": "03_exploring_history.html#where-we-are",
+    "title": "3  Exploring History",
+    "section": "3.10 Where we are",
+    "text": "3.10 Where we are\nWe can now travel through our history:\n\nHEAD, HEAD~1, … name past commits\ngit diff HEAD &lt;file&gt; reviews changes since the last commit\ngit restore &lt;file&gt; discards uncommitted edits (from the staging area)\ngit restore --source=&lt;commit&gt; &lt;file&gt; brings back an older version\n\n\n\n\n\n\n\n\n\n\n\nImportantNext up\n\n\n\nBucky’s folder is filling up with files he never wants to track — scratch notes and receipts. Next we will teach Git to ignore them.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Exploring History</span>"
+    ]
+  },
+  {
+    "objectID": "04_ignoring_files.html",
+    "href": "04_ignoring_files.html",
+    "title": "4  Ignoring Files",
+    "section": "",
+    "text": "4.1 Not everything belongs in Git\nGit is built for tracking the files you author. Some files are better left untracked:\nInstead of eyeballing git status and carefully avoiding them, we can tell Git to ignore them for good.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Ignoring Files</span>"
+    ]
+  },
+  {
+    "objectID": "04_ignoring_files.html#not-everything-belongs-in-git",
+    "href": "04_ignoring_files.html#not-everything-belongs-in-git",
+    "title": "4  Ignoring Files",
+    "section": "",
+    "text": "Scratch and throwaway files — temporary notes, drafts, scratch output\nLarge or raw data — bloats the repo and rarely changes\nBinary files — Git can’t meaningfully diff a photo or .xlsx; it just stores a full copy each time\nSecrets — API keys, passwords, credentials should never be committed",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Ignoring Files</span>"
+    ]
+  },
+  {
+    "objectID": "04_ignoring_files.html#buckys-folder-gets-cluttered",
+    "href": "04_ignoring_files.html#buckys-folder-gets-cluttered",
+    "title": "4  Ignoring Files",
+    "section": "4.2 Bucky’s folder gets cluttered",
+    "text": "4.2 Bucky’s folder gets cluttered\nGame-day prep leaves a mess: scratch files and a folder of receipt photos.\ntouch scratch.tmp shopping-draft.tmp\nmkdir receipts\ntouch receipts/costco.jpg receipts/metcalfe.jpg\n\n\n\nThe .tmp files are throwaway scratch; the receipts/ photos are big, binary, and nobody needs them in the menu’s history.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Ignoring Files</span>"
+    ]
+  },
+  {
+    "objectID": "04_ignoring_files.html#git-sees-the-clutter",
+    "href": "04_ignoring_files.html#git-sees-the-clutter",
+    "title": "4  Ignoring Files",
+    "section": "4.3 Git sees the clutter",
+    "text": "4.3 Git sees the clutter\ngit status\nOn branch main\nUntracked files:\n  (use \"git add &lt;file&gt;...\" to include in what will be committed)\n    receipts/\n    scratch.tmp\n    shopping-draft.tmp\n\nnothing added to commit but untracked files present (use \"git add\" to track)\n\n\n\nGit keeps nagging about files we never intend to track — and worse, we might commit them by accident.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Ignoring Files</span>"
+    ]
+  },
+  {
+    "objectID": "04_ignoring_files.html#create-a-.gitignore",
+    "href": "04_ignoring_files.html#create-a-.gitignore",
+    "title": "4  Ignoring Files",
+    "section": "4.4 Create a .gitignore",
+    "text": "4.4 Create a .gitignore\nGit reads a file named .gitignore and ignores anything that matches a pattern in it. Create one:\nnano .gitignore\n\n\n\nAdd two patterns, then save and exit:\n*.tmp\nreceipts/\n\n\n\n*.tmp matches any file ending in .tmp; the trailing slash in receipts/ matches that whole folder and everything inside it.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Ignoring Files</span>"
+    ]
+  },
+  {
+    "objectID": "04_ignoring_files.html#the-clutter-disappears",
+    "href": "04_ignoring_files.html#the-clutter-disappears",
+    "title": "4  Ignoring Files",
+    "section": "4.5 The clutter disappears",
+    "text": "4.5 The clutter disappears\ngit status\nOn branch main\nUntracked files:\n  (use \"git add &lt;file&gt;...\" to include in what will be committed)\n    .gitignore\n\nnothing added to commit but untracked files present (use \"git add\" to track)\n\n\n\nThe scratch files and receipts/ are gone from the list. The only thing Git still sees is .gitignore itself.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Ignoring Files</span>"
+    ]
+  },
+  {
+    "objectID": "04_ignoring_files.html#track-the-.gitignore-itself",
+    "href": "04_ignoring_files.html#track-the-.gitignore-itself",
+    "title": "4  Ignoring Files",
+    "section": "4.6 Track the .gitignore itself",
+    "text": "4.6 Track the .gitignore itself\nCommit .gitignore so the rules travel with the project:\ngit add .gitignore\ngit commit -m \"Ignore scratch files and receipts\"\n[main d4e5f6a] Ignore scratch files and receipts\n 1 file changed, 2 insertions(+)\n create mode 100644 .gitignore\n\n\n\nTracking it means anyone who clones the repo — including future you on another computer — ignores the same files automatically.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Ignoring Files</span>"
+    ]
+  },
+  {
+    "objectID": "04_ignoring_files.html#ignored-means-ignored",
+    "href": "04_ignoring_files.html#ignored-means-ignored",
+    "title": "4  Ignoring Files",
+    "section": "4.7 Ignored means ignored",
+    "text": "4.7 Ignored means ignored\nNew files that match keep getting ignored, with no extra work:\ntouch results.tmp\ngit status\nOn branch main\nnothing to commit, working tree clean\n\n\n\nAnd if you try to add an ignored file, Git stops you:\ngit add scratch.tmp\nThe following paths are ignored by one of your .gitignore files:\nscratch.tmp\nhint: Use -f if you really want to add them.\n\n\n\nThat warning is a feature. If you ever truly need to track one, git add -f forces it.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Ignoring Files</span>"
+    ]
+  },
+  {
+    "objectID": "04_ignoring_files.html#common-things-to-ignore",
+    "href": "04_ignoring_files.html#common-things-to-ignore",
+    "title": "4  Ignoring Files",
+    "section": "4.8 Common things to ignore",
+    "text": "4.8 Common things to ignore\nFor data science projects, a .gitignore usually covers:\n\n\n\n\nSecrets — .env, API keys, credential files\nLarge or raw data — data/, *.csv, *.parquet\nGenerated output — rendered reports, figures, caches\nTool cruft — .Rhistory, .RData, .Rproj.user/, __pycache__/\n\n\n\n\nMany languages and editors publish starter .gitignore files you can copy from — GitHub even offers one when you create a repo.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Ignoring Files</span>"
+    ]
+  },
+  {
+    "objectID": "04_ignoring_files.html#your-turn",
+    "href": "04_ignoring_files.html#your-turn",
+    "title": "4  Ignoring Files",
+    "section": "4.9 Your turn",
+    "text": "4.9 Your turn\n\n\n\n\n\n\n\nImportantTry it\n\n\n\nBucky keeps a private budget spreadsheet in the folder:\n\nCreate it with touch budget.xlsx\nConfirm Git sees it with git status\nAdd a pattern to .gitignore so Git ignores .xlsx files\nRun git status again — it should be gone. Then git add and git commit your updated .gitignore",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Ignoring Files</span>"
+    ]
+  },
+  {
+    "objectID": "04_ignoring_files.html#where-we-are",
+    "href": "04_ignoring_files.html#where-we-are",
+    "title": "4  Ignoring Files",
+    "section": "4.10 Where we are",
+    "text": "4.10 Where we are\nBucky’s repo now ignores the clutter:\n\n.gitignore lists patterns for files Git should skip\nPatterns like *.tmp and receipts/ match files and folders\nWe commit .gitignore so the rules are shared\n\n\n\n\n\n\n\n\n\n\n\nImportantNext up\n\n\n\nSo far everything lives only on Bucky’s laptop. Next we will push the menu to GitHub to back it up and share it.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Ignoring Files</span>"
+    ]
+  },
+  {
+    "objectID": "05_remotes_github.html",
+    "href": "05_remotes_github.html",
+    "title": "5  Remotes in GitHub",
+    "section": "",
+    "text": "5.1 Everything lives on one laptop\nSo far Bucky’s whole menu — files and history — exists only on his computer.\nThat is fragile:\nThe fix is a copy hosted online that we sync with. That is what GitHub is for.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Remotes in GitHub</span>"
+    ]
+  },
+  {
+    "objectID": "05_remotes_github.html#everything-lives-on-one-laptop",
+    "href": "05_remotes_github.html#everything-lives-on-one-laptop",
+    "title": "5  Remotes in GitHub",
+    "section": "",
+    "text": "If the laptop dies, the repo and its history are gone\nBucky can’t work on it from another machine\nHe can’t share it or collaborate with teammates",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Remotes in GitHub</span>"
+    ]
+  },
+  {
+    "objectID": "05_remotes_github.html#github-hosts-your-repo",
+    "href": "05_remotes_github.html#github-hosts-your-repo",
+    "title": "5  Remotes in GitHub",
+    "section": "5.2 GitHub hosts your repo",
+    "text": "5.2 GitHub hosts your repo\nGitHub is a website that stores Git repositories in the cloud. (GitLab and Bitbucket do the same thing.)\n\n\n\nA hosted copy gives you three things:\n\nBackup — your work survives a dead laptop\nSync — the same project on your laptop, your lab machine, a server\nCollaboration — teammates can see and contribute\n\n\n\n\nRemember: Git is the tool on your computer; GitHub is a place to host what Git tracks.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Remotes in GitHub</span>"
+    ]
+  },
+  {
+    "objectID": "05_remotes_github.html#ssh-keys-how-github-knows-its-you",
+    "href": "05_remotes_github.html#ssh-keys-how-github-knows-its-you",
+    "title": "5  Remotes in GitHub",
+    "section": "5.3 SSH keys: how GitHub knows it’s you",
+    "text": "5.3 SSH keys: how GitHub knows it’s you\nWhen you push work to GitHub, it has to be sure the push is really from you.\n\n\n\nSSH keys are a matched pair:\n\nA private key that stays secret on your laptop\nA public key that you give to GitHub\n\n\n\n\nGitHub matches the two so you never type a password. You set this up once per computer — and you did it before class, so we will just confirm it works.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Remotes in GitHub</span>"
+    ]
+  },
+  {
+    "objectID": "05_remotes_github.html#verify-your-connection",
+    "href": "05_remotes_github.html#verify-your-connection",
+    "title": "5  Remotes in GitHub",
+    "section": "5.4 Verify your connection",
+    "text": "5.4 Verify your connection\nAsk GitHub whether it recognizes your key:\nssh -T git@github.com\nHi buckybadger! You've successfully authenticated, but GitHub does not provide shell access.\n\n\n\nThat greeting means your key works and you’re ready to push. If you instead get a permission denied error, follow the SSH setup guide or grab a neighbor before we go on.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Remotes in GitHub</span>"
+    ]
+  },
+  {
+    "objectID": "05_remotes_github.html#make-a-home-for-it-on-github",
+    "href": "05_remotes_github.html#make-a-home-for-it-on-github",
+    "title": "5  Remotes in GitHub",
+    "section": "5.5 Make a home for it on GitHub",
+    "text": "5.5 Make a home for it on GitHub\nIn your browser, signed in to GitHub:\n\n\n\n\nClick + (top right) → New repository\nName it gameday-menu to match the local folder\nLeave it Public\nDo not check “Add a README,” “.gitignore,” or a license\nClick Create repository\n\n\n\n\nWe skip the README and friends because we already have a repo with history. Starting a second history on GitHub would just collide with ours.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Remotes in GitHub</span>"
+    ]
+  },
+  {
+    "objectID": "05_remotes_github.html#copy-the-ssh-address",
+    "href": "05_remotes_github.html#copy-the-ssh-address",
+    "title": "5  Remotes in GitHub",
+    "section": "5.6 Copy the SSH address",
+    "text": "5.6 Copy the SSH address\nThe new repo’s page shows setup hints. Find the SSH address (make sure the SSH tab is selected, not HTTPS):\n\n\n\ngit@github.com:buckybadger/gameday-menu.git\n\n\n\nThis is the address of your GitHub copy. We will hand it to Git so your laptop knows where to send things.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Remotes in GitHub</span>"
+    ]
+  },
+  {
+    "objectID": "05_remotes_github.html#point-your-repo-at-github-git-remote-add",
+    "href": "05_remotes_github.html#point-your-repo-at-github-git-remote-add",
+    "title": "5  Remotes in GitHub",
+    "section": "5.7 Point your repo at GitHub: git remote add",
+    "text": "5.7 Point your repo at GitHub: git remote add\nA remote is a named connection to a hosted copy. Add one, using your own address:\ngit remote add origin git@github.com:buckybadger/gameday-menu.git\n\n\n\norigin is the conventional name for your main remote. Confirm it:\ngit remote -v\norigin  git@github.com:buckybadger/gameday-menu.git (fetch)\norigin  git@github.com:buckybadger/gameday-menu.git (push)",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Remotes in GitHub</span>"
+    ]
+  },
+  {
+    "objectID": "05_remotes_github.html#send-it-up-git-push",
+    "href": "05_remotes_github.html#send-it-up-git-push",
+    "title": "5  Remotes in GitHub",
+    "section": "5.8 Send it up: git push",
+    "text": "5.8 Send it up: git push\nPush your main branch to the origin remote:\ngit push origin main\nEnumerating objects: 12, done.\nWriting objects: 100% (12/12), 1.1 KiB | 1.1 MiB/s, done.\nTo github.com:buckybadger/gameday-menu.git\n * [new branch]      main -&gt; main\n\n\n\nReload the GitHub page: your files and every commit are now there. Note that receipts/ and the .tmp files are absent — they were ignored, so they never traveled.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Remotes in GitHub</span>"
+    ]
+  },
+  {
+    "objectID": "05_remotes_github.html#the-everyday-loop-pull-and-push",
+    "href": "05_remotes_github.html#the-everyday-loop-pull-and-push",
+    "title": "5  Remotes in GitHub",
+    "section": "5.9 The everyday loop: pull and push",
+    "text": "5.9 The everyday loop: pull and push\nWith a remote in place, syncing is two commands:\n\n\n\n\ngit pull origin main — bring down changes from GitHub (a teammate’s work, or edits from another machine)\ngit push origin main — send your new commits up\n\n\n\n\nGood habit: pull when you start, push when you finish. And to get the repo onto a brand-new machine, git clone &lt;address&gt; creates the folder, sets up origin, and downloads everything in one step.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Remotes in GitHub</span>"
+    ]
+  },
+  {
+    "objectID": "05_remotes_github.html#your-turn",
+    "href": "05_remotes_github.html#your-turn",
+    "title": "5  Remotes in GitHub",
+    "section": "5.10 Your turn",
+    "text": "5.10 Your turn\n\n\n\n\n\n\n\nImportantTry it\n\n\n\nMake a change and publish it:\n\nAdd a line to desserts.txt with nano (kringle, for the Wisconsin touch)\ngit add and git commit with a clear message\ngit push origin main\nRefresh your repo on GitHub and watch the new commit appear",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Remotes in GitHub</span>"
+    ]
+  },
+  {
+    "objectID": "05_remotes_github.html#where-we-are",
+    "href": "05_remotes_github.html#where-we-are",
+    "title": "5  Remotes in GitHub",
+    "section": "5.11 Where we are",
+    "text": "5.11 Where we are\nBucky’s menu now lives on GitHub, backed up and shareable:\n\ngit remote add origin &lt;address&gt; links the local repo to GitHub\ngit push origin main sends commits up; git pull origin main brings them down\ngit clone &lt;address&gt; copies a repo onto a new machine\n\n\n\n\n\n\n\n\n\n\n\nImportantWhat’s next\n\n\n\nWorking with others means parallel changes — which brings branches and merge conflicts. Those live in the book chapters to explore on your own. Keep the cheatsheet handy.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Remotes in GitHub</span>"
+    ]
+  },
+  {
+    "objectID": "06_conflicts.html",
+    "href": "06_conflicts.html",
+    "title": "6  Conflicts",
+    "section": "",
+    "text": "6.1 When does a conflict happen?\nA conflict happens when two commits change the same line of the same file in different ways, and Git can’t tell which one is right.\nIt usually surfaces when you bring two lines of work together — for us, when you git pull and someone else has edited the same line you did.\nConflicts are normal, not a disaster. Git just needs you, the human, to decide what the final version should say.",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Conflicts</span>"
+    ]
+  },
+  {
+    "objectID": "06_conflicts.html#our-setup-two-people-one-repo",
+    "href": "06_conflicts.html#our-setup-two-people-one-repo",
+    "title": "6  Conflicts",
+    "section": "6.2 Our setup: two people, one repo",
+    "text": "6.2 Our setup: two people, one repo\nBucky’s menu is on GitHub. His co-organizer Sam clones it to help plan dessert.\n\n\n\nTo follow along on your own, clone a second copy into a different folder — it stands in for Sam’s computer:\ncd ~/github\ngit clone git@github.com:buckybadger/gameday-menu.git gameday-menu-sam\n\n\n\nNow there are two working copies of the same repo: your original gameday-menu and gameday-menu-sam.",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Conflicts</span>"
+    ]
+  },
+  {
+    "objectID": "06_conflicts.html#sam-changes-a-line-and-pushes",
+    "href": "06_conflicts.html#sam-changes-a-line-and-pushes",
+    "title": "6  Conflicts",
+    "section": "6.3 Sam changes a line and pushes",
+    "text": "6.3 Sam changes a line and pushes\nIn Sam’s copy, edit the ice cream line in desserts.txt:\ncd ~/github/gameday-menu-sam\nnano desserts.txt\nBabcock ice cream - Orange Custard Chocolate Chip\n\n\n\nThen commit and push it up to GitHub:\ngit add desserts.txt\ngit commit -m \"Pick Orange Custard Chocolate Chip ice cream\"\ngit push origin main\n\n\n\nGitHub now has Sam’s version of that line.",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Conflicts</span>"
+    ]
+  },
+  {
+    "objectID": "06_conflicts.html#meanwhile-you-change-the-same-line",
+    "href": "06_conflicts.html#meanwhile-you-change-the-same-line",
+    "title": "6  Conflicts",
+    "section": "6.4 Meanwhile, you change the same line",
+    "text": "6.4 Meanwhile, you change the same line\nBack in your original copy — not knowing what Sam did — edit the same line differently:\ncd ~/github/gameday-menu\nnano desserts.txt\nBabcock ice cream - Union Blend\ngit add desserts.txt\ngit commit -m \"Pick Union Blend ice cream\"\n\n\n\nBoth commits look fine on their own. The trouble starts when they meet.",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Conflicts</span>"
+    ]
+  },
+  {
+    "objectID": "06_conflicts.html#the-push-is-rejected",
+    "href": "06_conflicts.html#the-push-is-rejected",
+    "title": "6  Conflicts",
+    "section": "6.5 The push is rejected",
+    "text": "6.5 The push is rejected\nTry to push your version:\ngit push origin main\n ! [rejected]        main -&gt; main (fetch first)\nerror: failed to push some refs to 'github.com:buckybadger/gameday-menu.git'\nhint: Updates were rejected because the remote contains work that you do\nhint: not have locally. Integrate the remote changes before pushing again.\n\n\n\nGitHub is protecting Sam’s commit. It’s telling you to pull first and reconcile before you can push.",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Conflicts</span>"
+    ]
+  },
+  {
+    "objectID": "06_conflicts.html#pull-brings-the-conflict-to-light",
+    "href": "06_conflicts.html#pull-brings-the-conflict-to-light",
+    "title": "6  Conflicts",
+    "section": "6.6 Pull brings the conflict to light",
+    "text": "6.6 Pull brings the conflict to light\ngit pull origin main\nAuto-merging desserts.txt\nCONFLICT (content): Merge conflict in desserts.txt\nAutomatic merge failed; fix conflicts and then commit the result.\n\n\n\nGit merged everything it could, but it can’t auto-merge that one line — you both rewrote it. It stops and hands the decision to you.",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Conflicts</span>"
+    ]
+  },
+  {
+    "objectID": "06_conflicts.html#git-status-points-you-to-the-problem",
+    "href": "06_conflicts.html#git-status-points-you-to-the-problem",
+    "title": "6  Conflicts",
+    "section": "6.7 git status points you to the problem",
+    "text": "6.7 git status points you to the problem\ngit status\nOn branch main\nYou have unmerged paths.\n  (fix conflicts and run \"git commit\")\n  (use \"git merge --abort\" to abort the merge)\n\nUnmerged paths:\n  (use \"git add &lt;file&gt;...\" to mark resolution)\n    both modified:   desserts.txt\n\n\n\nboth modified is the tell-tale sign of a conflict. If you ever feel stuck, git merge --abort backs out and returns you to before the pull.",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Conflicts</span>"
+    ]
+  },
+  {
+    "objectID": "06_conflicts.html#reading-the-conflict-markers",
+    "href": "06_conflicts.html#reading-the-conflict-markers",
+    "title": "6  Conflicts",
+    "section": "6.8 Reading the conflict markers",
+    "text": "6.8 Reading the conflict markers\nOpen desserts.txt. Git has inserted markers around the clashing lines:\n&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD\nBabcock ice cream - Union Blend\n=======\nBabcock ice cream - Orange Custard Chocolate Chip\n&gt;&gt;&gt;&gt;&gt;&gt;&gt; 3f9a1c2 (Pick Orange Custard Chocolate Chip ice cream)\n\n\n\n\nBetween &lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD and ======= is your version\nBetween ======= and &gt;&gt;&gt;&gt;&gt;&gt;&gt; is the incoming version from GitHub",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Conflicts</span>"
+    ]
+  },
+  {
+    "objectID": "06_conflicts.html#resolve-it-you-decide",
+    "href": "06_conflicts.html#resolve-it-you-decide",
+    "title": "6  Conflicts",
+    "section": "6.9 Resolve it: you decide",
+    "text": "6.9 Resolve it: you decide\nEdit the file so it reads exactly how you want, and delete all three marker lines. Bucky wants both flavors:\nBabcock ice cream - Union Blend and Orange Custard Chocolate Chip\n\n\n\nYou are free to keep your version, keep theirs, combine them, or write something new. Just make sure every marker (&lt;&lt;&lt;&lt;&lt;&lt;&lt;, =======, &gt;&gt;&gt;&gt;&gt;&gt;&gt;) is gone — a file can have several conflicts, so check the whole thing.",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Conflicts</span>"
+    ]
+  },
+  {
+    "objectID": "06_conflicts.html#mark-it-resolved-and-commit",
+    "href": "06_conflicts.html#mark-it-resolved-and-commit",
+    "title": "6  Conflicts",
+    "section": "6.10 Mark it resolved and commit",
+    "text": "6.10 Mark it resolved and commit\nOnce the markers are gone, stage the file to tell Git the conflict is settled, then commit:\ngit add desserts.txt\ngit commit -m \"Merge: offer both ice cream flavors\"\ngit push origin main\n\n\n\nThat commit records the resolution. Now push succeeds, and Sam can git pull to pick up the agreed-on version. The conflict is behind you.",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Conflicts</span>"
+    ]
+  },
+  {
+    "objectID": "06_conflicts.html#avoiding-conflicts",
+    "href": "06_conflicts.html#avoiding-conflicts",
+    "title": "6  Conflicts",
+    "section": "6.11 Avoiding conflicts",
+    "text": "6.11 Avoiding conflicts\nYou can’t prevent them entirely, but a few habits make them rare and small:\n\n\n\n\nPull before you start working, so you begin from the latest version\nPush often, in small focused commits\nCoordinate with collaborators about who is editing what\n\n\n\n\nAnd when one does happen — read the markers, decide, delete them, add, commit. That’s the whole skill.",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Conflicts</span>"
+    ]
+  },
+  {
+    "objectID": "06_conflicts.html#your-turn",
+    "href": "06_conflicts.html#your-turn",
+    "title": "6  Conflicts",
+    "section": "6.12 Your turn",
+    "text": "6.12 Your turn\n\n\n\n\n\n\n\nImportantTry it\n\n\n\nMake a conflict on purpose and resolve it:\n\nIn gameday-menu-sam, change a line in brats.txt, commit, and push\nIn gameday-menu, change the same line differently and commit\ngit push (watch it get rejected), then git pull to trigger the conflict\nEdit brats.txt to settle it, remove the markers, then git add, git commit, and git push",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Conflicts</span>"
+    ]
+  },
+  {
+    "objectID": "06_conflicts.html#where-we-are",
+    "href": "06_conflicts.html#where-we-are",
+    "title": "6  Conflicts",
+    "section": "6.13 Where we are",
+    "text": "6.13 Where we are\nConflicts are a skill, not a catastrophe:\n\nThey arise when two commits change the same line\ngit pull surfaces them; both modified in git status flags them\nEdit the file, remove the markers, then git add and git commit\n\n\n\n\n\n\n\n\n\n\n\nImportantNext up\n\n\n\nThe same conflict can happen when you merge branches — parallel lines of work in a single repo. That is the next unit.",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Conflicts</span>"
+    ]
+  },
+  {
+    "objectID": "07_branches.html",
+    "href": "07_branches.html",
+    "title": "7  Branches",
+    "section": "",
+    "text": "7.1 Why branch?\nA branch is a parallel line of work inside one repository. It lets you try something without touching your main version.\nBranches are useful when you want to:\nYou’ve been on a branch the whole time — the default one, called main. Now we’ll make a second.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Branches</span>"
+    ]
+  },
+  {
+    "objectID": "07_branches.html#why-branch",
+    "href": "07_branches.html#why-branch",
+    "title": "7  Branches",
+    "section": "",
+    "text": "Experiment with a risky change while keeping a working version safe\nDraft a feature that isn’t ready for everyone yet\nKeep main stable while work is in progress",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Branches</span>"
+    ]
+  },
+  {
+    "objectID": "07_branches.html#where-you-are-now",
+    "href": "07_branches.html#where-you-are-now",
+    "title": "7  Branches",
+    "section": "7.2 Where you are now",
+    "text": "7.2 Where you are now\nList the branches in your repo:\ngit branch\n* main\n\n\n\nThe * (shown in color) marks the branch you’re currently on. There’s only one so far, and git status reminds you of it too (On branch main).",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Branches</span>"
+    ]
+  },
+  {
+    "objectID": "07_branches.html#bucky-wants-to-experiment",
+    "href": "07_branches.html#bucky-wants-to-experiment",
+    "title": "7  Branches",
+    "section": "7.3 Bucky wants to experiment",
+    "text": "7.3 Bucky wants to experiment\nBucky is tempted to add a vegetarian spread to the menu — but he doesn’t want to disturb the plan that already works.\n\n\n\nPerfect job for a branch: he can draft the veggie options off to the side, decide if he likes them, and only then bring them into main.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Branches</span>"
+    ]
+  },
+  {
+    "objectID": "07_branches.html#create-and-switch-in-one-step",
+    "href": "07_branches.html#create-and-switch-in-one-step",
+    "title": "7  Branches",
+    "section": "7.4 Create and switch in one step",
+    "text": "7.4 Create and switch in one step\nMake a new branch and move onto it:\ngit switch -c veggie-option\nSwitched to a new branch 'veggie-option'\n\n\n\nThe -c flag creates the branch and switches to it. It starts as an exact copy of main’s history.\n\n\n\nConfirm where you are:\ngit branch\n  main\n* veggie-option\n\nTo create a branch without switching, use git branch &lt;name&gt;. In older Git, git checkout -b does what git switch -c does here.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Branches</span>"
+    ]
+  },
+  {
+    "objectID": "07_branches.html#work-on-the-branch",
+    "href": "07_branches.html#work-on-the-branch",
+    "title": "7  Branches",
+    "section": "7.5 Work on the branch",
+    "text": "7.5 Work on the branch\nDraft the vegetarian items in a new file:\nnano veggie.txt\nGrilled veggie skewers\nPortobello \"brats\" for the vegetarians\n\n\n\nSave it to history as usual — this commit lands on veggie-option, not main:\ngit add veggie.txt\ngit commit -m \"Draft vegetarian options\"",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Branches</span>"
+    ]
+  },
+  {
+    "objectID": "07_branches.html#main-is-untouched",
+    "href": "07_branches.html#main-is-untouched",
+    "title": "7  Branches",
+    "section": "7.6 main is untouched",
+    "text": "7.6 main is untouched\nSwitch back and look:\ngit switch main\nls\nbrats.txt  cheese_curds.txt  desserts.txt\n\n\n\nNo veggie.txt here — it lives only on the branch. main is exactly as you left it. That isolation is the whole point of branching.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Branches</span>"
+    ]
+  },
+  {
+    "objectID": "07_branches.html#see-the-branches-diverge",
+    "href": "07_branches.html#see-the-branches-diverge",
+    "title": "7  Branches",
+    "section": "7.7 See the branches diverge",
+    "text": "7.7 See the branches diverge\nA decorated, graphed log shows how the branches relate:\ngit log --oneline --all --graph\n* 7a1b2c3 (veggie-option) Draft vegetarian options\n* 1d2e3f4 (HEAD -&gt; main) Ignore scratch files and receipts\n* c3d4e5f Add cheese curds and desserts\n\n\n\n--all shows every branch and --graph draws the structure. Here veggie-option sits one commit ahead of main.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Branches</span>"
+    ]
+  },
+  {
+    "objectID": "07_branches.html#keep-it-merge-into-main",
+    "href": "07_branches.html#keep-it-merge-into-main",
+    "title": "7  Branches",
+    "section": "7.8 Keep it? Merge into main",
+    "text": "7.8 Keep it? Merge into main\nBucky likes the veggie options, so he brings them into main. First be on the branch you’re merging into, then merge:\ngit switch main\ngit merge veggie-option\nUpdating 1d2e3f4..7a1b2c3\nFast-forward\n veggie.txt | 2 ++\n 1 file changed, 2 insertions(+)\n\n\n\nmain had no new commits of its own, so Git just fast-forwards it to catch up. veggie.txt is now part of main.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Branches</span>"
+    ]
+  },
+  {
+    "objectID": "07_branches.html#clean-up-the-branch",
+    "href": "07_branches.html#clean-up-the-branch",
+    "title": "7  Branches",
+    "section": "7.9 Clean up the branch",
+    "text": "7.9 Clean up the branch\nOnce a branch is merged, delete it to keep things tidy:\ngit branch -d veggie-option\nDeleted branch veggie-option (was 7a1b2c3).\n\n\n\nIf a branch is not fully merged, -d refuses and warns you — so you don’t lose work by accident. git branch -D (capital D) force-deletes when you really mean it.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Branches</span>"
+    ]
+  },
+  {
+    "objectID": "07_branches.html#when-merges-collide",
+    "href": "07_branches.html#when-merges-collide",
+    "title": "7  Branches",
+    "section": "7.10 When merges collide",
+    "text": "7.10 When merges collide\nOur merge was clean because main hadn’t changed. But if main and your branch both edited the same line, Git can’t fast-forward — the merge stops with a conflict.\n\n\n\nYou already know how to handle it: open the file, remove the &lt;&lt;&lt;&lt;&lt;&lt;&lt;, =======, &gt;&gt;&gt;&gt;&gt;&gt;&gt; markers, keep what you want, then git add and git commit. (See the Conflicts unit.)",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Branches</span>"
+    ]
+  },
+  {
+    "objectID": "07_branches.html#your-turn",
+    "href": "07_branches.html#your-turn",
+    "title": "7  Branches",
+    "section": "7.11 Your turn",
+    "text": "7.11 Your turn\n\n\n\n\n\n\n\nImportantTry it\n\n\n\nBranch, work, merge, clean up:\n\nFrom main, run git switch -c dessert-upgrade\nAdd a line to desserts.txt, then git add and git commit\ngit switch main and confirm the change isn’t there yet\ngit merge dessert-upgrade, then git branch -d dessert-upgrade",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Branches</span>"
+    ]
+  },
+  {
+    "objectID": "07_branches.html#where-we-are",
+    "href": "07_branches.html#where-we-are",
+    "title": "7  Branches",
+    "section": "7.12 Where we are",
+    "text": "7.12 Where we are\nBranches let you work in parallel safely:\n\ngit branch lists branches; git switch -c &lt;name&gt; creates and moves onto one\nCommits land on the current branch, leaving main safe\ngit merge &lt;branch&gt; brings the work together; git branch -d cleans up\n\n\n\n\n\n\n\n\n\n\n\nImportantKeep going\n\n\n\nOn GitHub, branches power pull requests — the standard way to propose and review changes with collaborators. That’s a great next thing to explore, with the cheatsheet at your side.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Branches</span>"
+    ]
+  },
+  {
+    "objectID": "install_git_windows.html",
+    "href": "install_git_windows.html",
+    "title": "Appendix A — Installing Git for Windows",
+    "section": "",
+    "text": "A.1 Download the installer\nThis appendix is for students on Windows. It installs Git for Windows, which bundles both Git and the Bash shell into a single program called Git Bash — the terminal we use throughout these lessons. Plan on about ten minutes, and do it before the live session.\nGo to gitforwindows.org and download the installer. Once it finishes, double-click the downloaded .exe to start.",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Installing Git for Windows</span>"
+    ]
+  },
+  {
+    "objectID": "install_git_windows.html#run-the-installer",
+    "href": "install_git_windows.html#run-the-installer",
+    "title": "Appendix A — Installing Git for Windows",
+    "section": "A.2 Run the installer",
+    "text": "A.2 Run the installer\nThe installer has many screens. You can accept the defaults on nearly all of them — just click Next through to the end. Four screens are worth stopping for, because they match how we work in class:\n\nChoosing the default editor used by Git — from the dropdown, select Use the Nano editor by default. (You may need to scroll up to find it.) Our lessons write commit messages in nano.\nAdjusting the name of the initial branch in new repositories — choose Override the default branch name and type main. This matches the branch name we use everywhere in these materials.\nAdjusting your PATH environment — keep the recommended Git from the command line and also from 3rd-party software. If you miss this, Git Bash won’t work properly with other tools.\nConfiguring the line ending conversions — keep Checkout Windows-style, commit Unix-style line endings.\n\nFor every other screen — OpenSSH, the HTTPS backend, the terminal emulator, credential manager, and so on — the default is fine. Click Install, then Finish.",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Installing Git for Windows</span>"
+    ]
+  },
+  {
+    "objectID": "install_git_windows.html#open-git-bash-and-check",
+    "href": "install_git_windows.html#open-git-bash-and-check",
+    "title": "Appendix A — Installing Git for Windows",
+    "section": "A.3 Open Git Bash and check",
+    "text": "A.3 Open Git Bash and check\nOpen the Start menu, type Git Bash, and open it. You’ll get a terminal window. Confirm Git is installed:\ngit --version\ngit version 2.46.0.windows.1\nA version number means you’re set. This Git Bash window gives you both Git and Bash — it is the terminal you’ll use to follow along in class.",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Installing Git for Windows</span>"
+    ]
+  },
+  {
+    "objectID": "install_git_windows.html#if-git-bash-cant-find-your-home-folder",
+    "href": "install_git_windows.html#if-git-bash-cant-find-your-home-folder",
+    "title": "Appendix A — Installing Git for Windows",
+    "section": "A.4 If Git Bash can’t find your home folder",
+    "text": "A.4 If Git Bash can’t find your home folder\nOccasionally ~ (your home folder) isn’t set correctly. If commands that use ~ misbehave, open the Windows Command Prompt (Start menu → type cmd) and run:\nsetx HOME \"%USERPROFILE%\"\nYou should see SUCCESS: Specified value was saved. Close and reopen Git Bash.",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Installing Git for Windows</span>"
+    ]
+  },
+  {
+    "objectID": "install_git_windows.html#next-steps",
+    "href": "install_git_windows.html#next-steps",
+    "title": "Appendix A — Installing Git for Windows",
+    "section": "A.5 Next steps",
+    "text": "A.5 Next steps\nWith Git Bash installed, you’re ready to:\n\nSet your name and email, covered in the Introduction and Setup unit\nConnect to GitHub, covered in the Setting Up SSH Keys appendix",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Installing Git for Windows</span>"
+    ]
+  },
+  {
+    "objectID": "ssh_setup.html",
+    "href": "ssh_setup.html",
+    "title": "Appendix B — Setting Up SSH Keys",
+    "section": "",
+    "text": "B.1 What SSH keys do\nThis appendix walks through connecting your computer to GitHub with SSH keys. You do this once per computer, before you need to push to GitHub (the Remotes in GitHub unit). Set aside about ten minutes.\nIf you have already set up SSH keys on this machine and ssh -T git@github.com greets you by name, you can skip this guide.\nWhen you push work to GitHub, it needs to confirm the push is really from you. SSH keys handle that without a password. A key is a matched pair:\nGitHub matches the public key you gave it against the private key on your machine. If they pair up, you’re in. You generate the pair once, register the public half with GitHub, and from then on git push and git pull just work.\nEverything below happens in a terminal: Git Bash on Windows, or Terminal on macOS/Linux.",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>B</span>  <span class='chapter-title'>Setting Up SSH Keys</span>"
+    ]
+  },
+  {
+    "objectID": "ssh_setup.html#what-ssh-keys-do",
+    "href": "ssh_setup.html#what-ssh-keys-do",
+    "title": "Appendix B — Setting Up SSH Keys",
+    "section": "",
+    "text": "A private key that stays secret on your computer — never share it.\nA public key that you hand to GitHub.",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>B</span>  <span class='chapter-title'>Setting Up SSH Keys</span>"
+    ]
+  },
+  {
+    "objectID": "ssh_setup.html#step-1-check-for-an-existing-key",
+    "href": "ssh_setup.html#step-1-check-for-an-existing-key",
+    "title": "Appendix B — Setting Up SSH Keys",
+    "section": "B.2 Step 1: Check for an existing key",
+    "text": "B.2 Step 1: Check for an existing key\nYou may already have a key from other work. Look for one:\nls -al ~/.ssh\nIf you see a file named id_ed25519.pub (or id_rsa.pub), you already have a key pair and can skip to Step 4. If the folder is empty or does not exist, continue to Step 2.",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>B</span>  <span class='chapter-title'>Setting Up SSH Keys</span>"
+    ]
+  },
+  {
+    "objectID": "ssh_setup.html#step-2-generate-a-new-key",
+    "href": "ssh_setup.html#step-2-generate-a-new-key",
+    "title": "Appendix B — Setting Up SSH Keys",
+    "section": "B.3 Step 2: Generate a new key",
+    "text": "B.3 Step 2: Generate a new key\nCreate a key, substituting the email tied to your GitHub account:\nssh-keygen -t ed25519 -C \"you@wisc.edu\"\ned25519 is a modern, secure key type. The command then asks you two things:\n\nFile in which to save the key: press Enter to accept the default location (~/.ssh/id_ed25519).\nPassphrase: type a passphrase and press Enter, then type it again to confirm. A passphrase protects the key if someone ever copies it off your machine.\n\nOne thing that surprises people: as you type the passphrase, the terminal shows nothing — no dots, no cursor movement. That is normal. If you lose track, press Backspace several times and start again.\nWhen it finishes, you have two files: id_ed25519 (private — keep secret) and id_ed25519.pub (public — safe to share).",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>B</span>  <span class='chapter-title'>Setting Up SSH Keys</span>"
+    ]
+  },
+  {
+    "objectID": "ssh_setup.html#step-3-optional-avoid-retyping-your-passphrase",
+    "href": "ssh_setup.html#step-3-optional-avoid-retyping-your-passphrase",
+    "title": "Appendix B — Setting Up SSH Keys",
+    "section": "B.4 Step 3 (optional): Avoid retyping your passphrase",
+    "text": "B.4 Step 3 (optional): Avoid retyping your passphrase\nIf you would rather not enter your passphrase on every push, add the key to the SSH agent:\neval \"$(ssh-agent -s)\"\nssh-add ~/.ssh/id_ed25519\nThis is convenient but optional. You can skip it and simply type your passphrase when prompted.",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>B</span>  <span class='chapter-title'>Setting Up SSH Keys</span>"
+    ]
+  },
+  {
+    "objectID": "ssh_setup.html#step-4-copy-your-public-key",
+    "href": "ssh_setup.html#step-4-copy-your-public-key",
+    "title": "Appendix B — Setting Up SSH Keys",
+    "section": "B.5 Step 4: Copy your public key",
+    "text": "B.5 Step 4: Copy your public key\nPrint the public key and copy the entire line, from ssh-ed25519 through your email:\ncat ~/.ssh/id_ed25519.pub\nssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAI...rest-of-key... you@wisc.edu\nOnly ever copy the .pub file. The matching file without .pub is your private key and should never leave your computer.\n\n\n\n\n\n\nNote\n\n\n\nShortcut to copy straight to your clipboard:\n\nmacOS: pbcopy &lt; ~/.ssh/id_ed25519.pub\nWindows (Git Bash): clip &lt; ~/.ssh/id_ed25519.pub\nLinux: xclip -sel clip &lt; ~/.ssh/id_ed25519.pub",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>B</span>  <span class='chapter-title'>Setting Up SSH Keys</span>"
+    ]
+  },
+  {
+    "objectID": "ssh_setup.html#step-5-add-the-key-to-github",
+    "href": "ssh_setup.html#step-5-add-the-key-to-github",
+    "title": "Appendix B — Setting Up SSH Keys",
+    "section": "B.6 Step 5: Add the key to GitHub",
+    "text": "B.6 Step 5: Add the key to GitHub\nIn your browser, signed in to GitHub:\n\nClick your profile photo (top right) → Settings\nIn the left sidebar, choose SSH and GPG keys\nClick New SSH key\nGive it a Title that names the computer (e.g., “Work laptop”)\nLeave the key type as Authentication Key, paste your public key into the Key box\nClick Add SSH key\n\nYour key now appears in the list.",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>B</span>  <span class='chapter-title'>Setting Up SSH Keys</span>"
+    ]
+  },
+  {
+    "objectID": "ssh_setup.html#step-6-test-the-connection",
+    "href": "ssh_setup.html#step-6-test-the-connection",
+    "title": "Appendix B — Setting Up SSH Keys",
+    "section": "B.7 Step 6: Test the connection",
+    "text": "B.7 Step 6: Test the connection\nBack in your terminal, ask GitHub whether it recognizes you:\nssh -T git@github.com\nThe first time, you will be asked to confirm GitHub’s fingerprint — type yes and press Enter. Then you should see:\nHi buckybadger! You've successfully authenticated, but GitHub does not provide shell access.\nThat greeting (with your username) means everything works. The “does not provide shell access” part is expected and not an error — GitHub only uses this connection for Git, not for logging in.",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>B</span>  <span class='chapter-title'>Setting Up SSH Keys</span>"
+    ]
+  },
+  {
+    "objectID": "ssh_setup.html#troubleshooting",
+    "href": "ssh_setup.html#troubleshooting",
+    "title": "Appendix B — Setting Up SSH Keys",
+    "section": "B.8 Troubleshooting",
+    "text": "B.8 Troubleshooting\ngit@github.com: Permission denied (publickey)\n\nThe public key is not registered on GitHub, or you pasted the wrong one. Re-copy id_ed25519.pub (Step 4) and confirm it matches the key listed in GitHub → Settings → SSH and GPG keys.\n\nYou are asked for your passphrase on every command\n\nThat is normal unless you set up the SSH agent (Step 3). Add the key to the agent to stop the repeated prompts.\n\nCould not open a connection to your authentication agent\n\nThe agent is not running. Start it with eval \"$(ssh-agent -s)\" and then re-run ssh-add.",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>B</span>  <span class='chapter-title'>Setting Up SSH Keys</span>"
+    ]
+  },
+  {
+    "objectID": "ssh_setup.html#youre-set",
+    "href": "ssh_setup.html#youre-set",
+    "title": "Appendix B — Setting Up SSH Keys",
+    "section": "B.9 You’re set",
+    "text": "B.9 You’re set\nWith ssh -T git@github.com greeting you by name, your computer and GitHub are linked. Head back to the Remotes in GitHub unit to connect your repository and push your first commits.",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>B</span>  <span class='chapter-title'>Setting Up SSH Keys</span>"
+    ]
+  },
+  {
+    "objectID": "cheatsheet.html",
+    "href": "cheatsheet.html",
+    "title": "Git Cheatsheet",
+    "section": "",
+    "text": "A quick reference for every command in these lessons. Angle brackets like &lt;file&gt; mean “fill in your own value.”\n\nThe everyday rhythm\nMost of your Git life is this short loop:\n# before you start, get the latest\ngit pull origin main\n\n# ... edit files ...\n\ngit add &lt;file&gt;            # stage your changes\ngit commit -m \"message\"   # save them to history\ngit push origin main      # send them to GitHub\nCheck in with git status any time you’re unsure where things stand.\n\n\nOne-time setup (per computer)\n\n\n\n\n\n\n\nCommand\nWhat it does\n\n\n\n\ngit config --global user.name \"Your Name\"\nSet the name stamped on your commits\n\n\ngit config --global user.email \"you@wisc.edu\"\nSet the email on your commits (match GitHub)\n\n\ngit config --global core.editor \"nano\"\nUse nano for commit messages (what these lessons assume)\n\n\ngit config --list\nShow your current configuration\n\n\nssh -T git@github.com\nTest that your SSH key connects to GitHub\n\n\n\n\n\nStarting a repository\n\n\n\nCommand\nWhat it does\n\n\n\n\ngit init\nTurn the current folder into a Git repository\n\n\ngit clone &lt;address&gt;\nCopy a GitHub repo onto this computer\n\n\n\n\n\nThe core cycle\n\n\n\nCommand\nWhat it does\n\n\n\n\ngit status\nShow untracked, modified, and staged files\n\n\ngit add &lt;file&gt;\nStage a file for the next commit\n\n\ngit add &lt;file1&gt; &lt;file2&gt;\nStage several files at once\n\n\ngit add .\nStage all changed files (run git status first!)\n\n\ngit commit -m \"message\"\nSave all staged changes as a commit\n\n\n\n\n\nRenaming and deleting files\n\n\n\nCommand\nWhat it does\n\n\n\n\ngit mv &lt;old&gt; &lt;new&gt;\nRename or move a file, keeping its history\n\n\ngit rm &lt;file&gt;\nDelete a tracked file (stages the deletion)\n\n\n\nBoth still need a git commit to record the change.\n\n\nSeeing what changed\n\n\n\n\n\n\n\nCommand\nWhat it does\n\n\n\n\ngit diff &lt;file&gt;\nChanges since the last commit (not yet staged)\n\n\ngit diff --staged\nChanges that are staged for the next commit\n\n\ngit diff HEAD &lt;file&gt;\nAll changes since the last commit\n\n\ngit diff &lt;commit&gt; &lt;file&gt;\nCompare your file to a specific past commit\n\n\ngit log\nFull commit history\n\n\ngit log --oneline\nOne compact line per commit\n\n\ngit log --oneline &lt;file&gt;\nOnly the commits that changed &lt;file&gt;\n\n\ngit log -2\nJust the two most recent commits\n\n\n\n\n\nUndoing and restoring\n\n\n\n\n\n\n\nCommand\nWhat it does\n\n\n\n\ngit restore &lt;file&gt;\nDiscard uncommitted changes to a file\n\n\ngit restore --source=&lt;commit&gt; &lt;file&gt;\nBring back an older version of a file\n\n\ngit reset HEAD~1\nUndo the last commit, keeping its changes in your files\n\n\ngit stash\nSet aside uncommitted changes to return to later\n\n\ngit stash pop\nReapply the changes you stashed\n\n\n\nName a past commit with HEAD (latest), HEAD~1 (one before), and so on — or copy its ID from git log --oneline. Only git reset commits you have not yet pushed.\n\n\nIgnoring files\nCreate a file named .gitignore and list patterns, one per line:\n*.tmp          # any file ending in .tmp\nreceipts/      # a whole folder\nsecret.env     # a specific file\n\n\n\nCommand\nWhat it does\n\n\n\n\ngit add .gitignore\nTrack the ignore file so the rules are shared\n\n\ngit add -f &lt;file&gt;\nForce-add a file that is being ignored\n\n\ngit status --ignored\nAlso list the files being ignored\n\n\n\n\n\nWorking with GitHub\n\n\n\n\n\n\n\nCommand\nWhat it does\n\n\n\n\ngit remote add origin &lt;address&gt;\nLink your local repo to a GitHub repo\n\n\ngit remote -v\nShow the remotes you’ve connected\n\n\ngit push origin main\nSend your commits up to GitHub\n\n\ngit pull origin main\nBring GitHub’s changes down to your computer\n\n\n\nAfter your first git push origin main, bare git push and git pull also work — but naming origin main keeps it unambiguous.\n\n\nKey terms\n\n\n\n\n\n\n\nTerm\nMeaning\n\n\n\n\nRepository (repo)\nA folder Git is tracking, plus its history\n\n\nCommit\nA saved snapshot of your project at a point in time\n\n\nStaging area\nWhere changes wait after git add, before git commit\n\n\nHEAD\nThe commit you’re currently on (usually the latest)\n\n\nRemote\nA named connection to a hosted copy (e.g. on GitHub)\n\n\norigin\nThe conventional name for your main remote\n\n\n\n\n\nWhere your work moves\nworking directory  --git add--&gt;  staging area  --git commit--&gt;  repository  --git push--&gt;  GitHub",
+    "crumbs": [
+      "Appendices",
+      "Git Cheatsheet"
+    ]
+  }
+]
