@@ -4,7 +4,7 @@ Git and GitHub are the tools data scientists use to track changes to their work,
 
 ### Where these materials come from
 
-These materials are based on the [*Version Control with Git* video series](https://www.youtube.com/playlist?list=PL90vX4e9ORqeE1wyMbST9pJ1-Mj45f2JY) produced by the [UW–Madison Data Science Hub](https://github.com/UW-Madison-DataScience), which adapts the Software Carpentries [Git novice lesson](https://swcarpentry.github.io/git-novice/). We are grateful for their work.
+These materials are based on the [*Version Control with Git* video series](https://www.youtube.com/playlist?list=PL90vX4e9ORqeE1wyMbST9pJ1-Mj45f2JY) produced by the [UW-Madison Data Science Facilitators](https://dsi.wisc.edu/services/data-science-facilitation/) at the Data Science Institute. We are grateful for their work.
 
 The book is designed as an **alternative to watching the videos**: the same material, in a form you can read quickly, follow along with during a workshop, and return to later when a specific question comes up — without scrubbing through an hour of video to find the one command you need.
 
@@ -34,11 +34,11 @@ Every unit also has a companion **slide deck**, published on Posit Connect Cloud
 | 6 — Conflicts | [open deck](https://connect.posit.cloud/jjcurtin/content/01a1322d-30b9-676d-5cc7-d5322bdc73c8) |
 | 7 — Branches | [open deck](https://connect.posit.cloud/jjcurtin/content/01a1322d-8964-d3ac-15c8-94a529066346) |
 
-The **appendices** cover one-time setup you should finish before the workshop — installing Git on Windows and connecting to GitHub with SSH keys — and a **cheatsheet** at the end collects every command in one place for quick reference.
+The **appendices** cover one-time setup you should finish before the workshop — installing Git on Windows (Windows users only) and connecting to GitHub with SSH keys — and a **cheatsheet** at the end collects every command in one place for quick reference.
 
 ### How to use this book
 
-Git is best learned by doing. As you read, **follow along in a terminal** — Git Bash on Windows, or Terminal on macOS/Linux — and type the commands yourself. Everything builds one running example (Bucky Badger's game-day menu), so the repository you create grows right alongside the book.
+Git is best learned by doing. As you read, **follow along in a terminal** — Git Bash on Windows, or Terminal on macOS/Linux, or even the terminal in RStudio — and type the commands yourself. Everything builds one running example (Bucky Badger's game-day menu), so the repository you create grows right alongside the book.
 
 A few conventions to know:
 

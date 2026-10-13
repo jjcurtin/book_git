@@ -39,7 +39,7 @@ Bratwurst - simmer in beer and onions, then grill
 
 <div class="gap-sm"></div>
 
-Prefer a different editor? Open the file in the RStudio [source editor]{.uwred}, or use another terminal editor like [vim]{.uwred} — any of them works. These slides use `nano`. Either way, nothing has been handed to Git yet; we have only written to the folder.
+Prefer a different editor? Open the file in the RStudio [source editor]{.uwred}, or use another terminal editor like [vim]{.uwred} (my preferred editor) — any of them works. These slides use `nano`. Either way, nothing has been handed to Git yet; we have only written to the folder.
 
 
 --------------------------------------------------------------------------------

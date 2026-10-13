@@ -141,10 +141,11 @@ This lecture assumes two things are done:
 
 1. [Git is installed]{.uwred} on your laptop
 2. You have a [GitHub account]{.uwred}
+3. You have an SSH key set up to validate your idenity with Github
 
 <div class="gap-sm"></div>
 
-If either is missing, follow the setup guide and catch up with a neighbor:
+If these are not yet done, see Appendices A & B now, and then catch up with a neighbor:
 
 ::: {.footer}
 https://carpentries.github.io/workshop-template/#git
@@ -219,6 +220,7 @@ I prefer to keep all of my git repos at one location (`~/github`)
 <div class="gap-sm"></div>
 
 ```bash
+cd
 mkdir github
 cd github
 
@@ -248,7 +250,7 @@ git init
 <div class="gap-sm"></div>
 
 ```
-Initialized empty Git repository in /home/bucky/github/gameday-menu/.git/
+Initialized empty Git repository in /home/github/gameday-menu/.git/
 ```
 
 <div class="gap-sm"></div>
