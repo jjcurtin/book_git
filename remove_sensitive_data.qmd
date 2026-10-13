@@ -1,0 +1,155 @@
+# Removing Sensitive Data from a Repository {#sec-remove-sensitive-data}
+
+This appendix covers what to do when something that should never have been committed — an [API key]{.uwred}, a password, a token, or [protected data such as PHI]{.uwred} — ends up in a repository by mistake. It is an advanced, destructive procedure: it [rewrites your repository's history]{.uwred}, so read it through before you start.
+
+This is the procedure the lab uses, built on [`git filter-repo`](https://github.com/newren/git-filter-repo).
+
+## Why deleting the file isn't enough
+
+The instinct is to delete the file, commit, and push. That does not work. Git keeps [every past version of every file]{.uwred}, so the commit that first added the secret still contains it — and anyone with the repo can check out that commit and read it.
+
+<div class="gap-sm"></div>
+
+Deleting the file going forward, or even reverting the commit, only hides it from the latest version. The value stays fully readable in history. The only way to truly remove it is to [rewrite history]{.uwred} so that no commit ever contained it.
+
+::: {.callout-important}
+## Rotate or revoke first — before you touch the history
+
+Rewriting history does [not]{.uwred} make a leaked secret safe. Treat the value as compromised the moment it reached a remote.
+
+- **API keys, passwords, tokens:** [rotate or revoke the credential now]{.uwred}, in the service that issued it. Do this first; the history cleanup below is damage control, not the fix.
+- **PHI or other protected data:** you cannot "rotate" it. Treat the exposure as a [potential disclosure incident]{.uwred} — notify the PI and your privacy/compliance office per lab policy. History rewriting limits further spread but does not undo the exposure.
+:::
+
+## The tool: `git filter-repo`
+
+[`git filter-repo`](https://github.com/newren/git-filter-repo) is the current, recommended tool for this. It scrubs a file (or a string) from [all]{.uwred} commits, caches, and history at once. It replaces the older `git filter-branch`, which is slow and error-prone enough that Git's own docs now warn against it. (BFG Repo-Cleaner is an alternative aimed at very large repos, but it is unmaintained; we use `filter-repo`.)
+
+::: {.callout-note}
+If a commit touched [only]{.uwred} the file you remove, that entire commit disappears from history. If the commit also touched other files, it stays — just without the removed file.
+:::
+
+## Step 1: Install `git filter-repo`
+
+`git filter-repo` needs Python. Pick the route for your system.
+
+### macOS
+
+```bash
+brew install git-filter-repo
+```
+
+### Linux
+
+```bash
+# Debian / Ubuntu
+sudo apt install git-filter-repo
+
+# Fedora
+sudo dnf install git-filter-repo
+```
+
+### Any system with Python / pip
+
+```bash
+pip install git-filter-repo
+```
+
+### Windows (Git Bash, manual install)
+
+1. In Git Bash, run `python3` — Windows will offer to install Python from the Store.
+2. Find your Git install folder: `git --exec-path`.
+3. Download the single [`git-filter-repo` script](https://github.com/newren/git-filter-repo/blob/main/git-filter-repo) to your Downloads folder.
+4. Remove any `.txt` extension the download added, then copy the file into the folder from step 2 (you may be asked for administrator permission).
+
+### Confirm it worked
+
+```bash
+git filter-repo
+```
+
+```
+No arguments specified.
+```
+
+That message (rather than "command not found") means Git can find the tool.
+
+## Step 2: Identify the exact path
+
+You need the file's path [as Git recorded it]{.uwred}, including any folder. If the file was ever moved or renamed, use the path from the commit that first added it so you catch every version.
+
+<div class="gap-sm"></div>
+
+If you are chasing a large file rather than a known secret, this lists the biggest objects in the repo:
+
+```bash
+git rev-list --objects --all \
+  | grep "$(git verify-pack -v .git/objects/pack/*.idx \
+           | sort -k 3 -n \
+           | tail -10 \
+           | awk '{print $1}')"
+```
+
+## Step 3: Rewrite history on a fresh clone
+
+`git filter-repo` expects a [fresh clone]{.uwred} — work on a brand-new copy so you cannot corrupt your working repo. Clone it, then run the removal:
+
+```bash
+git clone git@github.com:buckybadger/gameday-menu.git
+cd gameday-menu
+
+# remove one file from all of history
+git filter-repo --path secrets.env --invert-paths
+```
+
+<div class="gap-sm"></div>
+
+Variations you may need:
+
+- **Several files at once:** repeat `--path`, e.g. `--path secrets.env --path config/key.pem --invert-paths`.
+- **Everything matching a pattern:** `git filter-repo --path-glob '*.env' --invert-paths`.
+- **Keep the file but scrub a value inside it** (for a file that legitimately exists, like a config with one bad line): put `OLD_SECRET==>REMOVED` in a file and run `git filter-repo --replace-text replacements.txt`.
+
+::: {.callout-note}
+`--invert-paths` means "remove the paths that match." Without it, `filter-repo` would keep only those paths and drop everything else.
+:::
+
+## Step 4: Verify it's gone
+
+Search the rewritten history for the value or file before you push anything:
+
+```bash
+# search every commit for the secret string
+git log --all --oneline -S 'the-secret-value'
+
+# confirm the file no longer appears anywhere
+git log --all --oneline -- secrets.env
+```
+
+Empty output from both means the content is no longer in history.
+
+## Step 5: Re-add the remote and force-push
+
+`git filter-repo` removes the `origin` remote on purpose, so a rewrite can't be pushed by accident. Add it back, then force-push the rewritten history to every branch and tag:
+
+```bash
+git remote add origin git@github.com:buckybadger/gameday-menu.git
+git push origin --force --all
+git push origin --force --tags
+```
+
+::: {.callout-note}
+If `main` is a protected branch, you may need to lift the protection on GitHub for the force-push, then re-enable it afterward.
+:::
+
+## Step 6: Clean up the fallout
+
+A history rewrite changes [every commit's ID]{.uwred}, so the cleanup isn't done when the push succeeds:
+
+- **Collaborators must re-clone.** Any existing clone still holds the old history — and the secret. If someone pushes from a stale clone, the secret comes back. Tell everyone to delete their copy and clone fresh.
+- **Caches and forks linger.** GitHub can keep old commits in the web UI, in open pull requests, and in forks even after your force-push. Open a GitHub support request to purge cached commit views, and handle any forks separately.
+- **Prevent a repeat.** Add the file (or its pattern) to `.gitignore` so it can't be committed again — see the Ignoring Files unit.
+
+::: {.callout-note}
+The cheapest fix is never leaking in the first place. Keep secrets in untracked files listed in `.gitignore`, and keep PHI and other protected data out of Git entirely — store it where your lab's data policy requires.
+:::

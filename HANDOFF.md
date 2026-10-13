@@ -29,7 +29,7 @@ Based on a seven-video Software Carpentry "Git novice" series from UW. Transcrip
 
 ## Status: the project is largely built
 
-Units 1–6 and 8 are **fully written and published as decks**; Unit 7 (Stash) is newly written and **not yet published** as a deck. Four appendices exist. This is well past a draft — remaining work is review/polish and any new additions.
+Units 1–6 and 8 are **fully written and published as decks**; Unit 7 (Stash) is newly written and **not yet published** as a deck. Five appendices exist (the newest, Remove Sensitive Data, is book-only). This is well past a draft — remaining work is review/polish and any new additions.
 
 ### Units (each is a book chapter *and* a standalone deck)
 
@@ -54,9 +54,10 @@ Units 1–6 and 8 are **fully written and published as decks**; Unit 7 (Stash) i
 - `install_git_windows.qmd` — Appendix: installing Git for Windows / Git Bash (`#sec-git-windows`).
 - `ssh_setup.qmd` — Appendix: generating SSH keys and adding them to GitHub (`#sec-ssh-setup`).
 - `meld_difftool.qmd` — Appendix: installing Meld and configuring it as Git's default `difftool` (`#sec-meld-difftool`). Cross-platform (Win/mac/Linux); includes an optional `mergetool` section. Based on John's ARC docs.
+- `remove_sensitive_data.qmd` — Appendix (advanced): removing a committed secret/PHI from all history with `git filter-repo` (`#sec-remove-sensitive-data`). Based on the lab's ARC procedure, but adds the two steps that doc omits: **rotate/revoke first** (PHI reframed as a disclosure incident) and the **aftermath** (force-push, collaborators re-clone, GitHub caches/forks linger). Cross-platform install; book-only (not a deck).
 - `cheatsheet.qmd` — back-matter quick reference of every command (`#sec-cheatsheet`).
 
-In `_quarto_book.yml`, the eight units are `chapters:` and the four files above are `appendices:` (order: install_git_windows, ssh_setup, meld_difftool, cheatsheet).
+In `_quarto_book.yml`, the eight units are `chapters:` and the five files above are `appendices:` (order: install_git_windows, ssh_setup, meld_difftool, remove_sensitive_data, cheatsheet).
 
 A footer pointer to the Meld appendix sits on the `git diff` slide in `02_tracking_changes.qmd` (where diff is first introduced).
 

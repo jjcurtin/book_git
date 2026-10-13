@@ -36,4 +36,5 @@ book:
     - install_git_windows.qmd
     - ssh_setup.qmd
     - meld_difftool.qmd
+    - remove_sensitive_data.qmd
     - cheatsheet.qmd
