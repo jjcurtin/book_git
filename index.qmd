@@ -17,10 +17,10 @@ These newer commands each do one job, which makes them clearer and harder to mis
 
 ### How this book is organized
 
-The book has seven units plus a few reference appendices.
+The book has eight units plus a few reference appendices.
 
 - **Units 1–5** are the core everyday workflow. They are covered live in a one-hour, hands-on workshop.
-- **Units 6–7** (Conflicts and Branches) go beyond the live hour and are here for you to explore on your own afterward.
+- **Units 6–8** (Conflicts, Stash, and Branches) go beyond the live hour and are here for you to explore on your own afterward.
 
 Every unit also has a companion **slide deck**, published on Posit Connect Cloud (Units 1–5 are the decks we present live):
 
@@ -32,7 +32,8 @@ Every unit also has a companion **slide deck**, published on Posit Connect Cloud
 | 4 — Ignoring Files | [open deck](https://connect.posit.cloud/jjcurtin/content/01a131ab-5119-32b7-c0c6-695a27cbcd1e) |
 | 5 — Remotes in GitHub | [open deck](https://connect.posit.cloud/jjcurtin/content/01a131b6-2ab8-1681-41b3-3022e0126132) |
 | 6 — Conflicts | [open deck](https://connect.posit.cloud/jjcurtin/content/01a1322d-30b9-676d-5cc7-d5322bdc73c8) |
-| 7 — Branches | [open deck](https://connect.posit.cloud/jjcurtin/content/01a1322d-8964-d3ac-15c8-94a529066346) |
+| 7 — Stashing Changes | [open deck](https://connect.posit.cloud/jjcurtin/content/01a1369f-eaa6-a71a-5cff-4f6789f213bf) |
+| 8 — Branches | [open deck](https://connect.posit.cloud/jjcurtin/content/01a1322d-8964-d3ac-15c8-94a529066346) |
 
 The **appendices** cover one-time setup you should finish before the workshop — installing Git on Windows (Windows users only) and connecting to GitHub with SSH keys — and a **cheatsheet** at the end collects every command in one place for quick reference.
 

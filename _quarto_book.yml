@@ -30,7 +30,8 @@ book:
     - 04_ignoring_files.qmd
     - 05_remotes_github.qmd
     - 06_conflicts.qmd
-    - 07_branches.qmd
+    - 07_stash.qmd
+    - 08_branches.qmd
   appendices:
     - install_git_windows.qmd
     - ssh_setup.qmd

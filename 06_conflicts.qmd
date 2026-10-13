@@ -55,7 +55,7 @@ Then commit and push it up to GitHub:
 ```bash
 git add desserts.txt
 git commit -m "Pick Orange Custard Chocolate Chip ice cream"
-git push origin main
+git push
 ```
 
 <div class="gap-sm"></div>
@@ -95,7 +95,7 @@ Both commits look fine on their own. The trouble starts when they meet.
 Try to push your version:
 
 ```bash
-git push origin main
+git push
 ```
 
 ```
@@ -115,7 +115,7 @@ GitHub is protecting Sam's commit. It's telling you to [pull first]{.uwred} and 
 ## Pull brings the conflict to light
 
 ```bash
-git pull origin main
+git pull
 ```
 
 ```
@@ -197,7 +197,7 @@ Once the markers are gone, stage the file to tell Git the conflict is settled, t
 ```bash
 git add desserts.txt
 git commit -m "Merge: offer both ice cream flavors"
-git push origin main
+git push
 ```
 
 <div class="gap-sm"></div>

@@ -204,6 +204,29 @@ You already know how to handle it: open the file, remove the `<<<<<<<`, `=======
 
 --------------------------------------------------------------------------------
 
+## Switching with unfinished work
+
+Branches work best from a [clean]{.uwred} working tree. If you have uncommitted edits and the branch you're switching to would touch those same files, Git [refuses the switch]{.uwred} rather than risk your work.
+
+<div class="gap-sm"></div>
+
+[`git stash`]{.uwred} is the fix here too — park your edits, switch freely, then bring them back:
+
+```bash
+git stash
+git switch veggie-option
+# ... do a quick thing on the branch ...
+git switch main
+git stash pop
+```
+
+<div class="gap-sm"></div>
+
+Your edits return exactly where you left them. (See the Stash unit.)
+
+
+--------------------------------------------------------------------------------
+
 ## Your turn
 
 ::: {.callout-wide}

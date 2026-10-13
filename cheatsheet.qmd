@@ -8,13 +8,13 @@ Most of your Git life is this short loop:
 
 ```bash
 # before you start, get the latest
-git pull origin main
+git pull
 
 # ... edit files ...
 
 git add <file>            # stage your changes
 git commit -m "message"   # save them to history
-git push origin main      # send them to GitHub
+git push                  # send them to GitHub
 ```
 
 Check in with `git status` any time you're unsure where things stand.
@@ -25,7 +25,7 @@ Check in with `git status` any time you're unsure where things stand.
 |---|---|
 | `git config --global user.name "Your Name"` | Set the name stamped on your commits |
 | `git config --global user.email "you@wisc.edu"` | Set the email on your commits (match GitHub) |
-| `git config --global core.editor "nano"` | Use nano for commit messages (what these lessons assume) |
+| `git config --global core.editor "nano"` | Use nano for commit messages (what these lessons assume). vim is another option preferred by JJC |
 | `git config --list` | Show your current configuration |
 | `ssh -T git@github.com` | Test that your SSH key connects to GitHub |
 
@@ -63,10 +63,13 @@ Both still need a `git commit` to record the change.
 | `git diff --staged` | Changes that are staged for the next commit |
 | `git diff HEAD <file>` | All changes since the last commit |
 | `git diff <commit> <file>` | Compare your file to a specific past commit |
+| `git difftool <file>` | Open the same comparison in a graphical tool (e.g. Meld) |
 | `git log` | Full commit history |
 | `git log --oneline` | One compact line per commit |
 | `git log --oneline <file>` | Only the commits that changed `<file>` |
 | `git log -2` | Just the two most recent commits |
+
+`git difftool` takes the same arguments as `git diff` and compares the same versions — it just shows them side by side in a window instead of printing to the terminal. It needs a one-time setup; see the "Using Meld for Diffs" appendix.
 
 ### Undoing and restoring
 
@@ -102,10 +105,13 @@ secret.env     # a specific file
 |---|---|
 | `git remote add origin <address>` | Link your local repo to a GitHub repo |
 | `git remote -v` | Show the remotes you've connected |
-| `git push origin main` | Send your commits up to GitHub |
-| `git pull origin main` | Bring GitHub's changes down to your computer |
+| `git push -u origin main` | **First push:** send commits up *and* set up tracking |
+| `git push` | Send your commits up to GitHub |
+| `git pull` | Bring GitHub's changes down to your computer |
 
-After your first `git push origin main`, bare `git push` and `git pull` also work — but naming `origin main` keeps it unambiguous.
+The `-u` on your first push records a tracking link between local `main` and `origin/main`. After that, bare `git push` and `git pull` know where to go. (`git clone` sets up this tracking for you, so cloned repos work with bare commands right away.)
+
+To skip `-u` entirely, run `git config --global push.autoSetupRemote true` once per computer — then even your first bare `git push` sets up the tracking link automatically.
 
 ### Key terms
 

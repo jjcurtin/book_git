@@ -141,7 +141,7 @@ This lecture assumes three things are done:
 
 1. [Git is installed]{.uwred} on your laptop
 2. You have a [GitHub account]{.uwred}
-3. You have an SSH key set up to validate your idenity with Github
+3. You have an SSH key set up to validate your identity with Github
 
 <div class="gap-sm"></div>
 

@@ -1,0 +1,228 @@
+# Stashing Changes
+
+## A pull that won't go through
+
+Picture this: you're in the middle of editing a file — a half-finished thought you're [not ready to commit]{.uwred} — when you remember you should pull a teammate's latest work first.
+
+<div class="gap-sm"></div>
+
+You run `git pull`, and Git [refuses]{.uwred}. Your uncommitted edits are in the way: the pull would overwrite them, so Git stops to protect your work.
+
+<div class="gap-md"></div>
+
+[`git stash`]{.uwred} is the way out. It sets your unfinished changes aside, hands you a clean working tree, and lets you bring them back when you're ready.
+
+
+--------------------------------------------------------------------------------
+
+## The setup: you're mid-edit
+
+Back in your main copy of the repo, you start tweaking `brats.txt` — jotting how many brats to buy per person:
+
+```bash
+cd ~/github/gameday-menu
+nano brats.txt
+```
+
+```
+Buy 3 brats per person
+```
+
+<div class="gap-sm"></div>
+
+You haven't committed — this is a work in progress:
+
+```bash
+git status
+```
+
+```
+On branch main
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+	modified:   brats.txt
+```
+
+
+--------------------------------------------------------------------------------
+
+## Meanwhile, GitHub has moved on
+
+While you were typing, [Sam]{.uwred} pushed an update to `brats.txt` up to GitHub (a different line — the brand to buy).
+
+<div class="gap-md"></div>
+
+So the version on GitHub is now ahead of yours, and it touches the [same file]{.uwred} you're editing. That's exactly the situation where a plain pull gets stuck.
+
+
+--------------------------------------------------------------------------------
+
+## The pull is blocked
+
+You try to grab Sam's change:
+
+```bash
+git pull
+```
+
+```
+error: Your local changes to the following files would be overwritten by merge:
+	brats.txt
+Please commit your changes or stash them before you merge.
+Aborting
+```
+
+<div class="gap-sm"></div>
+
+Git offers two ways forward: [commit]{.uwred} your changes, or [stash]{.uwred} them. A half-finished thought isn't worth a commit yet — so you stash.
+
+
+--------------------------------------------------------------------------------
+
+## Set it aside: `git stash`
+
+Tuck your uncommitted changes away:
+
+```bash
+git stash
+```
+
+```
+Saved working directory and index state WIP on main: 9f8e7d6 Merge: offer both ice cream flavors
+```
+
+<div class="gap-sm"></div>
+
+Your edits are safely parked, and the working tree is back to the last commit — [clean]{.uwred}:
+
+```bash
+git status
+```
+
+```
+On branch main
+nothing to commit, working tree clean
+```
+
+::: {.footer}
+Give a stash a label so you remember what it holds: `git stash push -m "wip: brat quantities"`.
+:::
+
+
+--------------------------------------------------------------------------------
+
+## See what's parked: `git stash list`
+
+Your set-aside work lives in a stack you can inspect any time:
+
+```bash
+git stash list
+```
+
+```
+stash@{0}: WIP on main: 9f8e7d6 Merge: offer both ice cream flavors
+```
+
+<div class="gap-sm"></div>
+
+[`stash@{0}`]{.uwred} is the most recent entry. For now there's just one — which is how you want to keep it.
+
+
+--------------------------------------------------------------------------------
+
+## Now the pull succeeds
+
+With a clean tree, Git can bring Sam's change down without stepping on anything:
+
+```bash
+git pull
+```
+
+```
+Updating 9f8e7d6..e4f5a6b
+Fast-forward
+ brats.txt | 1 +
+ 1 file changed, 1 insertion(+)
+```
+
+<div class="gap-sm"></div>
+
+Your local `brats.txt` now has Sam's update — but your own half-finished edit is still waiting in the stash.
+
+
+--------------------------------------------------------------------------------
+
+## Bring it back: `git stash pop`
+
+Reapply your parked changes on top of the freshly pulled file:
+
+```bash
+git stash pop
+```
+
+```
+Auto-merging brats.txt
+On branch main
+Changes not staged for commit:
+	modified:   brats.txt
+
+Dropped refs/stash@{0} (f0a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9)
+```
+
+<div class="gap-sm"></div>
+
+Your work-in-progress is back on top of Sam's update, and the stash entry is [gone]{.uwred}. Finish your thought, then `git add` and `git commit` as usual.
+
+::: {.footer}
+If your edits and the pulled change touched the same line, `pop` reports a conflict — resolve it exactly as in the Conflicts unit.
+:::
+
+
+--------------------------------------------------------------------------------
+
+## A few things to know
+
+- A stash is [local only]{.uwred} — it never travels to GitHub. It's for short-term juggling, not long-term storage.
+- [`git stash pop`]{.uwred} reapplies your work and removes the entry; [`git stash apply`]{.uwred} reapplies it but leaves the entry in the list.
+- Plain `git stash` leaves brand-new [untracked]{.uwred} files behind. Add `-u` (`git stash -u`) to sweep those in too.
+
+<div class="gap-md"></div>
+
+Good habit: pop a stash [soon]{.uwred}. A pile of forgotten stashes is hard to untangle later.
+
+
+--------------------------------------------------------------------------------
+
+## Your turn
+
+::: {.callout-wide}
+::: {.callout-important}
+# Try it
+Stash, sync, and restore:
+
+1. Edit `cheese_curds.txt` but [don't]{.uwred} commit
+2. Run `git stash`, then confirm `git status` is clean
+3. `git pull` to sync with GitHub
+4. `git stash pop` to bring your edit back, then finish and commit it
+:::
+:::
+
+
+--------------------------------------------------------------------------------
+
+## Where we are
+
+Stashing lets you step away from unfinished work without committing it:
+
+- [`git stash`]{.uwred} parks your uncommitted changes and cleans the working tree
+- [`git stash pop`]{.uwred} brings them back; [`git stash list`]{.uwred} shows what's parked
+- It's the cleanest way to let a blocked [`git pull`]{.uwred} go through
+
+<div class="gap-md"></div>
+
+::: {.callout-wide}
+::: {.callout-important}
+# What's next
+The same trick works when you need to switch [branches]{.uwred} with unfinished edits — the next unit. Keep the [cheatsheet]{.uwred} handy.
+:::
+:::

@@ -137,10 +137,10 @@ origin	git@github.com:buckybadger/gameday-menu.git (push)
 
 ## Send it up: `git push`
 
-Push your `main` branch to the `origin` remote:
+Push your `main` branch to the `origin` remote. The [`-u`]{.uwred} flag links your local `main` to the remote's `main`, so Git remembers the pairing:^[Prefer not to remember `-u`? Run `git config --global push.autoSetupRemote true` once per computer, and Git sets up the tracking link on your first bare `git push` automatically — no `-u` needed.]
 
 ```bash
-git push origin main
+git push -u origin main
 ```
 
 ```
@@ -148,6 +148,7 @@ Enumerating objects: 12, done.
 Writing objects: 100% (12/12), 1.1 KiB | 1.1 MiB/s, done.
 To github.com:buckybadger/gameday-menu.git
  * [new branch]      main -> main
+branch 'main' set up to track 'origin/main'.
 ```
 
 <div class="gap-sm"></div>
@@ -159,16 +160,16 @@ Reload the GitHub page: your files and every commit are now there. Note that `re
 
 ## The everyday loop: pull and push
 
-With a remote in place, syncing is two commands:
+Because that first push used [`-u`]{.uwred}, Git now knows the pairing — so syncing is just two short commands:
 
 <div class="gap-sm"></div>
 
-- [`git pull origin main`]{.uwred} — bring down changes from GitHub (a teammate's work, or edits from another machine)
-- [`git push origin main`]{.uwred} — send your new commits up
+- [`git pull`]{.uwred} — bring down changes from GitHub (a teammate's work, or edits from another machine)
+- [`git push`]{.uwred} — send your new commits up
 
 <div class="gap-md"></div>
 
-Good habit: [pull when you start]{.uwred}, [push when you finish]{.uwred}. And to get the repo onto a brand-new machine, [`git clone <address>`]{.uwred} creates the folder, sets up `origin`, and downloads everything in one step.
+No need to name `origin main` again — the tracking link set up by `-u` fills that in. Good habit: [pull when you start]{.uwred}, [push when you finish]{.uwred}. And to get the repo onto a brand-new machine, [`git clone <address>`]{.uwred} creates the folder, sets up `origin`, and configures the same tracking automatically — so bare `git push`/`git pull` work there right away.
 
 
 --------------------------------------------------------------------------------
@@ -182,7 +183,7 @@ Make a change and publish it:
 
 1. Add a line to `desserts.txt` with `nano` (kringle, for the Wisconsin touch)
 2. `git add` and `git commit` with a clear message
-3. `git push origin main`
+3. `git push` (no need for `origin main` now)
 4. Refresh your repo on GitHub and watch the new commit appear
 :::
 :::
@@ -195,8 +196,8 @@ Make a change and publish it:
 Bucky's menu now lives on GitHub, backed up and shareable:
 
 - [`git remote add origin <address>`]{.uwred} links the local repo to GitHub
-- [`git push origin main`]{.uwred} sends commits up; [`git pull origin main`]{.uwred} brings them down
-- [`git clone <address>`]{.uwred} copies a repo onto a new machine
+- [`git push -u origin main`]{.uwred} sends commits up the first time and sets up tracking; after that, bare [`git push`]{.uwred} and [`git pull`]{.uwred} are all you need
+- [`git clone <address>`]{.uwred} copies a repo onto a new machine (tracking already set up)
 
 <div class="gap-md"></div>
 
