@@ -34,4 +34,5 @@ book:
   appendices:
     - install_git_windows.qmd
     - ssh_setup.qmd
+    - meld_difftool.qmd
     - cheatsheet.qmd

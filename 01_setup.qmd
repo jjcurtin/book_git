@@ -137,7 +137,7 @@ As the menu evolves, we will use Git to track every change, so Bucky can always 
 
 ## What you should already have
 
-This lecture assumes two things are done:
+This lecture assumes three things are done:
 
 1. [Git is installed]{.uwred} on your laptop
 2. You have a [GitHub account]{.uwred}

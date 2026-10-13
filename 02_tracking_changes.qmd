@@ -323,6 +323,10 @@ index 83db48f..f735c2d 100644
 
 Git colors the output: added lines show in <span style="color:forestgreen;">green</span> with a `+`, and removed lines would show in <span style="color:red;">red</span> with a `-`.
 
+::: {.footer}
+Prefer a visual, side-by-side diff? The *Using Meld for Diffs* appendix sets up `git difftool` to open these comparisons in Meld.
+:::
+
 
 --------------------------------------------------------------------------------
 
