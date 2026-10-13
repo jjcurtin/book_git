@@ -14,7 +14,7 @@
     "href": "index.html#introduction-to-git-and-github",
     "title": "Introduction to Git and Github",
     "section": "",
-    "text": "Where these materials come from\nThese materials are based on the Version Control with Git video series produced by the UW-Madison Data Science Facilitators at the Data Science Institute. We are grateful for their work.\nThe book is designed as an alternative to watching the videos: the same material, in a form you can read quickly, follow along with during a workshop, and return to later when a specific question comes up — without scrubbing through an hour of video to find the one command you need.\nWhere it helps, we have also updated the workflows to use current Git commands:\n\nTo restore a previous version of a file, we use git restore rather than the older git checkout.\nTo move between branches, we use git switch rather than git checkout.\n\nThese newer commands each do one job, which makes them clearer and harder to misuse than the older, overloaded git checkout.\n\n\nHow this book is organized\nThe book has seven units plus a few reference appendices.\n\nUnits 1–5 are the core everyday workflow. They are covered live in a one-hour, hands-on workshop.\nUnits 6–7 (Conflicts and Branches) go beyond the live hour and are here for you to explore on your own afterward.\n\nEvery unit also has a companion slide deck, published on Posit Connect Cloud (Units 1–5 are the decks we present live):\n\n\n\nUnit\nSlide deck\n\n\n\n\n1 — Introduction and Setup\nopen deck\n\n\n2 — Tracking Changes\nopen deck\n\n\n3 — Exploring History\nopen deck\n\n\n4 — Ignoring Files\nopen deck\n\n\n5 — Remotes in GitHub\nopen deck\n\n\n6 — Conflicts\nopen deck\n\n\n7 — Branches\nopen deck\n\n\n\nThe appendices cover one-time setup you should finish before the workshop — installing Git on Windows (Windows users only) and connecting to GitHub with SSH keys — and a cheatsheet at the end collects every command in one place for quick reference.\n\n\nHow to use this book\nGit is best learned by doing. As you read, follow along in a terminal — Git Bash on Windows, or Terminal on macOS/Linux, or even the terminal in RStudio — and type the commands yourself. Everything builds one running example (Bucky Badger’s game-day menu), so the repository you create grows right alongside the book.\nA few conventions to know:\n\nCommands you type appear in shaded code blocks, with the output Git prints shown just below them.\nYour turn boxes are short challenges to try on your own before moving on.\nKeep the cheatsheet open in another tab for quick reference.\n\nThe source for this book lives on GitHub; corrections and suggestions are welcome.",
+    "text": "Where these materials come from\nThese materials are based on the Version Control with Git video series produced by the UW-Madison Data Science Facilitators at the Data Science Institute. We are grateful for their work.\nThe book is designed as an alternative to watching the videos: the same material, in a form you can read quickly, follow along with during a workshop, and return to later when a specific question comes up — without scrubbing through an hour of video to find the one command you need.\nWhere it helps, we have also updated the workflows to use current Git commands:\n\nTo restore a previous version of a file, we use git restore rather than the older git checkout.\nTo move between branches, we use git switch rather than git checkout.\n\nThese newer commands each do one job, which makes them clearer and harder to misuse than the older, overloaded git checkout.\n\n\nHow this book is organized\nThe book has eight units plus a few reference appendices.\n\nUnits 1–5 are the core everyday workflow. They are covered live in a one-hour, hands-on workshop.\nUnits 6–8 (Conflicts, Stash, and Branches) go beyond the live hour and are here for you to explore on your own afterward.\n\nEvery unit also has a companion slide deck, published on Posit Connect Cloud (Units 1–5 are the decks we present live):\n\n\n\nUnit\nSlide deck\n\n\n\n\n1 — Introduction and Setup\nopen deck\n\n\n2 — Tracking Changes\nopen deck\n\n\n3 — Exploring History\nopen deck\n\n\n4 — Ignoring Files\nopen deck\n\n\n5 — Remotes in GitHub\nopen deck\n\n\n6 — Conflicts\nopen deck\n\n\n7 — Stashing Changes\nopen deck\n\n\n8 — Branches\nopen deck\n\n\n\nThe appendices cover one-time setup you should finish before the workshop — installing Git on Windows (Windows users only) and connecting to GitHub with SSH keys — and a cheatsheet at the end collects every command in one place for quick reference.\n\n\nHow to use this book\nGit is best learned by doing. As you read, follow along in a terminal — Git Bash on Windows, or Terminal on macOS/Linux, or even the terminal in RStudio — and type the commands yourself. Everything builds one running example (Bucky Badger’s game-day menu), so the repository you create grows right alongside the book.\nA few conventions to know:\n\nCommands you type appear in shaded code blocks, with the output Git prints shown just below them.\nYour turn boxes are short challenges to try on your own before moving on.\nKeep the cheatsheet open in another tab for quick reference.\n\nThe source for this book lives on GitHub; corrections and suggestions are welcome.",
     "crumbs": [
       "Introduction to Git and Github"
     ]
@@ -94,7 +94,7 @@
     "href": "01_setup.html#what-you-should-already-have",
     "title": "1  Introduction and Setup",
     "section": "1.7 What you should already have",
-    "text": "1.7 What you should already have\nThis lecture assumes three things are done:\n\nGit is installed on your laptop\nYou have a GitHub account\nYou have an SSH key set up to validate your idenity with Github\n\n\n\n\nIf these are not yet done, see Appendices A & B now, and then catch up with a neighbor:\n\nhttps://carpentries.github.io/workshop-template/#git\n\n\n\n\nEverything today happens in a terminal (Git Bash on Windows; Terminal on macOS/Linux). Git commands all start with the word git.\n\n\n\nRStudio also has a built in terminal. I use it rather than a separate terminal for git and file management when I am working on analysis code for a project. Its up to you!",
+    "text": "1.7 What you should already have\nThis lecture assumes three things are done:\n\nGit is installed on your laptop\nYou have a GitHub account\nYou have an SSH key set up to validate your identity with Github\n\n\n\n\nIf these are not yet done, see Appendices A & B now, and then catch up with a neighbor:\n\nhttps://carpentries.github.io/workshop-template/#git\n\n\n\n\nEverything today happens in a terminal (Git Bash on Windows; Terminal on macOS/Linux). Git commands all start with the word git.\n\n\n\nRStudio also has a built in terminal. I use it rather than a separate terminal for git and file management when I am working on analysis code for a project. Its up to you!",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction and Setup</span>"
     ]
@@ -704,7 +704,7 @@
     "href": "05_remotes_github.html#send-it-up-git-push",
     "title": "5  Remotes in GitHub",
     "section": "5.8 Send it up: git push",
-    "text": "5.8 Send it up: git push\nPush your main branch to the origin remote:\ngit push origin main\nEnumerating objects: 12, done.\nWriting objects: 100% (12/12), 1.1 KiB | 1.1 MiB/s, done.\nTo github.com:buckybadger/gameday-menu.git\n * [new branch]      main -&gt; main\n\n\n\nReload the GitHub page: your files and every commit are now there. Note that receipts/ and the .tmp files are absent — they were ignored, so they never traveled.",
+    "text": "5.8 Send it up: git push\nPush your main branch to the origin remote. The -u flag links your local main to the remote’s main, so Git remembers the pairing:1\ngit push -u origin main\nEnumerating objects: 12, done.\nWriting objects: 100% (12/12), 1.1 KiB | 1.1 MiB/s, done.\nTo github.com:buckybadger/gameday-menu.git\n * [new branch]      main -&gt; main\nbranch 'main' set up to track 'origin/main'.\n\n\n\nReload the GitHub page: your files and every commit are now there. Note that receipts/ and the .tmp files are absent — they were ignored, so they never traveled.",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Remotes in GitHub</span>"
     ]
@@ -714,7 +714,7 @@
     "href": "05_remotes_github.html#the-everyday-loop-pull-and-push",
     "title": "5  Remotes in GitHub",
     "section": "5.9 The everyday loop: pull and push",
-    "text": "5.9 The everyday loop: pull and push\nWith a remote in place, syncing is two commands:\n\n\n\n\ngit pull origin main — bring down changes from GitHub (a teammate’s work, or edits from another machine)\ngit push origin main — send your new commits up\n\n\n\n\nGood habit: pull when you start, push when you finish. And to get the repo onto a brand-new machine, git clone &lt;address&gt; creates the folder, sets up origin, and downloads everything in one step.",
+    "text": "5.9 The everyday loop: pull and push\nBecause that first push used -u, Git now knows the pairing — so syncing is just two short commands:\n\n\n\n\ngit pull — bring down changes from GitHub (a teammate’s work, or edits from another machine)\ngit push — send your new commits up\n\n\n\n\nNo need to name origin main again — the tracking link set up by -u fills that in. Good habit: pull when you start, push when you finish. And to get the repo onto a brand-new machine, git clone &lt;address&gt; creates the folder, sets up origin, and configures the same tracking automatically — so bare git push/git pull work there right away.",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Remotes in GitHub</span>"
     ]
@@ -724,7 +724,7 @@
     "href": "05_remotes_github.html#your-turn",
     "title": "5  Remotes in GitHub",
     "section": "5.10 Your turn",
-    "text": "5.10 Your turn\n\n\n\n\n\n\n\nImportantTry it\n\n\n\nMake a change and publish it:\n\nAdd a line to desserts.txt with nano (kringle, for the Wisconsin touch)\ngit add and git commit with a clear message\ngit push origin main\nRefresh your repo on GitHub and watch the new commit appear",
+    "text": "5.10 Your turn\n\n\n\n\n\n\n\nImportantTry it\n\n\n\nMake a change and publish it:\n\nAdd a line to desserts.txt with nano (kringle, for the Wisconsin touch)\ngit add and git commit with a clear message\ngit push (no need for origin main now)\nRefresh your repo on GitHub and watch the new commit appear",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Remotes in GitHub</span>"
     ]
@@ -734,7 +734,17 @@
     "href": "05_remotes_github.html#where-we-are",
     "title": "5  Remotes in GitHub",
     "section": "5.11 Where we are",
-    "text": "5.11 Where we are\nBucky’s menu now lives on GitHub, backed up and shareable:\n\ngit remote add origin &lt;address&gt; links the local repo to GitHub\ngit push origin main sends commits up; git pull origin main brings them down\ngit clone &lt;address&gt; copies a repo onto a new machine\n\n\n\n\n\n\n\n\n\n\n\nImportantWhat’s next\n\n\n\nWorking with others means parallel changes — which brings branches and merge conflicts. Those live in the book chapters to explore on your own. Keep the cheatsheet handy.",
+    "text": "5.11 Where we are\nBucky’s menu now lives on GitHub, backed up and shareable:\n\ngit remote add origin &lt;address&gt; links the local repo to GitHub\ngit push -u origin main sends commits up the first time and sets up tracking; after that, bare git push and git pull are all you need\ngit clone &lt;address&gt; copies a repo onto a new machine (tracking already set up)\n\n\n\n\n\n\n\n\n\n\n\nImportantWhat’s next\n\n\n\nWorking with others means parallel changes — which brings branches and merge conflicts. Those live in the book chapters to explore on your own. Keep the cheatsheet handy.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Remotes in GitHub</span>"
+    ]
+  },
+  {
+    "objectID": "05_remotes_github.html#footnotes",
+    "href": "05_remotes_github.html#footnotes",
+    "title": "5  Remotes in GitHub",
+    "section": "",
+    "text": "Prefer not to remember -u? Run git config --global push.autoSetupRemote true once per computer, and Git sets up the tracking link on your first bare git push automatically — no -u needed.↩︎",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Remotes in GitHub</span>"
     ]
@@ -764,7 +774,7 @@
     "href": "06_conflicts.html#sam-changes-a-line-and-pushes",
     "title": "6  Conflicts",
     "section": "6.3 Sam changes a line and pushes",
-    "text": "6.3 Sam changes a line and pushes\nIn Sam’s copy, edit the ice cream line in desserts.txt:\ncd ~/github/gameday-menu-sam\nnano desserts.txt\nBabcock ice cream - Orange Custard Chocolate Chip\n\n\n\nThen commit and push it up to GitHub:\ngit add desserts.txt\ngit commit -m \"Pick Orange Custard Chocolate Chip ice cream\"\ngit push origin main\n\n\n\nGitHub now has Sam’s version of that line.",
+    "text": "6.3 Sam changes a line and pushes\nIn Sam’s copy, edit the ice cream line in desserts.txt:\ncd ~/github/gameday-menu-sam\nnano desserts.txt\nBabcock ice cream - Orange Custard Chocolate Chip\n\n\n\nThen commit and push it up to GitHub:\ngit add desserts.txt\ngit commit -m \"Pick Orange Custard Chocolate Chip ice cream\"\ngit push\n\n\n\nGitHub now has Sam’s version of that line.",
     "crumbs": [
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Conflicts</span>"
     ]
@@ -784,7 +794,7 @@
     "href": "06_conflicts.html#the-push-is-rejected",
     "title": "6  Conflicts",
     "section": "6.5 The push is rejected",
-    "text": "6.5 The push is rejected\nTry to push your version:\ngit push origin main\n ! [rejected]        main -&gt; main (fetch first)\nerror: failed to push some refs to 'github.com:buckybadger/gameday-menu.git'\nhint: Updates were rejected because the remote contains work that you do\nhint: not have locally. Integrate the remote changes before pushing again.\n\n\n\nGitHub is protecting Sam’s commit. It’s telling you to pull first and reconcile before you can push.",
+    "text": "6.5 The push is rejected\nTry to push your version:\ngit push\n ! [rejected]        main -&gt; main (fetch first)\nerror: failed to push some refs to 'github.com:buckybadger/gameday-menu.git'\nhint: Updates were rejected because the remote contains work that you do\nhint: not have locally. Integrate the remote changes before pushing again.\n\n\n\nGitHub is protecting Sam’s commit. It’s telling you to pull first and reconcile before you can push.",
     "crumbs": [
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Conflicts</span>"
     ]
@@ -794,7 +804,7 @@
     "href": "06_conflicts.html#pull-brings-the-conflict-to-light",
     "title": "6  Conflicts",
     "section": "6.6 Pull brings the conflict to light",
-    "text": "6.6 Pull brings the conflict to light\ngit pull origin main\nAuto-merging desserts.txt\nCONFLICT (content): Merge conflict in desserts.txt\nAutomatic merge failed; fix conflicts and then commit the result.\n\n\n\nGit merged everything it could, but it can’t auto-merge that one line — you both rewrote it. It stops and hands the decision to you.",
+    "text": "6.6 Pull brings the conflict to light\ngit pull\nAuto-merging desserts.txt\nCONFLICT (content): Merge conflict in desserts.txt\nAutomatic merge failed; fix conflicts and then commit the result.\n\n\n\nGit merged everything it could, but it can’t auto-merge that one line — you both rewrote it. It stops and hands the decision to you.",
     "crumbs": [
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Conflicts</span>"
     ]
@@ -834,7 +844,7 @@
     "href": "06_conflicts.html#mark-it-resolved-and-commit",
     "title": "6  Conflicts",
     "section": "6.10 Mark it resolved and commit",
-    "text": "6.10 Mark it resolved and commit\nOnce the markers are gone, stage the file to tell Git the conflict is settled, then commit:\ngit add desserts.txt\ngit commit -m \"Merge: offer both ice cream flavors\"\ngit push origin main\n\n\n\nThat commit records the resolution. Now push succeeds, and Sam can git pull to pick up the agreed-on version. The conflict is behind you.",
+    "text": "6.10 Mark it resolved and commit\nOnce the markers are gone, stage the file to tell Git the conflict is settled, then commit:\ngit add desserts.txt\ngit commit -m \"Merge: offer both ice cream flavors\"\ngit push\n\n\n\nThat commit records the resolution. Now push succeeds, and Sam can git pull to pick up the agreed-on version. The conflict is behind you.",
     "crumbs": [
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Conflicts</span>"
     ]
@@ -870,133 +880,253 @@
     ]
   },
   {
-    "objectID": "07_branches.html",
-    "href": "07_branches.html",
-    "title": "7  Branches",
+    "objectID": "07_stash.html",
+    "href": "07_stash.html",
+    "title": "7  Stashing Changes",
     "section": "",
-    "text": "7.1 Why branch?\nA branch is a parallel line of work inside one repository. It lets you try something without touching your main version.\nBranches are useful when you want to:\nYou’ve been on a branch the whole time — the default one, called main. Now we’ll make a second.",
+    "text": "7.1 A pull that won’t go through\nPicture this: you’re in the middle of editing a file — a half-finished thought you’re not ready to commit — when you remember you should pull a teammate’s latest work first.\nYou run git pull, and Git refuses. Your uncommitted edits are in the way: the pull would overwrite them, so Git stops to protect your work.\ngit stash is the way out. It sets your unfinished changes aside, hands you a clean working tree, and lets you bring them back when you’re ready.",
     "crumbs": [
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Branches</span>"
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Stashing Changes</span>"
     ]
   },
   {
-    "objectID": "07_branches.html#why-branch",
-    "href": "07_branches.html#why-branch",
-    "title": "7  Branches",
+    "objectID": "07_stash.html#the-setup-youre-mid-edit",
+    "href": "07_stash.html#the-setup-youre-mid-edit",
+    "title": "7  Stashing Changes",
+    "section": "7.2 The setup: you’re mid-edit",
+    "text": "7.2 The setup: you’re mid-edit\nBack in your main copy of the repo, you start tweaking brats.txt — jotting how many brats to buy per person:\ncd ~/github/gameday-menu\nnano brats.txt\nBuy 3 brats per person\n\n\n\nYou haven’t committed — this is a work in progress:\ngit status\nOn branch main\nChanges not staged for commit:\n  (use \"git add &lt;file&gt;...\" to update what will be committed)\n    modified:   brats.txt",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Stashing Changes</span>"
+    ]
+  },
+  {
+    "objectID": "07_stash.html#meanwhile-github-has-moved-on",
+    "href": "07_stash.html#meanwhile-github-has-moved-on",
+    "title": "7  Stashing Changes",
+    "section": "7.3 Meanwhile, GitHub has moved on",
+    "text": "7.3 Meanwhile, GitHub has moved on\nWhile you were typing, Sam pushed an update to brats.txt up to GitHub (a different line — the brand to buy).\n\n\n\nSo the version on GitHub is now ahead of yours, and it touches the same file you’re editing. That’s exactly the situation where a plain pull gets stuck.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Stashing Changes</span>"
+    ]
+  },
+  {
+    "objectID": "07_stash.html#the-pull-is-blocked",
+    "href": "07_stash.html#the-pull-is-blocked",
+    "title": "7  Stashing Changes",
+    "section": "7.4 The pull is blocked",
+    "text": "7.4 The pull is blocked\nYou try to grab Sam’s change:\ngit pull\nerror: Your local changes to the following files would be overwritten by merge:\n    brats.txt\nPlease commit your changes or stash them before you merge.\nAborting\n\n\n\nGit offers two ways forward: commit your changes, or stash them. A half-finished thought isn’t worth a commit yet — so you stash.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Stashing Changes</span>"
+    ]
+  },
+  {
+    "objectID": "07_stash.html#set-it-aside-git-stash",
+    "href": "07_stash.html#set-it-aside-git-stash",
+    "title": "7  Stashing Changes",
+    "section": "7.5 Set it aside: git stash",
+    "text": "7.5 Set it aside: git stash\nTuck your uncommitted changes away:\ngit stash\nSaved working directory and index state WIP on main: 9f8e7d6 Merge: offer both ice cream flavors\n\n\n\nYour edits are safely parked, and the working tree is back to the last commit — clean:\ngit status\nOn branch main\nnothing to commit, working tree clean\n\nGive a stash a label so you remember what it holds: git stash push -m \"wip: brat quantities\".",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Stashing Changes</span>"
+    ]
+  },
+  {
+    "objectID": "07_stash.html#see-whats-parked-git-stash-list",
+    "href": "07_stash.html#see-whats-parked-git-stash-list",
+    "title": "7  Stashing Changes",
+    "section": "7.6 See what’s parked: git stash list",
+    "text": "7.6 See what’s parked: git stash list\nYour set-aside work lives in a stack you can inspect any time:\ngit stash list\nstash@{0}: WIP on main: 9f8e7d6 Merge: offer both ice cream flavors\n\n\n\nstash@{0} is the most recent entry. For now there’s just one — which is how you want to keep it.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Stashing Changes</span>"
+    ]
+  },
+  {
+    "objectID": "07_stash.html#now-the-pull-succeeds",
+    "href": "07_stash.html#now-the-pull-succeeds",
+    "title": "7  Stashing Changes",
+    "section": "7.7 Now the pull succeeds",
+    "text": "7.7 Now the pull succeeds\nWith a clean tree, Git can bring Sam’s change down without stepping on anything:\ngit pull\nUpdating 9f8e7d6..e4f5a6b\nFast-forward\n brats.txt | 1 +\n 1 file changed, 1 insertion(+)\n\n\n\nYour local brats.txt now has Sam’s update — but your own half-finished edit is still waiting in the stash.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Stashing Changes</span>"
+    ]
+  },
+  {
+    "objectID": "07_stash.html#bring-it-back-git-stash-pop",
+    "href": "07_stash.html#bring-it-back-git-stash-pop",
+    "title": "7  Stashing Changes",
+    "section": "7.8 Bring it back: git stash pop",
+    "text": "7.8 Bring it back: git stash pop\nReapply your parked changes on top of the freshly pulled file:\ngit stash pop\nAuto-merging brats.txt\nOn branch main\nChanges not staged for commit:\n    modified:   brats.txt\n\nDropped refs/stash@{0} (f0a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9)\n\n\n\nYour work-in-progress is back on top of Sam’s update, and the stash entry is gone. Finish your thought, then git add and git commit as usual.\n\nIf your edits and the pulled change touched the same line, pop reports a conflict — resolve it exactly as in the Conflicts unit.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Stashing Changes</span>"
+    ]
+  },
+  {
+    "objectID": "07_stash.html#a-few-things-to-know",
+    "href": "07_stash.html#a-few-things-to-know",
+    "title": "7  Stashing Changes",
+    "section": "7.9 A few things to know",
+    "text": "7.9 A few things to know\n\nA stash is local only — it never travels to GitHub. It’s for short-term juggling, not long-term storage.\ngit stash pop reapplies your work and removes the entry; git stash apply reapplies it but leaves the entry in the list.\nPlain git stash leaves brand-new untracked files behind. Add -u (git stash -u) to sweep those in too.\n\n\n\n\nGood habit: pop a stash soon. A pile of forgotten stashes is hard to untangle later.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Stashing Changes</span>"
+    ]
+  },
+  {
+    "objectID": "07_stash.html#your-turn",
+    "href": "07_stash.html#your-turn",
+    "title": "7  Stashing Changes",
+    "section": "7.10 Your turn",
+    "text": "7.10 Your turn\n\n\n\n\n\n\n\nImportantTry it\n\n\n\nStash, sync, and restore:\n\nEdit cheese_curds.txt but don’t commit\nRun git stash, then confirm git status is clean\ngit pull to sync with GitHub\ngit stash pop to bring your edit back, then finish and commit it",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Stashing Changes</span>"
+    ]
+  },
+  {
+    "objectID": "07_stash.html#where-we-are",
+    "href": "07_stash.html#where-we-are",
+    "title": "7  Stashing Changes",
+    "section": "7.11 Where we are",
+    "text": "7.11 Where we are\nStashing lets you step away from unfinished work without committing it:\n\ngit stash parks your uncommitted changes and cleans the working tree\ngit stash pop brings them back; git stash list shows what’s parked\nIt’s the cleanest way to let a blocked git pull go through\n\n\n\n\n\n\n\n\n\n\n\nImportantWhat’s next\n\n\n\nThe same trick works when you need to switch branches with unfinished edits — the next unit. Keep the cheatsheet handy.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Stashing Changes</span>"
+    ]
+  },
+  {
+    "objectID": "08_branches.html",
+    "href": "08_branches.html",
+    "title": "8  Branches",
+    "section": "",
+    "text": "8.1 Why branch?\nA branch is a parallel line of work inside one repository. It lets you try something without touching your main version.\nBranches are useful when you want to:\nYou’ve been on a branch the whole time — the default one, called main. Now we’ll make a second.",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Branches</span>"
+    ]
+  },
+  {
+    "objectID": "08_branches.html#why-branch",
+    "href": "08_branches.html#why-branch",
+    "title": "8  Branches",
     "section": "",
     "text": "Experiment with a risky change while keeping a working version safe\nDraft a feature that isn’t ready for everyone yet\nKeep main stable while work is in progress",
     "crumbs": [
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Branches</span>"
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Branches</span>"
     ]
   },
   {
-    "objectID": "07_branches.html#where-you-are-now",
-    "href": "07_branches.html#where-you-are-now",
-    "title": "7  Branches",
-    "section": "7.2 Where you are now",
-    "text": "7.2 Where you are now\nList the branches in your repo:\ngit branch\n* main\n\n\n\nThe * (shown in color) marks the branch you’re currently on. There’s only one so far, and git status reminds you of it too (On branch main).",
+    "objectID": "08_branches.html#where-you-are-now",
+    "href": "08_branches.html#where-you-are-now",
+    "title": "8  Branches",
+    "section": "8.2 Where you are now",
+    "text": "8.2 Where you are now\nList the branches in your repo:\ngit branch\n* main\n\n\n\nThe * (shown in color) marks the branch you’re currently on. There’s only one so far, and git status reminds you of it too (On branch main).",
     "crumbs": [
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Branches</span>"
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Branches</span>"
     ]
   },
   {
-    "objectID": "07_branches.html#bucky-wants-to-experiment",
-    "href": "07_branches.html#bucky-wants-to-experiment",
-    "title": "7  Branches",
-    "section": "7.3 Bucky wants to experiment",
-    "text": "7.3 Bucky wants to experiment\nBucky is tempted to add a vegetarian spread to the menu — but he doesn’t want to disturb the plan that already works.\n\n\n\nPerfect job for a branch: he can draft the veggie options off to the side, decide if he likes them, and only then bring them into main.",
+    "objectID": "08_branches.html#bucky-wants-to-experiment",
+    "href": "08_branches.html#bucky-wants-to-experiment",
+    "title": "8  Branches",
+    "section": "8.3 Bucky wants to experiment",
+    "text": "8.3 Bucky wants to experiment\nBucky is tempted to add a vegetarian spread to the menu — but he doesn’t want to disturb the plan that already works.\n\n\n\nPerfect job for a branch: he can draft the veggie options off to the side, decide if he likes them, and only then bring them into main.",
     "crumbs": [
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Branches</span>"
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Branches</span>"
     ]
   },
   {
-    "objectID": "07_branches.html#create-and-switch-in-one-step",
-    "href": "07_branches.html#create-and-switch-in-one-step",
-    "title": "7  Branches",
-    "section": "7.4 Create and switch in one step",
-    "text": "7.4 Create and switch in one step\nMake a new branch and move onto it:\ngit switch -c veggie-option\nSwitched to a new branch 'veggie-option'\n\n\n\nThe -c flag creates the branch and switches to it. It starts as an exact copy of main’s history.\n\n\n\nConfirm where you are:\ngit branch\n  main\n* veggie-option\n\nTo create a branch without switching, use git branch &lt;name&gt;. In older Git, git checkout -b does what git switch -c does here.",
+    "objectID": "08_branches.html#create-and-switch-in-one-step",
+    "href": "08_branches.html#create-and-switch-in-one-step",
+    "title": "8  Branches",
+    "section": "8.4 Create and switch in one step",
+    "text": "8.4 Create and switch in one step\nMake a new branch and move onto it:\ngit switch -c veggie-option\nSwitched to a new branch 'veggie-option'\n\n\n\nThe -c flag creates the branch and switches to it. It starts as an exact copy of main’s history.\n\n\n\nConfirm where you are:\ngit branch\n  main\n* veggie-option\n\nTo create a branch without switching, use git branch &lt;name&gt;. In older Git, git checkout -b does what git switch -c does here.",
     "crumbs": [
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Branches</span>"
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Branches</span>"
     ]
   },
   {
-    "objectID": "07_branches.html#work-on-the-branch",
-    "href": "07_branches.html#work-on-the-branch",
-    "title": "7  Branches",
-    "section": "7.5 Work on the branch",
-    "text": "7.5 Work on the branch\nDraft the vegetarian items in a new file:\nnano veggie.txt\nGrilled veggie skewers\nPortobello \"brats\" for the vegetarians\n\n\n\nSave it to history as usual — this commit lands on veggie-option, not main:\ngit add veggie.txt\ngit commit -m \"Draft vegetarian options\"",
+    "objectID": "08_branches.html#work-on-the-branch",
+    "href": "08_branches.html#work-on-the-branch",
+    "title": "8  Branches",
+    "section": "8.5 Work on the branch",
+    "text": "8.5 Work on the branch\nDraft the vegetarian items in a new file:\nnano veggie.txt\nGrilled veggie skewers\nPortobello \"brats\" for the vegetarians\n\n\n\nSave it to history as usual — this commit lands on veggie-option, not main:\ngit add veggie.txt\ngit commit -m \"Draft vegetarian options\"",
     "crumbs": [
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Branches</span>"
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Branches</span>"
     ]
   },
   {
-    "objectID": "07_branches.html#main-is-untouched",
-    "href": "07_branches.html#main-is-untouched",
-    "title": "7  Branches",
-    "section": "7.6 main is untouched",
-    "text": "7.6 main is untouched\nSwitch back and look:\ngit switch main\nls\nbrats.txt  cheese_curds.txt  desserts.txt\n\n\n\nNo veggie.txt here — it lives only on the branch. main is exactly as you left it. That isolation is the whole point of branching.",
+    "objectID": "08_branches.html#main-is-untouched",
+    "href": "08_branches.html#main-is-untouched",
+    "title": "8  Branches",
+    "section": "8.6 main is untouched",
+    "text": "8.6 main is untouched\nSwitch back and look:\ngit switch main\nls\nbrats.txt  cheese_curds.txt  desserts.txt\n\n\n\nNo veggie.txt here — it lives only on the branch. main is exactly as you left it. That isolation is the whole point of branching.",
     "crumbs": [
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Branches</span>"
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Branches</span>"
     ]
   },
   {
-    "objectID": "07_branches.html#see-the-branches-diverge",
-    "href": "07_branches.html#see-the-branches-diverge",
-    "title": "7  Branches",
-    "section": "7.7 See the branches diverge",
-    "text": "7.7 See the branches diverge\nA decorated, graphed log shows how the branches relate:\ngit log --oneline --all --graph\n* 7a1b2c3 (veggie-option) Draft vegetarian options\n* 1d2e3f4 (HEAD -&gt; main) Ignore scratch files and receipts\n* c3d4e5f Add cheese curds and desserts\n\n\n\n--all shows every branch and --graph draws the structure. Here veggie-option sits one commit ahead of main.",
+    "objectID": "08_branches.html#see-the-branches-diverge",
+    "href": "08_branches.html#see-the-branches-diverge",
+    "title": "8  Branches",
+    "section": "8.7 See the branches diverge",
+    "text": "8.7 See the branches diverge\nA decorated, graphed log shows how the branches relate:\ngit log --oneline --all --graph\n* 7a1b2c3 (veggie-option) Draft vegetarian options\n* 1d2e3f4 (HEAD -&gt; main) Ignore scratch files and receipts\n* c3d4e5f Add cheese curds and desserts\n\n\n\n--all shows every branch and --graph draws the structure. Here veggie-option sits one commit ahead of main.",
     "crumbs": [
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Branches</span>"
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Branches</span>"
     ]
   },
   {
-    "objectID": "07_branches.html#keep-it-merge-into-main",
-    "href": "07_branches.html#keep-it-merge-into-main",
-    "title": "7  Branches",
-    "section": "7.8 Keep it? Merge into main",
-    "text": "7.8 Keep it? Merge into main\nBucky likes the veggie options, so he brings them into main. First be on the branch you’re merging into, then merge:\ngit switch main\ngit merge veggie-option\nUpdating 1d2e3f4..7a1b2c3\nFast-forward\n veggie.txt | 2 ++\n 1 file changed, 2 insertions(+)\n\n\n\nmain had no new commits of its own, so Git just fast-forwards it to catch up. veggie.txt is now part of main.",
+    "objectID": "08_branches.html#keep-it-merge-into-main",
+    "href": "08_branches.html#keep-it-merge-into-main",
+    "title": "8  Branches",
+    "section": "8.8 Keep it? Merge into main",
+    "text": "8.8 Keep it? Merge into main\nBucky likes the veggie options, so he brings them into main. First be on the branch you’re merging into, then merge:\ngit switch main\ngit merge veggie-option\nUpdating 1d2e3f4..7a1b2c3\nFast-forward\n veggie.txt | 2 ++\n 1 file changed, 2 insertions(+)\n\n\n\nmain had no new commits of its own, so Git just fast-forwards it to catch up. veggie.txt is now part of main.",
     "crumbs": [
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Branches</span>"
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Branches</span>"
     ]
   },
   {
-    "objectID": "07_branches.html#clean-up-the-branch",
-    "href": "07_branches.html#clean-up-the-branch",
-    "title": "7  Branches",
-    "section": "7.9 Clean up the branch",
-    "text": "7.9 Clean up the branch\nOnce a branch is merged, delete it to keep things tidy:\ngit branch -d veggie-option\nDeleted branch veggie-option (was 7a1b2c3).\n\n\n\nIf a branch is not fully merged, -d refuses and warns you — so you don’t lose work by accident. git branch -D (capital D) force-deletes when you really mean it.",
+    "objectID": "08_branches.html#clean-up-the-branch",
+    "href": "08_branches.html#clean-up-the-branch",
+    "title": "8  Branches",
+    "section": "8.9 Clean up the branch",
+    "text": "8.9 Clean up the branch\nOnce a branch is merged, delete it to keep things tidy:\ngit branch -d veggie-option\nDeleted branch veggie-option (was 7a1b2c3).\n\n\n\nIf a branch is not fully merged, -d refuses and warns you — so you don’t lose work by accident. git branch -D (capital D) force-deletes when you really mean it.",
     "crumbs": [
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Branches</span>"
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Branches</span>"
     ]
   },
   {
-    "objectID": "07_branches.html#when-merges-collide",
-    "href": "07_branches.html#when-merges-collide",
-    "title": "7  Branches",
-    "section": "7.10 When merges collide",
-    "text": "7.10 When merges collide\nOur merge was clean because main hadn’t changed. But if main and your branch both edited the same line, Git can’t fast-forward — the merge stops with a conflict.\n\n\n\nYou already know how to handle it: open the file, remove the &lt;&lt;&lt;&lt;&lt;&lt;&lt;, =======, &gt;&gt;&gt;&gt;&gt;&gt;&gt; markers, keep what you want, then git add and git commit. (See the Conflicts unit.)",
+    "objectID": "08_branches.html#when-merges-collide",
+    "href": "08_branches.html#when-merges-collide",
+    "title": "8  Branches",
+    "section": "8.10 When merges collide",
+    "text": "8.10 When merges collide\nOur merge was clean because main hadn’t changed. But if main and your branch both edited the same line, Git can’t fast-forward — the merge stops with a conflict.\n\n\n\nYou already know how to handle it: open the file, remove the &lt;&lt;&lt;&lt;&lt;&lt;&lt;, =======, &gt;&gt;&gt;&gt;&gt;&gt;&gt; markers, keep what you want, then git add and git commit. (See the Conflicts unit.)",
     "crumbs": [
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Branches</span>"
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Branches</span>"
     ]
   },
   {
-    "objectID": "07_branches.html#your-turn",
-    "href": "07_branches.html#your-turn",
-    "title": "7  Branches",
-    "section": "7.11 Your turn",
-    "text": "7.11 Your turn\n\n\n\n\n\n\n\nImportantTry it\n\n\n\nBranch, work, merge, clean up:\n\nFrom main, run git switch -c dessert-upgrade\nAdd a line to desserts.txt, then git add and git commit\ngit switch main and confirm the change isn’t there yet\ngit merge dessert-upgrade, then git branch -d dessert-upgrade",
+    "objectID": "08_branches.html#switching-with-unfinished-work",
+    "href": "08_branches.html#switching-with-unfinished-work",
+    "title": "8  Branches",
+    "section": "8.11 Switching with unfinished work",
+    "text": "8.11 Switching with unfinished work\nBranches work best from a clean working tree. If you have uncommitted edits and the branch you’re switching to would touch those same files, Git refuses the switch rather than risk your work.\n\n\n\ngit stash is the fix here too — park your edits, switch freely, then bring them back:\ngit stash\ngit switch veggie-option\n# ... do a quick thing on the branch ...\ngit switch main\ngit stash pop\n\n\n\nYour edits return exactly where you left them. (See the Stash unit.)",
     "crumbs": [
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Branches</span>"
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Branches</span>"
     ]
   },
   {
-    "objectID": "07_branches.html#where-we-are",
-    "href": "07_branches.html#where-we-are",
-    "title": "7  Branches",
-    "section": "7.12 Where we are",
-    "text": "7.12 Where we are\nBranches let you work in parallel safely:\n\ngit branch lists branches; git switch -c &lt;name&gt; creates and moves onto one\nCommits land on the current branch, leaving main safe\ngit merge &lt;branch&gt; brings the work together; git branch -d cleans up\n\n\n\n\n\n\n\n\n\n\n\nImportantKeep going\n\n\n\nOn GitHub, branches power pull requests — the standard way to propose and review changes with collaborators. That’s a great next thing to explore, with the cheatsheet at your side.",
+    "objectID": "08_branches.html#your-turn",
+    "href": "08_branches.html#your-turn",
+    "title": "8  Branches",
+    "section": "8.12 Your turn",
+    "text": "8.12 Your turn\n\n\n\n\n\n\n\nImportantTry it\n\n\n\nBranch, work, merge, clean up:\n\nFrom main, run git switch -c dessert-upgrade\nAdd a line to desserts.txt, then git add and git commit\ngit switch main and confirm the change isn’t there yet\ngit merge dessert-upgrade, then git branch -d dessert-upgrade",
     "crumbs": [
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Branches</span>"
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Branches</span>"
+    ]
+  },
+  {
+    "objectID": "08_branches.html#where-we-are",
+    "href": "08_branches.html#where-we-are",
+    "title": "8  Branches",
+    "section": "8.13 Where we are",
+    "text": "8.13 Where we are\nBranches let you work in parallel safely:\n\ngit branch lists branches; git switch -c &lt;name&gt; creates and moves onto one\nCommits land on the current branch, leaving main safe\ngit merge &lt;branch&gt; brings the work together; git branch -d cleans up\n\n\n\n\n\n\n\n\n\n\n\nImportantKeep going\n\n\n\nOn GitHub, branches power pull requests — the standard way to propose and review changes with collaborators. That’s a great next thing to explore, with the cheatsheet at your side.",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Branches</span>"
     ]
   },
   {
@@ -1224,7 +1354,7 @@
     "href": "cheatsheet.html",
     "title": "Appendix D — Git Cheatsheet",
     "section": "",
-    "text": "A quick reference for every command in these lessons. Angle brackets like &lt;file&gt; mean “fill in your own value.”\n\nD.0.1 The everyday rhythm\nMost of your Git life is this short loop:\n# before you start, get the latest\ngit pull origin main\n\n# ... edit files ...\n\ngit add &lt;file&gt;            # stage your changes\ngit commit -m \"message\"   # save them to history\ngit push origin main      # send them to GitHub\nCheck in with git status any time you’re unsure where things stand.\n\n\nD.0.2 One-time setup (per computer)\n\n\n\n\n\n\n\nCommand\nWhat it does\n\n\n\n\ngit config --global user.name \"Your Name\"\nSet the name stamped on your commits\n\n\ngit config --global user.email \"you@wisc.edu\"\nSet the email on your commits (match GitHub)\n\n\ngit config --global core.editor \"nano\"\nUse nano for commit messages (what these lessons assume)\n\n\ngit config --list\nShow your current configuration\n\n\nssh -T git@github.com\nTest that your SSH key connects to GitHub\n\n\n\n\n\nD.0.3 Starting a repository\n\n\n\nCommand\nWhat it does\n\n\n\n\ngit init\nTurn the current folder into a Git repository\n\n\ngit clone &lt;address&gt;\nCopy a GitHub repo onto this computer\n\n\n\n\n\nD.0.4 The core cycle\n\n\n\nCommand\nWhat it does\n\n\n\n\ngit status\nShow untracked, modified, and staged files\n\n\ngit add &lt;file&gt;\nStage a file for the next commit\n\n\ngit add &lt;file1&gt; &lt;file2&gt;\nStage several files at once\n\n\ngit add .\nStage all changed files (run git status first!)\n\n\ngit commit -m \"message\"\nSave all staged changes as a commit\n\n\n\n\n\nD.0.5 Renaming and deleting files\n\n\n\nCommand\nWhat it does\n\n\n\n\ngit mv &lt;old&gt; &lt;new&gt;\nRename or move a file, keeping its history\n\n\ngit rm &lt;file&gt;\nDelete a tracked file (stages the deletion)\n\n\n\nBoth still need a git commit to record the change.\n\n\nD.0.6 Seeing what changed\n\n\n\n\n\n\n\nCommand\nWhat it does\n\n\n\n\ngit diff &lt;file&gt;\nChanges since the last commit (not yet staged)\n\n\ngit diff --staged\nChanges that are staged for the next commit\n\n\ngit diff HEAD &lt;file&gt;\nAll changes since the last commit\n\n\ngit diff &lt;commit&gt; &lt;file&gt;\nCompare your file to a specific past commit\n\n\ngit log\nFull commit history\n\n\ngit log --oneline\nOne compact line per commit\n\n\ngit log --oneline &lt;file&gt;\nOnly the commits that changed &lt;file&gt;\n\n\ngit log -2\nJust the two most recent commits\n\n\n\n\n\nD.0.7 Undoing and restoring\n\n\n\n\n\n\n\nCommand\nWhat it does\n\n\n\n\ngit restore &lt;file&gt;\nDiscard uncommitted changes to a file\n\n\ngit restore --source=&lt;commit&gt; &lt;file&gt;\nBring back an older version of a file\n\n\ngit reset HEAD~1\nUndo the last commit, keeping its changes in your files\n\n\ngit stash\nSet aside uncommitted changes to return to later\n\n\ngit stash pop\nReapply the changes you stashed\n\n\n\nName a past commit with HEAD (latest), HEAD~1 (one before), and so on — or copy its ID from git log --oneline. Only git reset commits you have not yet pushed.\n\n\nD.0.8 Ignoring files\nCreate a file named .gitignore and list patterns, one per line:\n*.tmp          # any file ending in .tmp\nreceipts/      # a whole folder\nsecret.env     # a specific file\n\n\n\nCommand\nWhat it does\n\n\n\n\ngit add .gitignore\nTrack the ignore file so the rules are shared\n\n\ngit add -f &lt;file&gt;\nForce-add a file that is being ignored\n\n\ngit status --ignored\nAlso list the files being ignored\n\n\n\n\n\nD.0.9 Working with GitHub\n\n\n\n\n\n\n\nCommand\nWhat it does\n\n\n\n\ngit remote add origin &lt;address&gt;\nLink your local repo to a GitHub repo\n\n\ngit remote -v\nShow the remotes you’ve connected\n\n\ngit push origin main\nSend your commits up to GitHub\n\n\ngit pull origin main\nBring GitHub’s changes down to your computer\n\n\n\nAfter your first git push origin main, bare git push and git pull also work — but naming origin main keeps it unambiguous.\n\n\nD.0.10 Key terms\n\n\n\n\n\n\n\nTerm\nMeaning\n\n\n\n\nRepository (repo)\nA folder Git is tracking, plus its history\n\n\nCommit\nA saved snapshot of your project at a point in time\n\n\nStaging area\nWhere changes wait after git add, before git commit\n\n\nHEAD\nThe commit you’re currently on (usually the latest)\n\n\nRemote\nA named connection to a hosted copy (e.g. on GitHub)\n\n\norigin\nThe conventional name for your main remote\n\n\n\n\n\nD.0.11 Where your work moves\nworking directory  --git add--&gt;  staging area  --git commit--&gt;  repository  --git push--&gt;  GitHub",
+    "text": "A quick reference for every command in these lessons. Angle brackets like &lt;file&gt; mean “fill in your own value.”\n\nD.0.1 The everyday rhythm\nMost of your Git life is this short loop:\n# before you start, get the latest\ngit pull\n\n# ... edit files ...\n\ngit add &lt;file&gt;            # stage your changes\ngit commit -m \"message\"   # save them to history\ngit push                  # send them to GitHub\nCheck in with git status any time you’re unsure where things stand.\n\n\nD.0.2 One-time setup (per computer)\n\n\n\n\n\n\n\nCommand\nWhat it does\n\n\n\n\ngit config --global user.name \"Your Name\"\nSet the name stamped on your commits\n\n\ngit config --global user.email \"you@wisc.edu\"\nSet the email on your commits (match GitHub)\n\n\ngit config --global core.editor \"nano\"\nUse nano for commit messages (what these lessons assume). vim is another option preferred by JJC\n\n\ngit config --list\nShow your current configuration\n\n\nssh -T git@github.com\nTest that your SSH key connects to GitHub\n\n\n\n\n\nD.0.3 Starting a repository\n\n\n\nCommand\nWhat it does\n\n\n\n\ngit init\nTurn the current folder into a Git repository\n\n\ngit clone &lt;address&gt;\nCopy a GitHub repo onto this computer\n\n\n\n\n\nD.0.4 The core cycle\n\n\n\nCommand\nWhat it does\n\n\n\n\ngit status\nShow untracked, modified, and staged files\n\n\ngit add &lt;file&gt;\nStage a file for the next commit\n\n\ngit add &lt;file1&gt; &lt;file2&gt;\nStage several files at once\n\n\ngit add .\nStage all changed files (run git status first!)\n\n\ngit commit -m \"message\"\nSave all staged changes as a commit\n\n\n\n\n\nD.0.5 Renaming and deleting files\n\n\n\nCommand\nWhat it does\n\n\n\n\ngit mv &lt;old&gt; &lt;new&gt;\nRename or move a file, keeping its history\n\n\ngit rm &lt;file&gt;\nDelete a tracked file (stages the deletion)\n\n\n\nBoth still need a git commit to record the change.\n\n\nD.0.6 Seeing what changed\n\n\n\n\n\n\n\nCommand\nWhat it does\n\n\n\n\ngit diff &lt;file&gt;\nChanges since the last commit (not yet staged)\n\n\ngit diff --staged\nChanges that are staged for the next commit\n\n\ngit diff HEAD &lt;file&gt;\nAll changes since the last commit\n\n\ngit diff &lt;commit&gt; &lt;file&gt;\nCompare your file to a specific past commit\n\n\ngit difftool &lt;file&gt;\nOpen the same comparison in a graphical tool (e.g. Meld)\n\n\ngit log\nFull commit history\n\n\ngit log --oneline\nOne compact line per commit\n\n\ngit log --oneline &lt;file&gt;\nOnly the commits that changed &lt;file&gt;\n\n\ngit log -2\nJust the two most recent commits\n\n\n\ngit difftool takes the same arguments as git diff and compares the same versions — it just shows them side by side in a window instead of printing to the terminal. It needs a one-time setup; see the “Using Meld for Diffs” appendix.\n\n\nD.0.7 Undoing and restoring\n\n\n\n\n\n\n\nCommand\nWhat it does\n\n\n\n\ngit restore &lt;file&gt;\nDiscard uncommitted changes to a file\n\n\ngit restore --source=&lt;commit&gt; &lt;file&gt;\nBring back an older version of a file\n\n\ngit reset HEAD~1\nUndo the last commit, keeping its changes in your files\n\n\ngit stash\nSet aside uncommitted changes to return to later\n\n\ngit stash pop\nReapply the changes you stashed\n\n\n\nName a past commit with HEAD (latest), HEAD~1 (one before), and so on — or copy its ID from git log --oneline. Only git reset commits you have not yet pushed.\n\n\nD.0.8 Ignoring files\nCreate a file named .gitignore and list patterns, one per line:\n*.tmp          # any file ending in .tmp\nreceipts/      # a whole folder\nsecret.env     # a specific file\n\n\n\nCommand\nWhat it does\n\n\n\n\ngit add .gitignore\nTrack the ignore file so the rules are shared\n\n\ngit add -f &lt;file&gt;\nForce-add a file that is being ignored\n\n\ngit status --ignored\nAlso list the files being ignored\n\n\n\n\n\nD.0.9 Working with GitHub\n\n\n\n\n\n\n\nCommand\nWhat it does\n\n\n\n\ngit remote add origin &lt;address&gt;\nLink your local repo to a GitHub repo\n\n\ngit remote -v\nShow the remotes you’ve connected\n\n\ngit push -u origin main\nFirst push: send commits up and set up tracking\n\n\ngit push\nSend your commits up to GitHub\n\n\ngit pull\nBring GitHub’s changes down to your computer\n\n\n\nThe -u on your first push records a tracking link between local main and origin/main. After that, bare git push and git pull know where to go. (git clone sets up this tracking for you, so cloned repos work with bare commands right away.)\nTo skip -u entirely, run git config --global push.autoSetupRemote true once per computer — then even your first bare git push sets up the tracking link automatically.\n\n\nD.0.10 Key terms\n\n\n\n\n\n\n\nTerm\nMeaning\n\n\n\n\nRepository (repo)\nA folder Git is tracking, plus its history\n\n\nCommit\nA saved snapshot of your project at a point in time\n\n\nStaging area\nWhere changes wait after git add, before git commit\n\n\nHEAD\nThe commit you’re currently on (usually the latest)\n\n\nRemote\nA named connection to a hosted copy (e.g. on GitHub)\n\n\norigin\nThe conventional name for your main remote\n\n\n\n\n\nD.0.11 Where your work moves\nworking directory  --git add--&gt;  staging area  --git commit--&gt;  repository  --git push--&gt;  GitHub",
     "crumbs": [
       "Appendices",
       "<span class='chapter-number'>D</span>  <span class='chapter-title'>Git Cheatsheet</span>"

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>7&nbsp; Branches – Introduction to Git and Github</title>
+<title>8&nbsp; Branches – Introduction to Git and Github</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -69,7 +69,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./install_git_windows.html" rel="next">
-<link href="./06_conflicts.html" rel="prev">
+<link href="./07_stash.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -121,7 +121,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./07_branches.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Branches</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./08_branches.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Branches</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -198,8 +198,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./07_branches.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Branches</span></span></a>
+  <a href="./07_stash.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Stashing Changes</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08_branches.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Branches</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -247,27 +253,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#why-branch" id="toc-why-branch" class="nav-link active" data-scroll-target="#why-branch"><span class="header-section-number">7.1</span> Why branch?</a></li>
-  <li><a href="#where-you-are-now" id="toc-where-you-are-now" class="nav-link" data-scroll-target="#where-you-are-now"><span class="header-section-number">7.2</span> Where you are now</a></li>
-  <li><a href="#bucky-wants-to-experiment" id="toc-bucky-wants-to-experiment" class="nav-link" data-scroll-target="#bucky-wants-to-experiment"><span class="header-section-number">7.3</span> Bucky wants to experiment</a></li>
-  <li><a href="#create-and-switch-in-one-step" id="toc-create-and-switch-in-one-step" class="nav-link" data-scroll-target="#create-and-switch-in-one-step"><span class="header-section-number">7.4</span> Create and switch in one step</a></li>
-  <li><a href="#work-on-the-branch" id="toc-work-on-the-branch" class="nav-link" data-scroll-target="#work-on-the-branch"><span class="header-section-number">7.5</span> Work on the branch</a></li>
-  <li><a href="#main-is-untouched" id="toc-main-is-untouched" class="nav-link" data-scroll-target="#main-is-untouched"><span class="header-section-number">7.6</span> <code>main</code> is untouched</a></li>
-  <li><a href="#see-the-branches-diverge" id="toc-see-the-branches-diverge" class="nav-link" data-scroll-target="#see-the-branches-diverge"><span class="header-section-number">7.7</span> See the branches diverge</a></li>
-  <li><a href="#keep-it-merge-into-main" id="toc-keep-it-merge-into-main" class="nav-link" data-scroll-target="#keep-it-merge-into-main"><span class="header-section-number">7.8</span> Keep it? Merge into <code>main</code></a></li>
-  <li><a href="#clean-up-the-branch" id="toc-clean-up-the-branch" class="nav-link" data-scroll-target="#clean-up-the-branch"><span class="header-section-number">7.9</span> Clean up the branch</a></li>
-  <li><a href="#when-merges-collide" id="toc-when-merges-collide" class="nav-link" data-scroll-target="#when-merges-collide"><span class="header-section-number">7.10</span> When merges collide</a></li>
-  <li><a href="#your-turn" id="toc-your-turn" class="nav-link" data-scroll-target="#your-turn"><span class="header-section-number">7.11</span> Your turn</a></li>
-  <li><a href="#where-we-are" id="toc-where-we-are" class="nav-link" data-scroll-target="#where-we-are"><span class="header-section-number">7.12</span> Where we are</a></li>
+  <li><a href="#why-branch" id="toc-why-branch" class="nav-link active" data-scroll-target="#why-branch"><span class="header-section-number">8.1</span> Why branch?</a></li>
+  <li><a href="#where-you-are-now" id="toc-where-you-are-now" class="nav-link" data-scroll-target="#where-you-are-now"><span class="header-section-number">8.2</span> Where you are now</a></li>
+  <li><a href="#bucky-wants-to-experiment" id="toc-bucky-wants-to-experiment" class="nav-link" data-scroll-target="#bucky-wants-to-experiment"><span class="header-section-number">8.3</span> Bucky wants to experiment</a></li>
+  <li><a href="#create-and-switch-in-one-step" id="toc-create-and-switch-in-one-step" class="nav-link" data-scroll-target="#create-and-switch-in-one-step"><span class="header-section-number">8.4</span> Create and switch in one step</a></li>
+  <li><a href="#work-on-the-branch" id="toc-work-on-the-branch" class="nav-link" data-scroll-target="#work-on-the-branch"><span class="header-section-number">8.5</span> Work on the branch</a></li>
+  <li><a href="#main-is-untouched" id="toc-main-is-untouched" class="nav-link" data-scroll-target="#main-is-untouched"><span class="header-section-number">8.6</span> <code>main</code> is untouched</a></li>
+  <li><a href="#see-the-branches-diverge" id="toc-see-the-branches-diverge" class="nav-link" data-scroll-target="#see-the-branches-diverge"><span class="header-section-number">8.7</span> See the branches diverge</a></li>
+  <li><a href="#keep-it-merge-into-main" id="toc-keep-it-merge-into-main" class="nav-link" data-scroll-target="#keep-it-merge-into-main"><span class="header-section-number">8.8</span> Keep it? Merge into <code>main</code></a></li>
+  <li><a href="#clean-up-the-branch" id="toc-clean-up-the-branch" class="nav-link" data-scroll-target="#clean-up-the-branch"><span class="header-section-number">8.9</span> Clean up the branch</a></li>
+  <li><a href="#when-merges-collide" id="toc-when-merges-collide" class="nav-link" data-scroll-target="#when-merges-collide"><span class="header-section-number">8.10</span> When merges collide</a></li>
+  <li><a href="#switching-with-unfinished-work" id="toc-switching-with-unfinished-work" class="nav-link" data-scroll-target="#switching-with-unfinished-work"><span class="header-section-number">8.11</span> Switching with unfinished work</a></li>
+  <li><a href="#your-turn" id="toc-your-turn" class="nav-link" data-scroll-target="#your-turn"><span class="header-section-number">8.12</span> Your turn</a></li>
+  <li><a href="#where-we-are" id="toc-where-we-are" class="nav-link" data-scroll-target="#where-we-are"><span class="header-section-number">8.13</span> Where we are</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/jjcurtin/book_git/edit/main/07_branches.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/jjcurtin/book_git/edit/main/08_branches.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Branches</span></h1>
+<h1 class="title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Branches</span></h1>
 </div>
 
 
@@ -284,8 +291,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="why-branch" class="level2" data-number="7.1">
-<h2 data-number="7.1" class="anchored" data-anchor-id="why-branch"><span class="header-section-number">7.1</span> Why branch?</h2>
+<section id="why-branch" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="why-branch"><span class="header-section-number">8.1</span> Why branch?</h2>
 <p>A <span class="uwred">branch</span> is a parallel line of work inside one repository. It lets you try something without touching your main version.</p>
 <div class="gap-sm">
 
@@ -302,8 +309,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>You’ve been on a branch the whole time — the default one, called <code>main</code>. Now we’ll make a second.</p>
 <hr>
 </section>
-<section id="where-you-are-now" class="level2" data-number="7.2">
-<h2 data-number="7.2" class="anchored" data-anchor-id="where-you-are-now"><span class="header-section-number">7.2</span> Where you are now</h2>
+<section id="where-you-are-now" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="where-you-are-now"><span class="header-section-number">8.2</span> Where you are now</h2>
 <p>List the branches in your repo:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> branch</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <pre><code>* main</code></pre>
@@ -313,8 +320,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>The <span class="uwred"><code>*</code></span> (shown in color) marks the branch you’re currently on. There’s only one so far, and <code>git status</code> reminds you of it too (<code>On branch main</code>).</p>
 <hr>
 </section>
-<section id="bucky-wants-to-experiment" class="level2" data-number="7.3">
-<h2 data-number="7.3" class="anchored" data-anchor-id="bucky-wants-to-experiment"><span class="header-section-number">7.3</span> Bucky wants to experiment</h2>
+<section id="bucky-wants-to-experiment" class="level2" data-number="8.3">
+<h2 data-number="8.3" class="anchored" data-anchor-id="bucky-wants-to-experiment"><span class="header-section-number">8.3</span> Bucky wants to experiment</h2>
 <p>Bucky is tempted to add a vegetarian spread to the menu — but he doesn’t want to disturb the plan that already works.</p>
 <div class="gap-md">
 
@@ -322,8 +329,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Perfect job for a branch: he can draft the veggie options off to the side, decide if he likes them, and only then bring them into <code>main</code>.</p>
 <hr>
 </section>
-<section id="create-and-switch-in-one-step" class="level2" data-number="7.4">
-<h2 data-number="7.4" class="anchored" data-anchor-id="create-and-switch-in-one-step"><span class="header-section-number">7.4</span> Create and switch in one step</h2>
+<section id="create-and-switch-in-one-step" class="level2" data-number="8.4">
+<h2 data-number="8.4" class="anchored" data-anchor-id="create-and-switch-in-one-step"><span class="header-section-number">8.4</span> Create and switch in one step</h2>
 <p>Make a new branch and move onto it:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> switch <span class="at">-c</span> veggie-option</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <pre><code>Switched to a new branch 'veggie-option'</code></pre>
@@ -343,8 +350,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <hr>
 </section>
-<section id="work-on-the-branch" class="level2" data-number="7.5">
-<h2 data-number="7.5" class="anchored" data-anchor-id="work-on-the-branch"><span class="header-section-number">7.5</span> Work on the branch</h2>
+<section id="work-on-the-branch" class="level2" data-number="8.5">
+<h2 data-number="8.5" class="anchored" data-anchor-id="work-on-the-branch"><span class="header-section-number">8.5</span> Work on the branch</h2>
 <p>Draft the vegetarian items in a new file:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nano</span> veggie.txt</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <pre><code>Grilled veggie skewers
@@ -357,8 +364,8 @@ Portobello "brats" for the vegetarians</code></pre>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Draft vegetarian options"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 </section>
-<section id="main-is-untouched" class="level2" data-number="7.6">
-<h2 data-number="7.6" class="anchored" data-anchor-id="main-is-untouched"><span class="header-section-number">7.6</span> <code>main</code> is untouched</h2>
+<section id="main-is-untouched" class="level2" data-number="8.6">
+<h2 data-number="8.6" class="anchored" data-anchor-id="main-is-untouched"><span class="header-section-number">8.6</span> <code>main</code> is untouched</h2>
 <p>Switch back and look:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> switch main</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -369,8 +376,8 @@ Portobello "brats" for the vegetarians</code></pre>
 <p>No <code>veggie.txt</code> here — it lives only on the branch. <span class="uwred"><code>main</code> is exactly as you left it.</span> That isolation is the whole point of branching.</p>
 <hr>
 </section>
-<section id="see-the-branches-diverge" class="level2" data-number="7.7">
-<h2 data-number="7.7" class="anchored" data-anchor-id="see-the-branches-diverge"><span class="header-section-number">7.7</span> See the branches diverge</h2>
+<section id="see-the-branches-diverge" class="level2" data-number="8.7">
+<h2 data-number="8.7" class="anchored" data-anchor-id="see-the-branches-diverge"><span class="header-section-number">8.7</span> See the branches diverge</h2>
 <p>A decorated, graphed log shows how the branches relate:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> log <span class="at">--oneline</span> <span class="at">--all</span> <span class="at">--graph</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <pre><code>* 7a1b2c3 (veggie-option) Draft vegetarian options
@@ -382,8 +389,8 @@ Portobello "brats" for the vegetarians</code></pre>
 <p><span class="uwred"><code>--all</code></span> shows every branch and <span class="uwred"><code>--graph</code></span> draws the structure. Here <code>veggie-option</code> sits one commit ahead of <code>main</code>.</p>
 <hr>
 </section>
-<section id="keep-it-merge-into-main" class="level2" data-number="7.8">
-<h2 data-number="7.8" class="anchored" data-anchor-id="keep-it-merge-into-main"><span class="header-section-number">7.8</span> Keep it? Merge into <code>main</code></h2>
+<section id="keep-it-merge-into-main" class="level2" data-number="8.8">
+<h2 data-number="8.8" class="anchored" data-anchor-id="keep-it-merge-into-main"><span class="header-section-number">8.8</span> Keep it? Merge into <code>main</code></h2>
 <p>Bucky likes the veggie options, so he brings them into <code>main</code>. First be on the branch you’re merging <span class="uwred">into</span>, then merge:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> switch main</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> merge veggie-option</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -397,8 +404,8 @@ Fast-forward
 <p><code>main</code> had no new commits of its own, so Git just fast-forwards it to catch up. <code>veggie.txt</code> is now part of <code>main</code>.</p>
 <hr>
 </section>
-<section id="clean-up-the-branch" class="level2" data-number="7.9">
-<h2 data-number="7.9" class="anchored" data-anchor-id="clean-up-the-branch"><span class="header-section-number">7.9</span> Clean up the branch</h2>
+<section id="clean-up-the-branch" class="level2" data-number="8.9">
+<h2 data-number="8.9" class="anchored" data-anchor-id="clean-up-the-branch"><span class="header-section-number">8.9</span> Clean up the branch</h2>
 <p>Once a branch is merged, delete it to keep things tidy:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> branch <span class="at">-d</span> veggie-option</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <pre><code>Deleted branch veggie-option (was 7a1b2c3).</code></pre>
@@ -408,8 +415,8 @@ Fast-forward
 <p>If a branch is <span class="uwred">not</span> fully merged, <code>-d</code> refuses and warns you — so you don’t lose work by accident. <code>git branch -D</code> (capital D) force-deletes when you really mean it.</p>
 <hr>
 </section>
-<section id="when-merges-collide" class="level2" data-number="7.10">
-<h2 data-number="7.10" class="anchored" data-anchor-id="when-merges-collide"><span class="header-section-number">7.10</span> When merges collide</h2>
+<section id="when-merges-collide" class="level2" data-number="8.10">
+<h2 data-number="8.10" class="anchored" data-anchor-id="when-merges-collide"><span class="header-section-number">8.10</span> When merges collide</h2>
 <p>Our merge was clean because <code>main</code> hadn’t changed. But if <code>main</code> and your branch both edited the <span class="uwred">same line</span>, Git can’t fast-forward — the merge stops with a <span class="uwred">conflict</span>.</p>
 <div class="gap-md">
 
@@ -417,8 +424,26 @@ Fast-forward
 <p>You already know how to handle it: open the file, remove the <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code>, <code>=======</code>, <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code> markers, keep what you want, then <code>git add</code> and <code>git commit</code>. (See the Conflicts unit.)</p>
 <hr>
 </section>
-<section id="your-turn" class="level2" data-number="7.11">
-<h2 data-number="7.11" class="anchored" data-anchor-id="your-turn"><span class="header-section-number">7.11</span> Your turn</h2>
+<section id="switching-with-unfinished-work" class="level2" data-number="8.11">
+<h2 data-number="8.11" class="anchored" data-anchor-id="switching-with-unfinished-work"><span class="header-section-number">8.11</span> Switching with unfinished work</h2>
+<p>Branches work best from a <span class="uwred">clean</span> working tree. If you have uncommitted edits and the branch you’re switching to would touch those same files, Git <span class="uwred">refuses the switch</span> rather than risk your work.</p>
+<div class="gap-sm">
+
+</div>
+<p><span class="uwred"><code>git stash</code></span> is the fix here too — park your edits, switch freely, then bring them back:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> stash</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> switch veggie-option</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="co"># ... do a quick thing on the branch ...</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> switch main</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> stash pop</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="gap-sm">
+
+</div>
+<p>Your edits return exactly where you left them. (See the Stash unit.)</p>
+<hr>
+</section>
+<section id="your-turn" class="level2" data-number="8.12">
+<h2 data-number="8.12" class="anchored" data-anchor-id="your-turn"><span class="header-section-number">8.12</span> Your turn</h2>
 <div class="callout-wide">
 <div class="callout callout-style-default callout-important no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -442,8 +467,8 @@ Fast-forward
 </div>
 <hr>
 </section>
-<section id="where-we-are" class="level2" data-number="7.12">
-<h2 data-number="7.12" class="anchored" data-anchor-id="where-we-are"><span class="header-section-number">7.12</span> Where we are</h2>
+<section id="where-we-are" class="level2" data-number="8.13">
+<h2 data-number="8.13" class="anchored" data-anchor-id="where-we-are"><span class="header-section-number">8.13</span> Where we are</h2>
 <p>Branches let you work in parallel safely:</p>
 <ul>
 <li><span class="uwred"><code>git branch</code></span> lists branches; <span class="uwred"><code>git switch -c &lt;name&gt;</code></span> creates and moves onto one</li>
@@ -875,8 +900,8 @@ Fast-forward
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./06_conflicts.html" class="pagination-link" aria-label="Conflicts">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Conflicts</span></span>
+      <a href="./07_stash.html" class="pagination-link" aria-label="Stashing Changes">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Stashing Changes</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
@@ -890,4 +915,4 @@ Fast-forward
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/jjcurtin/book_git/edit/main/07_branches.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/jjcurtin/book_git/edit/main/08_branches.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></div></div></footer></body></html>

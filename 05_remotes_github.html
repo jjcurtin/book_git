@@ -198,8 +198,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./07_branches.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Branches</span></span></a>
+  <a href="./07_stash.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Stashing Changes</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08_branches.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Branches</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -394,12 +400,13 @@ origin  git@github.com:buckybadger/gameday-menu.git (push)</code></pre>
 </section>
 <section id="send-it-up-git-push" class="level2" data-number="5.8">
 <h2 data-number="5.8" class="anchored" data-anchor-id="send-it-up-git-push"><span class="header-section-number">5.8</span> Send it up: <code>git push</code></h2>
-<p>Push your <code>main</code> branch to the <code>origin</code> remote:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push origin main</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Push your <code>main</code> branch to the <code>origin</code> remote. The <span class="uwred"><code>-u</code></span> flag links your local <code>main</code> to the remote’s <code>main</code>, so Git remembers the pairing:<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push <span class="at">-u</span> origin main</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <pre><code>Enumerating objects: 12, done.
 Writing objects: 100% (12/12), 1.1 KiB | 1.1 MiB/s, done.
 To github.com:buckybadger/gameday-menu.git
- * [new branch]      main -&gt; main</code></pre>
+ * [new branch]      main -&gt; main
+branch 'main' set up to track 'origin/main'.</code></pre>
 <div class="gap-sm">
 
 </div>
@@ -408,18 +415,18 @@ To github.com:buckybadger/gameday-menu.git
 </section>
 <section id="the-everyday-loop-pull-and-push" class="level2" data-number="5.9">
 <h2 data-number="5.9" class="anchored" data-anchor-id="the-everyday-loop-pull-and-push"><span class="header-section-number">5.9</span> The everyday loop: pull and push</h2>
-<p>With a remote in place, syncing is two commands:</p>
+<p>Because that first push used <span class="uwred"><code>-u</code></span>, Git now knows the pairing — so syncing is just two short commands:</p>
 <div class="gap-sm">
 
 </div>
 <ul>
-<li><span class="uwred"><code>git pull origin main</code></span> — bring down changes from GitHub (a teammate’s work, or edits from another machine)</li>
-<li><span class="uwred"><code>git push origin main</code></span> — send your new commits up</li>
+<li><span class="uwred"><code>git pull</code></span> — bring down changes from GitHub (a teammate’s work, or edits from another machine)</li>
+<li><span class="uwred"><code>git push</code></span> — send your new commits up</li>
 </ul>
 <div class="gap-md">
 
 </div>
-<p>Good habit: <span class="uwred">pull when you start</span>, <span class="uwred">push when you finish</span>. And to get the repo onto a brand-new machine, <span class="uwred"><code>git clone &lt;address&gt;</code></span> creates the folder, sets up <code>origin</code>, and downloads everything in one step.</p>
+<p>No need to name <code>origin main</code> again — the tracking link set up by <code>-u</code> fills that in. Good habit: <span class="uwred">pull when you start</span>, <span class="uwred">push when you finish</span>. And to get the repo onto a brand-new machine, <span class="uwred"><code>git clone &lt;address&gt;</code></span> creates the folder, sets up <code>origin</code>, and configures the same tracking automatically — so bare <code>git push</code>/<code>git pull</code> work there right away.</p>
 <hr>
 </section>
 <section id="your-turn" class="level2" data-number="5.10">
@@ -439,7 +446,7 @@ To github.com:buckybadger/gameday-menu.git
 <ol type="1">
 <li>Add a line to <code>desserts.txt</code> with <code>nano</code> (kringle, for the Wisconsin touch)</li>
 <li><code>git add</code> and <code>git commit</code> with a clear message</li>
-<li><code>git push origin main</code></li>
+<li><code>git push</code> (no need for <code>origin main</code> now)</li>
 <li>Refresh your repo on GitHub and watch the new commit appear</li>
 </ol>
 </div>
@@ -452,8 +459,8 @@ To github.com:buckybadger/gameday-menu.git
 <p>Bucky’s menu now lives on GitHub, backed up and shareable:</p>
 <ul>
 <li><span class="uwred"><code>git remote add origin &lt;address&gt;</code></span> links the local repo to GitHub</li>
-<li><span class="uwred"><code>git push origin main</code></span> sends commits up; <span class="uwred"><code>git pull origin main</code></span> brings them down</li>
-<li><span class="uwred"><code>git clone &lt;address&gt;</code></span> copies a repo onto a new machine</li>
+<li><span class="uwred"><code>git push -u origin main</code></span> sends commits up the first time and sets up tracking; after that, bare <span class="uwred"><code>git push</code></span> and <span class="uwred"><code>git pull</code></span> are all you need</li>
+<li><span class="uwred"><code>git clone &lt;address&gt;</code></span> copies a repo onto a new machine (tracking already set up)</li>
 </ul>
 <div class="gap-md">
 
@@ -475,6 +482,12 @@ To github.com:buckybadger/gameday-menu.git
 </div>
 
 
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>Prefer not to remember <code>-u</code>? Run <code>git config --global push.autoSetupRemote true</code> once per computer, and Git sets up the tracking link on your first bare <code>git push</code> automatically — no <code>-u</code> needed.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
 </section>
 
 </main> <!-- /main -->
