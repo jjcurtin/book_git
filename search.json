@@ -594,7 +594,7 @@
     "href": "04_ignoring_files.html#common-things-to-ignore",
     "title": "4  Ignoring Files",
     "section": "4.8 Common things to ignore",
-    "text": "4.8 Common things to ignore\nFor data science projects, a .gitignore usually covers:\n\n\n\n\nSecrets — .env, API keys, credential files\nLarge or raw data — data/, *.csv, *.parquet\nGenerated output — rendered reports, figures, caches\nTool cruft — .Rhistory, .RData, .Rproj.user/, __pycache__/\n\n\n\n\nMany languages and editors publish starter .gitignore files you can copy from — GitHub even offers one when you create a repo.",
+    "text": "4.8 Common things to ignore\nFor data science projects, a .gitignore usually covers:\n\n\n\n\nSecrets — .env, API keys, credential files\nLarge or raw data — data/, *.csv, *.parquet\nGenerated output — rendered reports, figures, caches\nTool cruft — .Rhistory, .RData, .Rproj.user/, __pycache__/\n\n\n\n\nMany languages and editors publish starter .gitignore files you can copy from — GitHub even offers one when you create a repo.\n\nAlready committed a secret by accident? Ignoring it now won’t remove it from past history — see the “Removing Sensitive Data from a Repository” appendix.",
     "crumbs": [
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>Ignoring Files</span>"
     ]
