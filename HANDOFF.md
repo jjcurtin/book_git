@@ -29,7 +29,7 @@ Based on a seven-video Software Carpentry "Git novice" series from UW. Transcrip
 
 ## Status: the project is largely built
 
-Units 1–6 and 8 are **fully written and published as decks**; Unit 7 (Stash) is newly written and **not yet published** as a deck. Five appendices exist (the newest, Remove Sensitive Data, is book-only). This is well past a draft — remaining work is review/polish and any new additions.
+All eight units are **fully written and published as decks** (the book and the changed decks were re-rendered/published at the end of the latest session). Five appendices exist (the newest, Remove Sensitive Data, is book-only). This is well past a draft — remaining work is review/polish and any new additions.
 
 ### Units (each is a book chapter *and* a standalone deck)
 
@@ -39,7 +39,7 @@ Units 1–6 and 8 are **fully written and published as decks**; Unit 7 (Stash) i
 | 2 | `02_tracking_changes.qmd` | Tracking Changes | Yes (core) | add/commit staging model, `diff`, `log`; highlight-table builds |
 | 3 | `03_exploring_history.qmd` | Exploring History | Yes | uses modern `git restore` |
 | 4 | `04_ignoring_files.qmd` | Ignoring Files | Yes | `.gitignore` |
-| 5 | `05_remotes_github.qmd` | Remotes in GitHub | Yes | SSH verify, `remote add`, `push`, pull/clone |
+| 5 | `05_remotes_github.qmd` | Remotes in GitHub | Yes | SSH verify, `remote add`, `git push -u` (upstream tracking) then bare `push`/`pull`, clone |
 | 6 | `06_conflicts.qmd` | Conflicts | Reference | two-clone "Sam" scenario via `git pull` |
 | 7 | `07_stash.qmd` | Stashing Changes | Reference | pull-failure motivation (reuses Sam setup); `stash`/`pop`/`list` |
 | 8 | `08_branches.qmd` | Branches | Reference | modern `git switch -c`, `merge`, cleanup; closes with stash-to-switch |
@@ -48,18 +48,20 @@ Units 1–6 and 8 are **fully written and published as decks**; Unit 7 (Stash) i
 
 **Modernized commands:** we use `git restore` (not `git checkout` for restoring files) and `git switch` (not `git checkout` for branches). This is documented in `index.qmd`.
 
+**Push/pull via upstream tracking:** Unit 5 teaches `git push -u origin main` on the first push (which records the `origin/main` tracking link), so afterward bare `git push`/`git pull` are all that's needed. A footnote on that slide points to `git config --global push.autoSetupRemote true` as a set-once-and-forget alternative to `-u`. Units 6–7 use the bare `push`/`pull` form accordingly (both working copies have tracking — the Sam clone via `git clone`, the original via `-u`).
+
 ### Front/back matter and appendices
 
-- `index.qmd` — book landing page; includes a table of links to all seven published decks.
+- `index.qmd` — book landing page; includes a table of links to all eight published decks.
 - `install_git_windows.qmd` — Appendix: installing Git for Windows / Git Bash (`#sec-git-windows`).
 - `ssh_setup.qmd` — Appendix: generating SSH keys and adding them to GitHub (`#sec-ssh-setup`).
 - `meld_difftool.qmd` — Appendix: installing Meld and configuring it as Git's default `difftool` (`#sec-meld-difftool`). Cross-platform (Win/mac/Linux); includes an optional `mergetool` section. Based on John's ARC docs.
 - `remove_sensitive_data.qmd` — Appendix (advanced): removing a committed secret/PHI from all history with `git filter-repo` (`#sec-remove-sensitive-data`). Based on the lab's ARC procedure, but adds the two steps that doc omits: **rotate/revoke first** (PHI reframed as a disclosure incident) and the **aftermath** (force-push, collaborators re-clone, GitHub caches/forks linger). Cross-platform install; book-only (not a deck).
-- `cheatsheet.qmd` — back-matter quick reference of every command (`#sec-cheatsheet`).
+- `cheatsheet.qmd` — back-matter quick reference of every command (`#sec-cheatsheet`). Reflects the `-u`/bare-push-pull workflow (plus a `push.autoSetupRemote` note) and includes a `git difftool` row with a short diff-vs-difftool explanation pointing to the Meld appendix.
 
 In `_quarto_book.yml`, the eight units are `chapters:` and the five files above are `appendices:` (order: install_git_windows, ssh_setup, meld_difftool, remove_sensitive_data, cheatsheet).
 
-A footer pointer to the Meld appendix sits on the `git diff` slide in `02_tracking_changes.qmd` (where diff is first introduced).
+A footer pointer to the Meld appendix sits on the `git diff` slide in `02_tracking_changes.qmd` (where diff is first introduced). A footer pointer to the Remove Sensitive Data appendix sits on the "Common things to ignore" slide in `04_ignoring_files.qmd` (where secrets come up). Both use plain-text names, not `@sec-` cross-refs.
 
 ## How publishing works (dual-output mechanism)
 
@@ -71,7 +73,7 @@ There is **no committed `_quarto.yml`**. `publish.sh FORMAT [FILE]` swaps one in
 
 So every `.qmd` must render correctly as **both** a book chapter (`book.css`) and a revealjs deck (`slides_teaching.css` / `slides_wide_teaching.css`). Standalone decks do **not** have access to other files, so **avoid `@sec-` cross-references between units/appendices** — they resolve in the book but break in a standalone deck. Use plain-text pointers (e.g., the Meld footer) instead.
 
-`_publish.yml` is present and holds the real Posit Connect Cloud IDs/URLs for the published decks (regenerated by publishing; do not hand-edit). **Stale mapping to watch:** when Unit 7 (Stash) was inserted, `07_branches.qmd` was renamed to `08_branches.qmd` but `_publish.yml` was deliberately left untouched — so its Branches entry still has `source: 07_branches.qmd`. Republishing the Branches deck as `08_branches.qmd` will create a *new* deck unless that `source:` key is first updated to `08_branches.qmd` (preserving its id/url). Unit 7 (Stash) has no deck yet; `./publish.sh slides 07_stash.qmd` creates it.
+`_publish.yml` is present and holds the real Posit Connect Cloud IDs/URLs for all eight decks (regenerated by publishing; do not hand-edit). When Unit 7 (Stash) was inserted, `07_branches.qmd` was renamed to `08_branches.qmd`; the Branches `source:` key in `_publish.yml` was updated by hand to match (id/url preserved, so the existing deck updates in place), and the new Stash deck has been published. Both mappings are now correct.
 
 ## Authoring conventions (John's style)
 
@@ -98,4 +100,4 @@ Modeled on `~/github/slide_decks/archive/2026/power/power.qmd` (theme `~/github/
 
 - Decide whether to add a Meld footer at any other `diff`/`difftool` touchpoints (currently only Unit 2).
 - Candidate additional appendices discussed but not built: using Git inside RStudio (Git pane/Projects); pull requests & collaboration on GitHub; undoing mistakes in depth (`reset`/`revert`/`amend`; note `stash` now has its own Unit 7); a starter data-science `.gitignore`.
-- Optionally render the book (`./publish.sh book`) to confirm everything still builds after edits.
+- Book and changed decks were re-rendered/republished at the end of the latest session, so the published outputs are current as of then. Re-render after any further edits.
