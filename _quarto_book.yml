@@ -35,6 +35,7 @@ book:
   appendices:
     - install_git_windows.qmd
     - ssh_setup.qmd
+    - github_first.qmd
     - meld_difftool.qmd
     - remove_sensitive_data.qmd
     - cheatsheet.qmd

@@ -29,7 +29,7 @@ Based on a seven-video Software Carpentry "Git novice" series from UW. Transcrip
 
 ## Status: the project is largely built
 
-All eight units are **fully written and published as decks** (the book and the changed decks were re-rendered/published at the end of the latest session). Five appendices exist (the newest, Remove Sensitive Data, is book-only). This is well past a draft — remaining work is review/polish and any new additions.
+All eight units are **fully written and published as decks** (the book and the changed decks were re-rendered/published at the end of the latest session). Six appendices exist (the two newest — Remove Sensitive Data and Starting a Repo on GitHub — are book-only). This is well past a draft — remaining work is review/polish and any new additions.
 
 ### Units (each is a book chapter *and* a standalone deck)
 
@@ -55,13 +55,14 @@ All eight units are **fully written and published as decks** (the book and the c
 - `index.qmd` — book landing page; includes a table of links to all eight published decks.
 - `install_git_windows.qmd` — Appendix: installing Git for Windows / Git Bash (`#sec-git-windows`).
 - `ssh_setup.qmd` — Appendix: generating SSH keys and adding them to GitHub (`#sec-ssh-setup`).
+- `github_first.qmd` — Appendix: the **GitHub-first** workflow (`#sec-github-first`). Alternative to Unit 5's local-first path: create the repo on GitHub *with* a seeded `.gitignore`/README, then `git clone` — so `origin` and upstream tracking are set up from the start (bare `push`/`pull` work on the first commit, no `remote add`, no `-u`). Reuses Bucky's `gameday-menu`, started from scratch. Flags the two caveats: it only fits brand-new projects (unrelated-histories trap if a local repo already exists), and the repo must be seeded with at least one file or the clone is empty/untracked. Book-only (not a deck).
 - `meld_difftool.qmd` — Appendix: installing Meld and configuring it as Git's default `difftool` (`#sec-meld-difftool`). Cross-platform (Win/mac/Linux); includes an optional `mergetool` section. Based on John's ARC docs.
 - `remove_sensitive_data.qmd` — Appendix (advanced): removing a committed secret/PHI from all history with `git filter-repo` (`#sec-remove-sensitive-data`). Based on the lab's ARC procedure, but adds the two steps that doc omits: **rotate/revoke first** (PHI reframed as a disclosure incident) and the **aftermath** (force-push, collaborators re-clone, GitHub caches/forks linger). Cross-platform install; book-only (not a deck).
 - `cheatsheet.qmd` — back-matter quick reference of every command (`#sec-cheatsheet`). Reflects the `-u`/bare-push-pull workflow (plus a `push.autoSetupRemote` note) and includes a `git difftool` row with a short diff-vs-difftool explanation pointing to the Meld appendix.
 
-In `_quarto_book.yml`, the eight units are `chapters:` and the five files above are `appendices:` (order: install_git_windows, ssh_setup, meld_difftool, remove_sensitive_data, cheatsheet).
+In `_quarto_book.yml`, the eight units are `chapters:` and the six files above are `appendices:` (order: install_git_windows, ssh_setup, github_first, meld_difftool, remove_sensitive_data, cheatsheet).
 
-A footer pointer to the Meld appendix sits on the `git diff` slide in `02_tracking_changes.qmd` (where diff is first introduced). A footer pointer to the Remove Sensitive Data appendix sits on the "Common things to ignore" slide in `04_ignoring_files.qmd` (where secrets come up). Both use plain-text names, not `@sec-` cross-refs.
+A footer pointer to the Meld appendix sits on the `git diff` slide in `02_tracking_changes.qmd` (where diff is first introduced). A footer pointer to the Remove Sensitive Data appendix sits on the "Common things to ignore" slide in `04_ignoring_files.qmd` (where secrets come up). A footer pointer to the Starting a Repo on GitHub appendix sits on the "Make a home for it on GitHub" slide in `05_remotes_github.qmd` (where the local-first repo-creation step happens). All use plain-text names, not `@sec-` cross-refs.
 
 ## How publishing works (dual-output mechanism)
 
@@ -100,4 +101,4 @@ Modeled on `~/github/slide_decks/archive/2026/power/power.qmd` (theme `~/github/
 
 - Decide whether to add a Meld footer at any other `diff`/`difftool` touchpoints (currently only Unit 2).
 - Candidate additional appendices discussed but not built: using Git inside RStudio (Git pane/Projects); pull requests & collaboration on GitHub; undoing mistakes in depth (`reset`/`revert`/`amend`; note `stash` now has its own Unit 7); a starter data-science `.gitignore`.
-- Book and changed decks were re-rendered/republished at the end of the latest session, so the published outputs are current as of then. Re-render after any further edits.
+- Book and changed decks were re-rendered/republished at the end of the latest session, so the published outputs are current as of then. Re-render after any further edits. (Latest session: added the `github_first.qmd` appendix and a footer pointer to it on the Unit 5 "Make a home for it on GitHub" slide; the book and the Unit 5 deck were re-rendered/republished to pick these up.)

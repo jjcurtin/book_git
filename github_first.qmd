@@ -1,0 +1,109 @@
+# Starting a Repo on GitHub {#sec-github-first}
+
+The Remotes in GitHub unit starts a repo [locally]{.uwred} — `git init`, a few commits — and only later makes a home for it on GitHub. That is the right order when a project already exists on your laptop.
+
+When you are starting something [brand new]{.uwred}, there is a tidier path: make the repo on GitHub [first]{.uwred}, then clone it down and start working. Because the GitHub copy already has a commit in it, the clone arrives with the remote and the push/pull tracking link already set up — so `git push` and `git pull` work from your very first commit, with no `git remote add` and no `git push -u`.
+
+This appendix walks through that GitHub-first workflow, starting Bucky's game-day menu over from scratch. It assumes you have already set up SSH keys (see the SSH setup appendix); plan on about five minutes.
+
+## Step 1: Create the repo on GitHub
+
+In your browser, signed in to GitHub:
+
+1. Click [+]{.uwred} (top right) → [New repository]{.uwred}
+2. Name it [`gameday-menu`]{.uwred}
+3. Leave it [Public]{.uwred}
+4. Check [Add a README file]{.uwred}
+5. From the [Add .gitignore]{.uwred} dropdown, pick a template — [`R`]{.uwred} is a good start for data-science work
+6. Click [Create repository]{.uwred}
+
+The key difference from the Remotes unit is step 5: there we *skipped* the README and `.gitignore` because the local repo already had a history to push. Here there is no local repo yet, so letting GitHub seed those files is exactly what we want — they become the repo's [first commit]{.uwred}.
+
+::: {.callout-note}
+Checking at least one box (README, `.gitignore`, or a license) is what makes this workflow smooth. It gives the repo an initial commit, so the clone comes down with a `main` branch and tracking already in place. A completely empty repo clones with a warning and no branch yet — and you would be back to needing `git push -u` on your first push.
+:::
+
+## Step 2: Copy the SSH address
+
+On the new repo's page, click the green [Code]{.uwred} button and select the [SSH]{.uwred} tab (not HTTPS). Copy the address:
+
+```
+git@github.com:buckybadger/gameday-menu.git
+```
+
+## Step 3: Clone it to your computer
+
+Move to wherever you keep your projects, then clone, using your own address:
+
+```bash
+git clone git@github.com:buckybadger/gameday-menu.git
+```
+
+```
+Cloning into 'gameday-menu'...
+remote: Enumerating objects: 4, done.
+remote: Counting objects: 100% (4/4), done.
+remote: Compressing objects: 100% (3/3), done.
+remote: Total 4 (delta 0), reused 0 (delta 0), pack-reused 0
+Receiving objects: 100% (4/4), done.
+```
+
+`git clone` does several things at once. It creates a `gameday-menu/` folder, downloads the repo and its history into it, adds a remote named [`origin`]{.uwred} pointing back at GitHub, and sets up the [tracking link]{.uwred} between your local `main` and `origin/main`. Move into the folder:
+
+```bash
+cd gameday-menu
+```
+
+The README and `.gitignore` GitHub created are already here, and the remote is already wired up:
+
+```bash
+git remote -v
+```
+
+```
+origin	git@github.com:buckybadger/gameday-menu.git (fetch)
+origin	git@github.com:buckybadger/gameday-menu.git (push)
+```
+
+## Step 4: Start working
+
+Now Bucky builds his menu, exactly as in the earlier units — the only difference is that the repo was linked to GitHub before he wrote a single file. Create one of the menu files, stage it, and commit:
+
+```bash
+nano brats.txt
+git add brats.txt
+git commit -m "Add brats to the menu"
+```
+
+```
+[main a1b2c3d] Add brats to the menu
+ 1 file changed, 1 insertion(+)
+ create mode 100644 brats.txt
+```
+
+Here is the payoff. Because the clone already set up tracking, a bare `git push` works right away — no `-u`, no `origin main`:
+
+```bash
+git push
+```
+
+```
+Enumerating objects: 4, done.
+Writing objects: 100% (3/3), 312 bytes | 312.00 KiB/s, done.
+To github.com:buckybadger/gameday-menu.git
+   e4f5a6b..a1b2c3d  main -> main
+```
+
+Reload the GitHub page and the new commit is there. From now on it is the everyday loop — [`git pull`]{.uwred} when you start, [`git push`]{.uwred} when you finish.
+
+## Which workflow should I use?
+
+Both get you to the same place: a local repo linked to GitHub. The difference is where the project begins.
+
+| Start from scratch on GitHub (this appendix) | Start locally, then publish (Remotes unit) |
+|---|---|
+| Brand-new project with nothing on your laptop yet | Work that already exists in a local folder |
+| `git clone` sets up `origin` and tracking for you | You add the remote and push with `-u` yourself |
+| Decide name, visibility, `.gitignore`, license up front | Start writing immediately, decide hosting later |
+
+The GitHub-first path is the smoother one for a new project, which is why many people reach for it by default. Its one real limitation is the flip side of its strength: it assumes there is [no local repo yet]{.uwred}. If you have already been working locally — especially if you have already run `git init` and made commits — do not clone a separate GitHub repo on top of it. The two would have unrelated histories and Git will refuse to push one into the other. For that situation, use the local-first workflow in the Remotes in GitHub unit instead.

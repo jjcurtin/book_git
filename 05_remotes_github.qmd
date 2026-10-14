@@ -91,6 +91,10 @@ In your browser, signed in to GitHub:
 
 We skip the README and friends because we already have a repo with history. Starting a second history on GitHub would just collide with ours.
 
+::: {.footer}
+Starting a brand-new project instead? You can make the repo on GitHub first and clone it down — see the *Starting a Repo on GitHub* appendix.
+:::
+
 
 --------------------------------------------------------------------------------
 
