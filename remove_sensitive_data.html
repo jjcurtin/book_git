@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Appendix D — Removing Sensitive Data from a Repository – Introduction to Git and Github</title>
+<title>Appendix E — Removing Sensitive Data from a Repository – Introduction to Git and Github</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -121,7 +121,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./install_git_windows.html">Appendices</a></li><li class="breadcrumb-item"><a href="./remove_sensitive_data.html"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Removing Sensitive Data from a Repository</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./install_git_windows.html">Appendices</a></li><li class="breadcrumb-item"><a href="./remove_sensitive_data.html"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">Removing Sensitive Data from a Repository</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -231,20 +231,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./github_first.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Starting a Repo on GitHub</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./meld_difftool.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Using Meld for Diffs</span></span></a>
+ <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Using Meld for Diffs</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./remove_sensitive_data.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Removing Sensitive Data from a Repository</span></span></a>
+ <span class="menu-text"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">Removing Sensitive Data from a Repository</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./cheatsheet.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">Git Cheatsheet</span></span></a>
+ <span class="menu-text"><span class="chapter-number">F</span>&nbsp; <span class="chapter-title">Git Cheatsheet</span></span></a>
   </div>
 </li>
       </ul>
@@ -259,30 +265,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#why-deleting-the-file-isnt-enough" id="toc-why-deleting-the-file-isnt-enough" class="nav-link active" data-scroll-target="#why-deleting-the-file-isnt-enough"><span class="header-section-number">D.1</span> Why deleting the file isn’t enough</a></li>
-  <li><a href="#the-tool-git-filter-repo" id="toc-the-tool-git-filter-repo" class="nav-link" data-scroll-target="#the-tool-git-filter-repo"><span class="header-section-number">D.2</span> The tool: <code>git filter-repo</code></a></li>
-  <li><a href="#step-1-install-git-filter-repo" id="toc-step-1-install-git-filter-repo" class="nav-link" data-scroll-target="#step-1-install-git-filter-repo"><span class="header-section-number">D.3</span> Step 1: Install <code>git filter-repo</code></a>
+  <li><a href="#why-deleting-the-file-isnt-enough" id="toc-why-deleting-the-file-isnt-enough" class="nav-link active" data-scroll-target="#why-deleting-the-file-isnt-enough"><span class="header-section-number">E.1</span> Why deleting the file isn’t enough</a></li>
+  <li><a href="#the-tool-git-filter-repo" id="toc-the-tool-git-filter-repo" class="nav-link" data-scroll-target="#the-tool-git-filter-repo"><span class="header-section-number">E.2</span> The tool: <code>git filter-repo</code></a></li>
+  <li><a href="#step-1-install-git-filter-repo" id="toc-step-1-install-git-filter-repo" class="nav-link" data-scroll-target="#step-1-install-git-filter-repo"><span class="header-section-number">E.3</span> Step 1: Install <code>git filter-repo</code></a>
   <ul class="collapse">
-  <li><a href="#macos" id="toc-macos" class="nav-link" data-scroll-target="#macos"><span class="header-section-number">D.3.1</span> macOS</a></li>
-  <li><a href="#linux" id="toc-linux" class="nav-link" data-scroll-target="#linux"><span class="header-section-number">D.3.2</span> Linux</a></li>
-  <li><a href="#any-system-with-python-pip" id="toc-any-system-with-python-pip" class="nav-link" data-scroll-target="#any-system-with-python-pip"><span class="header-section-number">D.3.3</span> Any system with Python / pip</a></li>
-  <li><a href="#windows-git-bash-manual-install" id="toc-windows-git-bash-manual-install" class="nav-link" data-scroll-target="#windows-git-bash-manual-install"><span class="header-section-number">D.3.4</span> Windows (Git Bash, manual install)</a></li>
-  <li><a href="#confirm-it-worked" id="toc-confirm-it-worked" class="nav-link" data-scroll-target="#confirm-it-worked"><span class="header-section-number">D.3.5</span> Confirm it worked</a></li>
+  <li><a href="#macos" id="toc-macos" class="nav-link" data-scroll-target="#macos"><span class="header-section-number">E.3.1</span> macOS</a></li>
+  <li><a href="#linux" id="toc-linux" class="nav-link" data-scroll-target="#linux"><span class="header-section-number">E.3.2</span> Linux</a></li>
+  <li><a href="#any-system-with-python-pip" id="toc-any-system-with-python-pip" class="nav-link" data-scroll-target="#any-system-with-python-pip"><span class="header-section-number">E.3.3</span> Any system with Python / pip</a></li>
+  <li><a href="#windows-git-bash-manual-install" id="toc-windows-git-bash-manual-install" class="nav-link" data-scroll-target="#windows-git-bash-manual-install"><span class="header-section-number">E.3.4</span> Windows (Git Bash, manual install)</a></li>
+  <li><a href="#confirm-it-worked" id="toc-confirm-it-worked" class="nav-link" data-scroll-target="#confirm-it-worked"><span class="header-section-number">E.3.5</span> Confirm it worked</a></li>
   </ul></li>
-  <li><a href="#step-2-identify-the-exact-path" id="toc-step-2-identify-the-exact-path" class="nav-link" data-scroll-target="#step-2-identify-the-exact-path"><span class="header-section-number">D.4</span> Step 2: Identify the exact path</a></li>
-  <li><a href="#step-3-rewrite-history-on-a-fresh-clone" id="toc-step-3-rewrite-history-on-a-fresh-clone" class="nav-link" data-scroll-target="#step-3-rewrite-history-on-a-fresh-clone"><span class="header-section-number">D.5</span> Step 3: Rewrite history on a fresh clone</a></li>
-  <li><a href="#step-4-verify-its-gone" id="toc-step-4-verify-its-gone" class="nav-link" data-scroll-target="#step-4-verify-its-gone"><span class="header-section-number">D.6</span> Step 4: Verify it’s gone</a></li>
-  <li><a href="#step-5-re-add-the-remote-and-force-push" id="toc-step-5-re-add-the-remote-and-force-push" class="nav-link" data-scroll-target="#step-5-re-add-the-remote-and-force-push"><span class="header-section-number">D.7</span> Step 5: Re-add the remote and force-push</a></li>
-  <li><a href="#step-6-clean-up-the-fallout" id="toc-step-6-clean-up-the-fallout" class="nav-link" data-scroll-target="#step-6-clean-up-the-fallout"><span class="header-section-number">D.8</span> Step 6: Clean up the fallout</a></li>
+  <li><a href="#step-2-identify-the-exact-path" id="toc-step-2-identify-the-exact-path" class="nav-link" data-scroll-target="#step-2-identify-the-exact-path"><span class="header-section-number">E.4</span> Step 2: Identify the exact path</a></li>
+  <li><a href="#step-3-rewrite-history-on-a-fresh-clone" id="toc-step-3-rewrite-history-on-a-fresh-clone" class="nav-link" data-scroll-target="#step-3-rewrite-history-on-a-fresh-clone"><span class="header-section-number">E.5</span> Step 3: Rewrite history on a fresh clone</a></li>
+  <li><a href="#step-4-verify-its-gone" id="toc-step-4-verify-its-gone" class="nav-link" data-scroll-target="#step-4-verify-its-gone"><span class="header-section-number">E.6</span> Step 4: Verify it’s gone</a></li>
+  <li><a href="#step-5-re-add-the-remote-and-force-push" id="toc-step-5-re-add-the-remote-and-force-push" class="nav-link" data-scroll-target="#step-5-re-add-the-remote-and-force-push"><span class="header-section-number">E.7</span> Step 5: Re-add the remote and force-push</a></li>
+  <li><a href="#step-6-clean-up-the-fallout" id="toc-step-6-clean-up-the-fallout" class="nav-link" data-scroll-target="#step-6-clean-up-the-fallout"><span class="header-section-number">E.8</span> Step 6: Clean up the fallout</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/jjcurtin/book_git/edit/main/remove_sensitive_data.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./install_git_windows.html">Appendices</a></li><li class="breadcrumb-item"><a href="./remove_sensitive_data.html"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Removing Sensitive Data from a Repository</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./install_git_windows.html">Appendices</a></li><li class="breadcrumb-item"><a href="./remove_sensitive_data.html"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">Removing Sensitive Data from a Repository</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span id="sec-remove-sensitive-data" class="quarto-section-identifier">Appendix D — Removing Sensitive Data from a Repository</span></h1>
+<h1 class="title"><span id="sec-remove-sensitive-data" class="quarto-section-identifier">Appendix E — Removing Sensitive Data from a Repository</span></h1>
 </div>
 
 
@@ -301,8 +307,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <p>This appendix covers what to do when something that should never have been committed — an <span class="uwred">API key</span>, a password, a token, or <span class="uwred">protected data such as PHI</span> — ends up in a repository by mistake. It is an advanced, destructive procedure: it <span class="uwred">rewrites your repository’s history</span>, so read it through before you start.</p>
 <p>This is the procedure the lab uses, built on <a href="https://github.com/newren/git-filter-repo"><code>git filter-repo</code></a>.</p>
-<section id="why-deleting-the-file-isnt-enough" class="level2" data-number="D.1">
-<h2 data-number="D.1" class="anchored" data-anchor-id="why-deleting-the-file-isnt-enough"><span class="header-section-number">D.1</span> Why deleting the file isn’t enough</h2>
+<section id="why-deleting-the-file-isnt-enough" class="level2" data-number="E.1">
+<h2 data-number="E.1" class="anchored" data-anchor-id="why-deleting-the-file-isnt-enough"><span class="header-section-number">E.1</span> Why deleting the file isn’t enough</h2>
 <p>The instinct is to delete the file, commit, and push. That does not work. Git keeps <span class="uwred">every past version of every file</span>, so the commit that first added the secret still contains it — and anyone with the repo can check out that commit and read it.</p>
 <div class="gap-sm">
 
@@ -326,8 +332,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="the-tool-git-filter-repo" class="level2" data-number="D.2">
-<h2 data-number="D.2" class="anchored" data-anchor-id="the-tool-git-filter-repo"><span class="header-section-number">D.2</span> The tool: <code>git filter-repo</code></h2>
+<section id="the-tool-git-filter-repo" class="level2" data-number="E.2">
+<h2 data-number="E.2" class="anchored" data-anchor-id="the-tool-git-filter-repo"><span class="header-section-number">E.2</span> The tool: <code>git filter-repo</code></h2>
 <p><a href="https://github.com/newren/git-filter-repo"><code>git filter-repo</code></a> is the current, recommended tool for this. It scrubs a file (or a string) from <span class="uwred">all</span> commits, caches, and history at once. It replaces the older <code>git filter-branch</code>, which is slow and error-prone enough that Git’s own docs now warn against it. (BFG Repo-Cleaner is an alternative aimed at very large repos, but it is unmaintained; we use <code>filter-repo</code>.)</p>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -343,27 +349,27 @@ Note
 </div>
 </div>
 </section>
-<section id="step-1-install-git-filter-repo" class="level2" data-number="D.3">
-<h2 data-number="D.3" class="anchored" data-anchor-id="step-1-install-git-filter-repo"><span class="header-section-number">D.3</span> Step 1: Install <code>git filter-repo</code></h2>
+<section id="step-1-install-git-filter-repo" class="level2" data-number="E.3">
+<h2 data-number="E.3" class="anchored" data-anchor-id="step-1-install-git-filter-repo"><span class="header-section-number">E.3</span> Step 1: Install <code>git filter-repo</code></h2>
 <p><code>git filter-repo</code> needs Python. Pick the route for your system.</p>
-<section id="macos" class="level3" data-number="D.3.1">
-<h3 data-number="D.3.1" class="anchored" data-anchor-id="macos"><span class="header-section-number">D.3.1</span> macOS</h3>
+<section id="macos" class="level3" data-number="E.3.1">
+<h3 data-number="E.3.1" class="anchored" data-anchor-id="macos"><span class="header-section-number">E.3.1</span> macOS</h3>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install git-filter-repo</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="linux" class="level3" data-number="D.3.2">
-<h3 data-number="D.3.2" class="anchored" data-anchor-id="linux"><span class="header-section-number">D.3.2</span> Linux</h3>
+<section id="linux" class="level3" data-number="E.3.2">
+<h3 data-number="E.3.2" class="anchored" data-anchor-id="linux"><span class="header-section-number">E.3.2</span> Linux</h3>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Debian / Ubuntu</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt install git-filter-repo</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Fedora</span></span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> dnf install git-filter-repo</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="any-system-with-python-pip" class="level3" data-number="D.3.3">
-<h3 data-number="D.3.3" class="anchored" data-anchor-id="any-system-with-python-pip"><span class="header-section-number">D.3.3</span> Any system with Python / pip</h3>
+<section id="any-system-with-python-pip" class="level3" data-number="E.3.3">
+<h3 data-number="E.3.3" class="anchored" data-anchor-id="any-system-with-python-pip"><span class="header-section-number">E.3.3</span> Any system with Python / pip</h3>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install git-filter-repo</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="windows-git-bash-manual-install" class="level3" data-number="D.3.4">
-<h3 data-number="D.3.4" class="anchored" data-anchor-id="windows-git-bash-manual-install"><span class="header-section-number">D.3.4</span> Windows (Git Bash, manual install)</h3>
+<section id="windows-git-bash-manual-install" class="level3" data-number="E.3.4">
+<h3 data-number="E.3.4" class="anchored" data-anchor-id="windows-git-bash-manual-install"><span class="header-section-number">E.3.4</span> Windows (Git Bash, manual install)</h3>
 <ol type="1">
 <li>In Git Bash, run <code>python3</code> — Windows will offer to install Python from the Store.</li>
 <li>Find your Git install folder: <code>git --exec-path</code>.</li>
@@ -371,15 +377,15 @@ Note
 <li>Remove any <code>.txt</code> extension the download added, then copy the file into the folder from step 2 (you may be asked for administrator permission).</li>
 </ol>
 </section>
-<section id="confirm-it-worked" class="level3" data-number="D.3.5">
-<h3 data-number="D.3.5" class="anchored" data-anchor-id="confirm-it-worked"><span class="header-section-number">D.3.5</span> Confirm it worked</h3>
+<section id="confirm-it-worked" class="level3" data-number="E.3.5">
+<h3 data-number="E.3.5" class="anchored" data-anchor-id="confirm-it-worked"><span class="header-section-number">E.3.5</span> Confirm it worked</h3>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> filter-repo</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <pre><code>No arguments specified.</code></pre>
 <p>That message (rather than “command not found”) means Git can find the tool.</p>
 </section>
 </section>
-<section id="step-2-identify-the-exact-path" class="level2" data-number="D.4">
-<h2 data-number="D.4" class="anchored" data-anchor-id="step-2-identify-the-exact-path"><span class="header-section-number">D.4</span> Step 2: Identify the exact path</h2>
+<section id="step-2-identify-the-exact-path" class="level2" data-number="E.4">
+<h2 data-number="E.4" class="anchored" data-anchor-id="step-2-identify-the-exact-path"><span class="header-section-number">E.4</span> Step 2: Identify the exact path</h2>
 <p>You need the file’s path <span class="uwred">as Git recorded it</span>, including any folder. If the file was ever moved or renamed, use the path from the commit that first added it so you catch every version.</p>
 <div class="gap-sm">
 
@@ -391,8 +397,8 @@ Note
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>           <span class="kw">|</span> <span class="fu">tail</span> <span class="at">-10</span> <span class="dt">\</span></span>
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>           <span class="kw">|</span> <span class="fu">awk</span> <span class="st">'{print $1}'</span><span class="va">)</span><span class="st">"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="step-3-rewrite-history-on-a-fresh-clone" class="level2" data-number="D.5">
-<h2 data-number="D.5" class="anchored" data-anchor-id="step-3-rewrite-history-on-a-fresh-clone"><span class="header-section-number">D.5</span> Step 3: Rewrite history on a fresh clone</h2>
+<section id="step-3-rewrite-history-on-a-fresh-clone" class="level2" data-number="E.5">
+<h2 data-number="E.5" class="anchored" data-anchor-id="step-3-rewrite-history-on-a-fresh-clone"><span class="header-section-number">E.5</span> Step 3: Rewrite history on a fresh clone</h2>
 <p><code>git filter-repo</code> expects a <span class="uwred">fresh clone</span> — work on a brand-new copy so you cannot corrupt your working repo. Clone it, then run the removal:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone git@github.com:buckybadger/gameday-menu.git</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> gameday-menu</span>
@@ -422,8 +428,8 @@ Note
 </div>
 </div>
 </section>
-<section id="step-4-verify-its-gone" class="level2" data-number="D.6">
-<h2 data-number="D.6" class="anchored" data-anchor-id="step-4-verify-its-gone"><span class="header-section-number">D.6</span> Step 4: Verify it’s gone</h2>
+<section id="step-4-verify-its-gone" class="level2" data-number="E.6">
+<h2 data-number="E.6" class="anchored" data-anchor-id="step-4-verify-its-gone"><span class="header-section-number">E.6</span> Step 4: Verify it’s gone</h2>
 <p>Search the rewritten history for the value or file before you push anything:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># search every commit for the secret string</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> log <span class="at">--all</span> <span class="at">--oneline</span> <span class="at">-S</span> <span class="st">'the-secret-value'</span></span>
@@ -432,8 +438,8 @@ Note
 <span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> log <span class="at">--all</span> <span class="at">--oneline</span> <span class="at">--</span> secrets.env</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Empty output from both means the content is no longer in history.</p>
 </section>
-<section id="step-5-re-add-the-remote-and-force-push" class="level2" data-number="D.7">
-<h2 data-number="D.7" class="anchored" data-anchor-id="step-5-re-add-the-remote-and-force-push"><span class="header-section-number">D.7</span> Step 5: Re-add the remote and force-push</h2>
+<section id="step-5-re-add-the-remote-and-force-push" class="level2" data-number="E.7">
+<h2 data-number="E.7" class="anchored" data-anchor-id="step-5-re-add-the-remote-and-force-push"><span class="header-section-number">E.7</span> Step 5: Re-add the remote and force-push</h2>
 <p><code>git filter-repo</code> removes the <code>origin</code> remote on purpose, so a rewrite can’t be pushed by accident. Add it back, then force-push the rewritten history to every branch and tag:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> remote add origin git@github.com:buckybadger/gameday-menu.git</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push origin <span class="at">--force</span> <span class="at">--all</span></span>
@@ -452,8 +458,8 @@ Note
 </div>
 </div>
 </section>
-<section id="step-6-clean-up-the-fallout" class="level2" data-number="D.8">
-<h2 data-number="D.8" class="anchored" data-anchor-id="step-6-clean-up-the-fallout"><span class="header-section-number">D.8</span> Step 6: Clean up the fallout</h2>
+<section id="step-6-clean-up-the-fallout" class="level2" data-number="E.8">
+<h2 data-number="E.8" class="anchored" data-anchor-id="step-6-clean-up-the-fallout"><span class="header-section-number">E.8</span> Step 6: Clean up the fallout</h2>
 <p>A history rewrite changes <span class="uwred">every commit’s ID</span>, so the cleanup isn’t done when the push succeeds:</p>
 <ul>
 <li><strong>Collaborators must re-clone.</strong> Any existing clone still holds the old history — and the secret. If someone pushes from a stale clone, the secret comes back. Tell everyone to delete their copy and clone fresh.</li>
@@ -881,12 +887,12 @@ Note
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./meld_difftool.html" class="pagination-link" aria-label="Using Meld for Diffs">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Using Meld for Diffs</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Using Meld for Diffs</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./cheatsheet.html" class="pagination-link" aria-label="Git Cheatsheet">
-        <span class="nav-page-text"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">Git Cheatsheet</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">F</span>&nbsp; <span class="chapter-title">Git Cheatsheet</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

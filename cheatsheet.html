@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Appendix E — Git Cheatsheet – Introduction to Git and Github</title>
+<title>Appendix F — Git Cheatsheet – Introduction to Git and Github</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -120,7 +120,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./install_git_windows.html">Appendices</a></li><li class="breadcrumb-item"><a href="./cheatsheet.html"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">Git Cheatsheet</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./install_git_windows.html">Appendices</a></li><li class="breadcrumb-item"><a href="./cheatsheet.html"><span class="chapter-number">F</span>&nbsp; <span class="chapter-title">Git Cheatsheet</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -230,20 +230,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./github_first.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Starting a Repo on GitHub</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./meld_difftool.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Using Meld for Diffs</span></span></a>
+ <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Using Meld for Diffs</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./remove_sensitive_data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Removing Sensitive Data from a Repository</span></span></a>
+ <span class="menu-text"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">Removing Sensitive Data from a Repository</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./cheatsheet.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">Git Cheatsheet</span></span></a>
+ <span class="menu-text"><span class="chapter-number">F</span>&nbsp; <span class="chapter-title">Git Cheatsheet</span></span></a>
   </div>
 </li>
       </ul>
@@ -258,26 +264,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#the-everyday-rhythm" id="toc-the-everyday-rhythm" class="nav-link active" data-scroll-target="#the-everyday-rhythm"><span class="header-section-number">E.0.1</span> The everyday rhythm</a></li>
-  <li><a href="#one-time-setup-per-computer" id="toc-one-time-setup-per-computer" class="nav-link" data-scroll-target="#one-time-setup-per-computer"><span class="header-section-number">E.0.2</span> One-time setup (per computer)</a></li>
-  <li><a href="#starting-a-repository" id="toc-starting-a-repository" class="nav-link" data-scroll-target="#starting-a-repository"><span class="header-section-number">E.0.3</span> Starting a repository</a></li>
-  <li><a href="#the-core-cycle" id="toc-the-core-cycle" class="nav-link" data-scroll-target="#the-core-cycle"><span class="header-section-number">E.0.4</span> The core cycle</a></li>
-  <li><a href="#renaming-and-deleting-files" id="toc-renaming-and-deleting-files" class="nav-link" data-scroll-target="#renaming-and-deleting-files"><span class="header-section-number">E.0.5</span> Renaming and deleting files</a></li>
-  <li><a href="#seeing-what-changed" id="toc-seeing-what-changed" class="nav-link" data-scroll-target="#seeing-what-changed"><span class="header-section-number">E.0.6</span> Seeing what changed</a></li>
-  <li><a href="#undoing-and-restoring" id="toc-undoing-and-restoring" class="nav-link" data-scroll-target="#undoing-and-restoring"><span class="header-section-number">E.0.7</span> Undoing and restoring</a></li>
-  <li><a href="#ignoring-files" id="toc-ignoring-files" class="nav-link" data-scroll-target="#ignoring-files"><span class="header-section-number">E.0.8</span> Ignoring files</a></li>
-  <li><a href="#working-with-github" id="toc-working-with-github" class="nav-link" data-scroll-target="#working-with-github"><span class="header-section-number">E.0.9</span> Working with GitHub</a></li>
-  <li><a href="#key-terms" id="toc-key-terms" class="nav-link" data-scroll-target="#key-terms"><span class="header-section-number">E.0.10</span> Key terms</a></li>
-  <li><a href="#where-your-work-moves" id="toc-where-your-work-moves" class="nav-link" data-scroll-target="#where-your-work-moves"><span class="header-section-number">E.0.11</span> Where your work moves</a></li>
+  <li><a href="#the-everyday-rhythm" id="toc-the-everyday-rhythm" class="nav-link active" data-scroll-target="#the-everyday-rhythm"><span class="header-section-number">F.0.1</span> The everyday rhythm</a></li>
+  <li><a href="#one-time-setup-per-computer" id="toc-one-time-setup-per-computer" class="nav-link" data-scroll-target="#one-time-setup-per-computer"><span class="header-section-number">F.0.2</span> One-time setup (per computer)</a></li>
+  <li><a href="#starting-a-repository" id="toc-starting-a-repository" class="nav-link" data-scroll-target="#starting-a-repository"><span class="header-section-number">F.0.3</span> Starting a repository</a></li>
+  <li><a href="#the-core-cycle" id="toc-the-core-cycle" class="nav-link" data-scroll-target="#the-core-cycle"><span class="header-section-number">F.0.4</span> The core cycle</a></li>
+  <li><a href="#renaming-and-deleting-files" id="toc-renaming-and-deleting-files" class="nav-link" data-scroll-target="#renaming-and-deleting-files"><span class="header-section-number">F.0.5</span> Renaming and deleting files</a></li>
+  <li><a href="#seeing-what-changed" id="toc-seeing-what-changed" class="nav-link" data-scroll-target="#seeing-what-changed"><span class="header-section-number">F.0.6</span> Seeing what changed</a></li>
+  <li><a href="#undoing-and-restoring" id="toc-undoing-and-restoring" class="nav-link" data-scroll-target="#undoing-and-restoring"><span class="header-section-number">F.0.7</span> Undoing and restoring</a></li>
+  <li><a href="#ignoring-files" id="toc-ignoring-files" class="nav-link" data-scroll-target="#ignoring-files"><span class="header-section-number">F.0.8</span> Ignoring files</a></li>
+  <li><a href="#working-with-github" id="toc-working-with-github" class="nav-link" data-scroll-target="#working-with-github"><span class="header-section-number">F.0.9</span> Working with GitHub</a></li>
+  <li><a href="#key-terms" id="toc-key-terms" class="nav-link" data-scroll-target="#key-terms"><span class="header-section-number">F.0.10</span> Key terms</a></li>
+  <li><a href="#where-your-work-moves" id="toc-where-your-work-moves" class="nav-link" data-scroll-target="#where-your-work-moves"><span class="header-section-number">F.0.11</span> Where your work moves</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/jjcurtin/book_git/edit/main/cheatsheet.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./install_git_windows.html">Appendices</a></li><li class="breadcrumb-item"><a href="./cheatsheet.html"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">Git Cheatsheet</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./install_git_windows.html">Appendices</a></li><li class="breadcrumb-item"><a href="./cheatsheet.html"><span class="chapter-number">F</span>&nbsp; <span class="chapter-title">Git Cheatsheet</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span id="sec-cheatsheet" class="quarto-section-identifier">Appendix E — Git Cheatsheet</span></h1>
+<h1 class="title"><span id="sec-cheatsheet" class="quarto-section-identifier">Appendix F — Git Cheatsheet</span></h1>
 </div>
 
 
@@ -295,8 +301,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <p>A quick reference for every command in these lessons. Angle brackets like <code>&lt;file&gt;</code> mean “fill in your own value.”</p>
-<section id="the-everyday-rhythm" class="level3" data-number="E.0.1">
-<h3 data-number="E.0.1" class="anchored" data-anchor-id="the-everyday-rhythm"><span class="header-section-number">E.0.1</span> The everyday rhythm</h3>
+<section id="the-everyday-rhythm" class="level3" data-number="F.0.1">
+<h3 data-number="F.0.1" class="anchored" data-anchor-id="the-everyday-rhythm"><span class="header-section-number">F.0.1</span> The everyday rhythm</h3>
 <p>Most of your Git life is this short loop:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># before you start, get the latest</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> pull</span>
@@ -308,8 +314,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push                  <span class="co"># send them to GitHub</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Check in with <code>git status</code> any time you’re unsure where things stand.</p>
 </section>
-<section id="one-time-setup-per-computer" class="level3" data-number="E.0.2">
-<h3 data-number="E.0.2" class="anchored" data-anchor-id="one-time-setup-per-computer"><span class="header-section-number">E.0.2</span> One-time setup (per computer)</h3>
+<section id="one-time-setup-per-computer" class="level3" data-number="F.0.2">
+<h3 data-number="F.0.2" class="anchored" data-anchor-id="one-time-setup-per-computer"><span class="header-section-number">F.0.2</span> One-time setup (per computer)</h3>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 50%">
@@ -345,8 +351,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tbody>
 </table>
 </section>
-<section id="starting-a-repository" class="level3" data-number="E.0.3">
-<h3 data-number="E.0.3" class="anchored" data-anchor-id="starting-a-repository"><span class="header-section-number">E.0.3</span> Starting a repository</h3>
+<section id="starting-a-repository" class="level3" data-number="F.0.3">
+<h3 data-number="F.0.3" class="anchored" data-anchor-id="starting-a-repository"><span class="header-section-number">F.0.3</span> Starting a repository</h3>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -366,8 +372,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tbody>
 </table>
 </section>
-<section id="the-core-cycle" class="level3" data-number="E.0.4">
-<h3 data-number="E.0.4" class="anchored" data-anchor-id="the-core-cycle"><span class="header-section-number">E.0.4</span> The core cycle</h3>
+<section id="the-core-cycle" class="level3" data-number="F.0.4">
+<h3 data-number="F.0.4" class="anchored" data-anchor-id="the-core-cycle"><span class="header-section-number">F.0.4</span> The core cycle</h3>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -399,8 +405,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tbody>
 </table>
 </section>
-<section id="renaming-and-deleting-files" class="level3" data-number="E.0.5">
-<h3 data-number="E.0.5" class="anchored" data-anchor-id="renaming-and-deleting-files"><span class="header-section-number">E.0.5</span> Renaming and deleting files</h3>
+<section id="renaming-and-deleting-files" class="level3" data-number="F.0.5">
+<h3 data-number="F.0.5" class="anchored" data-anchor-id="renaming-and-deleting-files"><span class="header-section-number">F.0.5</span> Renaming and deleting files</h3>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -421,8 +427,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </table>
 <p>Both still need a <code>git commit</code> to record the change.</p>
 </section>
-<section id="seeing-what-changed" class="level3" data-number="E.0.6">
-<h3 data-number="E.0.6" class="anchored" data-anchor-id="seeing-what-changed"><span class="header-section-number">E.0.6</span> Seeing what changed</h3>
+<section id="seeing-what-changed" class="level3" data-number="F.0.6">
+<h3 data-number="F.0.6" class="anchored" data-anchor-id="seeing-what-changed"><span class="header-section-number">F.0.6</span> Seeing what changed</h3>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 50%">
@@ -475,8 +481,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </table>
 <p><code>git difftool</code> takes the same arguments as <code>git diff</code> and compares the same versions — it just shows them side by side in a window instead of printing to the terminal. It needs a one-time setup; see the “Using Meld for Diffs” appendix.</p>
 </section>
-<section id="undoing-and-restoring" class="level3" data-number="E.0.7">
-<h3 data-number="E.0.7" class="anchored" data-anchor-id="undoing-and-restoring"><span class="header-section-number">E.0.7</span> Undoing and restoring</h3>
+<section id="undoing-and-restoring" class="level3" data-number="F.0.7">
+<h3 data-number="F.0.7" class="anchored" data-anchor-id="undoing-and-restoring"><span class="header-section-number">F.0.7</span> Undoing and restoring</h3>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 50%">
@@ -513,8 +519,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </table>
 <p>Name a past commit with <code>HEAD</code> (latest), <code>HEAD~1</code> (one before), and so on — or copy its ID from <code>git log --oneline</code>. Only <code>git reset</code> commits you have <strong>not</strong> yet pushed.</p>
 </section>
-<section id="ignoring-files" class="level3" data-number="E.0.8">
-<h3 data-number="E.0.8" class="anchored" data-anchor-id="ignoring-files"><span class="header-section-number">E.0.8</span> Ignoring files</h3>
+<section id="ignoring-files" class="level3" data-number="F.0.8">
+<h3 data-number="F.0.8" class="anchored" data-anchor-id="ignoring-files"><span class="header-section-number">F.0.8</span> Ignoring files</h3>
 <p>Create a file named <code>.gitignore</code> and list patterns, one per line:</p>
 <pre><code>*.tmp          # any file ending in .tmp
 receipts/      # a whole folder
@@ -542,8 +548,8 @@ secret.env     # a specific file</code></pre>
 </tbody>
 </table>
 </section>
-<section id="working-with-github" class="level3" data-number="E.0.9">
-<h3 data-number="E.0.9" class="anchored" data-anchor-id="working-with-github"><span class="header-section-number">E.0.9</span> Working with GitHub</h3>
+<section id="working-with-github" class="level3" data-number="F.0.9">
+<h3 data-number="F.0.9" class="anchored" data-anchor-id="working-with-github"><span class="header-section-number">F.0.9</span> Working with GitHub</h3>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 50%">
@@ -581,8 +587,8 @@ secret.env     # a specific file</code></pre>
 <p>The <code>-u</code> on your first push records a tracking link between local <code>main</code> and <code>origin/main</code>. After that, bare <code>git push</code> and <code>git pull</code> know where to go. (<code>git clone</code> sets up this tracking for you, so cloned repos work with bare commands right away.)</p>
 <p>To skip <code>-u</code> entirely, run <code>git config --global push.autoSetupRemote true</code> once per computer — then even your first bare <code>git push</code> sets up the tracking link automatically.</p>
 </section>
-<section id="key-terms" class="level3" data-number="E.0.10">
-<h3 data-number="E.0.10" class="anchored" data-anchor-id="key-terms"><span class="header-section-number">E.0.10</span> Key terms</h3>
+<section id="key-terms" class="level3" data-number="F.0.10">
+<h3 data-number="F.0.10" class="anchored" data-anchor-id="key-terms"><span class="header-section-number">F.0.10</span> Key terms</h3>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 50%">
@@ -622,8 +628,8 @@ secret.env     # a specific file</code></pre>
 </tbody>
 </table>
 </section>
-<section id="where-your-work-moves" class="level3" data-number="E.0.11">
-<h3 data-number="E.0.11" class="anchored" data-anchor-id="where-your-work-moves"><span class="header-section-number">E.0.11</span> Where your work moves</h3>
+<section id="where-your-work-moves" class="level3" data-number="F.0.11">
+<h3 data-number="F.0.11" class="anchored" data-anchor-id="where-your-work-moves"><span class="header-section-number">F.0.11</span> Where your work moves</h3>
 <pre><code>working directory  --git add--&gt;  staging area  --git commit--&gt;  repository  --git push--&gt;  GitHub</code></pre>
 
 
@@ -1033,7 +1039,7 @@ secret.env     # a specific file</code></pre>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./remove_sensitive_data.html" class="pagination-link" aria-label="Removing Sensitive Data from a Repository">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Removing Sensitive Data from a Repository</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">Removing Sensitive Data from a Repository</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
