@@ -177,6 +177,10 @@ For data science projects, a `.gitignore` usually covers:
 
 Many languages and editors publish starter `.gitignore` files you can copy from — GitHub even offers one when you create a repo.
 
+::: {.footer}
+Already committed a secret by accident? Ignoring it now won't remove it from past history — see the "Removing Sensitive Data from a Repository" appendix.
+:::
+
 
 --------------------------------------------------------------------------------
 

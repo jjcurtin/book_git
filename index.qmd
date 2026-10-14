@@ -35,7 +35,7 @@ Every unit also has a companion **slide deck**, published on Posit Connect Cloud
 | 7 — Stashing Changes | [open deck](https://connect.posit.cloud/jjcurtin/content/01a1369f-eaa6-a71a-5cff-4f6789f213bf) |
 | 8 — Branches | [open deck](https://connect.posit.cloud/jjcurtin/content/01a1322d-8964-d3ac-15c8-94a529066346) |
 
-The **appendices** cover one-time setup you should finish before the workshop — installing Git on Windows (Windows users only) and connecting to GitHub with SSH keys — and a **cheatsheet** at the end collects every command in one place for quick reference.
+**Appendices A & B** cover one-time setup you should finish before the workshop — installing Git on Windows (Windows users only) and connecting to GitHub with SSH keys.  The remaining appendices serve as references for extensions or advanced issues and include a **cheatsheet** at the end that collects every command in one place for quick reference.
 
 ### How to use this book
 
