@@ -147,10 +147,6 @@ This lecture assumes three things are done:
 
 If these are not yet done, see Appendices A & B now, and then catch up with a neighbor:
 
-::: {.footer}
-https://carpentries.github.io/workshop-template/#git
-:::
-
 <div class="gap-md"></div>
 
 Everything today happens in a [terminal]{.uwred} (Git Bash on Windows; Terminal on macOS/Linux). Git commands all start with the word `git`.

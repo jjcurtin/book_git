@@ -22,11 +22,11 @@
   posit-connect-cloud:
     - id: 01a1322d-30b9-676d-5cc7-d5322bdc73c8
       url: https://connect.posit.cloud/jjcurtin/content/01a1322d-30b9-676d-5cc7-d5322bdc73c8
-- source: 08_branches.qmd
-  posit-connect-cloud:
-    - id: 01a1322d-8964-d3ac-15c8-94a529066346
-      url: https://connect.posit.cloud/jjcurtin/content/01a1322d-8964-d3ac-15c8-94a529066346
 - source: 07_stash.qmd
   posit-connect-cloud:
     - id: 01a1369f-eaa6-a71a-5cff-4f6789f213bf
       url: https://connect.posit.cloud/jjcurtin/content/01a1369f-eaa6-a71a-5cff-4f6789f213bf
+- source: 08_branches.qmd
+  posit-connect-cloud:
+    - id: 01a1457f-72d0-dfa7-823a-717ff3d9fcd7
+      url: https://connect.posit.cloud/jjcurtin/content/01a1457f-72d0-dfa7-823a-717ff3d9fcd7
