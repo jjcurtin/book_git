@@ -314,14 +314,14 @@ git diff brats.txt
 index 83db48f..f735c2d 100644
 --- a/brats.txt
 +++ b/brats.txt</strong>
-<span style="color:teal;">@@ -1 +1,2 @@</span>
+<span class="teal">@@ -1 +1,2 @@</span>
  Bratwurst - simmer in beer and onions, then grill
-<span style="color:forestgreen;">+Count: 2 per person (Bucky eats 4)</span>
+<span class="green">+Count: 2 per person (Bucky eats 4)</span>
 </code></pre>
 
 <div class="gap-sm"></div>
 
-Git colors the output: added lines show in <span style="color:forestgreen;">green</span> with a `+`, and removed lines would show in <span style="color:red;">red</span> with a `-`.
+Git colors the output: added lines show in <span class="green">green</span> with a `+`, and removed lines would show in <span class="red">red</span> with a `-`.
 
 ::: {.footer}
 Prefer a visual, side-by-side diff? The *Using Meld for Diffs* appendix sets up `git difftool` to open these comparisons in Meld.
@@ -404,12 +404,12 @@ git diff --staged
 
 <pre><code><strong>diff --git a/cheese_curds.txt b/cheese_curds.txt
 new file mode 100644</strong>
-<span style="color:teal;">@@ -0,0 +1 @@</span>
-<span style="color:forestgreen;">+Fried cheese curds from the Union - 2 baskets</span>
+<span class="teal">@@ -0,0 +1 @@</span>
+<span class="green">+Fried cheese curds from the Union - 2 baskets</span>
 <strong>diff --git a/desserts.txt b/desserts.txt
 new file mode 100644</strong>
-<span style="color:teal;">@@ -0,0 +1 @@</span>
-<span style="color:forestgreen;">+Babcock ice cream - chocolate and Union Blend</span>
+<span class="teal">@@ -0,0 +1 @@</span>
+<span class="green">+Babcock ice cream - chocolate and Union Blend</span>
 </code></pre>
 
 
@@ -495,15 +495,15 @@ Your future self reads these. Aim for the middle ground:
 <tbody>
 <tr>
   <td><code>changes</code></td>
-  <td><span style="color:red;">Too vague — says nothing</span></td>
+  <td><span class="red">Too vague — says nothing</span></td>
 </tr>
 <tr>
   <td><code>Added "Fried cheese curds from the Union - 2 baskets" to cheese_curds.txt</code></td>
-  <td><span style="color:red;">Too verbose — just repeats the file</span></td>
+  <td><span class="red">Too verbose — just repeats the file</span></td>
 </tr>
 <tr class="hl">
   <td><code>Add cheese curds and desserts</code></td>
-  <td><span style="color:forestgreen;">Captures the meaning, briefly</span></td>
+  <td><span class="green">Captures the meaning, briefly</span></td>
 </tr>
 </tbody>
 </table>

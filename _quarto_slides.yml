@@ -1,5 +1,5 @@
 toc: false
-css: slides_teaching.css
+css: [slides_teaching.css, utilities.css]
 format: 
   revealjs:
     logo: uwlogo.png

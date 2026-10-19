@@ -81,10 +81,10 @@ git diff HEAD brats.txt
 index f735c2d..a9c3e21 100644
 --- a/brats.txt
 +++ b/brats.txt</strong>
-<span style="color:teal;">@@ -1,2 +1,3 @@</span>
+<span class="teal">@@ -1,2 +1,3 @@</span>
  Bratwurst - simmer in beer and onions, then grill
  Count: 2 per person (Bucky eats 4)
-<span style="color:forestgreen;">+Swap the brats for a kale salad</span>
+<span class="green">+Swap the brats for a kale salad</span>
 </code></pre>
 
 <div class="gap-sm"></div>
