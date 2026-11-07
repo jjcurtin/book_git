@@ -94,7 +94,7 @@
     "href": "01_setup.html#what-you-should-already-have",
     "title": "1  Introduction and Setup",
     "section": "1.7 What you should already have",
-    "text": "1.7 What you should already have\nThis lecture assumes three things are done:\n\nGit is installed on your laptop\nYou have a GitHub account\nYou have an SSH key set up to validate your identity with Github\n\n\n\n\nIf these are not yet done, see Appendices A & B now, and then catch up with a neighbor:\n\nhttps://carpentries.github.io/workshop-template/#git\n\n\n\n\nEverything today happens in a terminal (Git Bash on Windows; Terminal on macOS/Linux). Git commands all start with the word git.\n\n\n\nRStudio also has a built in terminal. I use it rather than a separate terminal for git and file management when I am working on analysis code for a project. Its up to you!",
+    "text": "1.7 What you should already have\nThis lecture assumes three things are done:\n\nGit is installed on your laptop\nYou have a GitHub account\nYou have an SSH key set up to validate your identity with Github\n\n\n\n\nIf these are not yet done, see Appendices A & B now, and then catch up with a neighbor:\n\n\n\nEverything today happens in a terminal (Git Bash on Windows; Terminal on macOS/Linux). Git commands all start with the word git.\n\n\n\nRStudio also has a built in terminal. I use it rather than a separate terminal for git and file management when I am working on analysis code for a project. Its up to you!",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction and Setup</span>"
     ]
