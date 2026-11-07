@@ -16,7 +16,7 @@ code-fold: show
 book:
   title: "Introduction to Git and Github"
   author: John J. Curtin, PhD
-  site-url: https://github.io/jjcurtin/book_git_
+  site-url: https://jjcurtin.github.io/book_git/
   repo-url: https://github.com/jjcurtin/book_git
   repo-branch: main
   repo-actions: [edit]
