@@ -1,4 +1,6 @@
-# Remotes in GitHub
+---
+title: "Remotes in GitHub"
+---
 
 ## Everything lives on one laptop
 

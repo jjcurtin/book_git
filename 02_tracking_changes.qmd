@@ -1,4 +1,6 @@
-# Tracking Changes
+---
+title: "Tracking Changes"
+---
 
 ## The rhythm of Git
 

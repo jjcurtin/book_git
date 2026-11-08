@@ -1,4 +1,6 @@
-# Introduction and Setup
+---
+title: "Introduction and Setup"
+---
 
 ## Why are we here?
 

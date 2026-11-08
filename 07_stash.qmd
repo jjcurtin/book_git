@@ -1,4 +1,6 @@
-# Stashing Changes
+---
+title: "Stashing Changes"
+---
 
 ## A pull that won't go through
 

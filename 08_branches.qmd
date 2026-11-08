@@ -1,4 +1,6 @@
-# Branches
+---
+title: "Branches"
+---
 
 ## Why branch?
 

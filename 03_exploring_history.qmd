@@ -1,4 +1,6 @@
-# Exploring History
+---
+title: "Exploring History"
+---
 
 ## The menu so far
 

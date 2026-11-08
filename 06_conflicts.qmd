@@ -1,4 +1,6 @@
-# Conflicts
+---
+title: "Conflicts"
+---
 
 ## When does a conflict happen?
 

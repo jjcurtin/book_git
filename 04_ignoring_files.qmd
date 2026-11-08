@@ -1,4 +1,6 @@
-# Ignoring Files
+---
+title: "Ignoring Files"
+---
 
 ## Not everything belongs in Git
 
